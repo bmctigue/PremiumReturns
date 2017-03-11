@@ -7,13 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52478249C536DCFE6AF4DB38 /* Pods_PremiumReturnsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */; };
+		A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */; };
+		A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */; };
+		A84E1D011E73560B007FE0E9 /* EditStrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */; };
+		A84E1D021E73560B007FE0E9 /* FormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF21E73560B007FE0E9 /* FormController.swift */; };
+		A84E1D031E73560B007FE0E9 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */; };
+		A84E1D041E73560B007FE0E9 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF41E73560B007FE0E9 /* ModelController.swift */; };
+		A84E1D051E73560B007FE0E9 /* ModelControllerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */; };
+		A84E1D061E73560B007FE0E9 /* RoutingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF61E73560B007FE0E9 /* RoutingController.swift */; };
+		A84E1D071E73560B007FE0E9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */; };
+		A84E1D081E73560B007FE0E9 /* StrategyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF81E73560B007FE0E9 /* StrategyController.swift */; };
+		A84E1D091E73560B007FE0E9 /* StrategyFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */; };
+		A84E1D0A1E73560B007FE0E9 /* StrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */; };
+		A84E1D0B1E73560B007FE0E9 /* TradeFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */; };
+		A84E1D0C1E73560B007FE0E9 /* TradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */; };
+		A84E1D0D1E73560B007FE0E9 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFE1E73560B007FE0E9 /* StoryboardFactory.swift */; };
+		A84E1D1A1E73561D007FE0E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D0F1E73561D007FE0E9 /* Constants.swift */; };
+		A84E1D1B1E73561D007FE0E9 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D101E73561D007FE0E9 /* Realm.swift */; };
+		A84E1D1C1E73561D007FE0E9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D111E73561D007FE0E9 /* Utilities.swift */; };
+		A84E1D1D1E73561D007FE0E9 /* Broker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D131E73561D007FE0E9 /* Broker.swift */; };
+		A84E1D1E1E73561D007FE0E9 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D141E73561D007FE0E9 /* Strategy.swift */; };
+		A84E1D1F1E73561D007FE0E9 /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D151E73561D007FE0E9 /* Trade.swift */; };
+		A84E1D201E73561D007FE0E9 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84E1D171E73561D007FE0E9 /* Help.storyboard */; };
+		A84E1D211E73561D007FE0E9 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84E1D181E73561D007FE0E9 /* Splash.storyboard */; };
+		A84E1D221E73561D007FE0E9 /* Strategy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84E1D191E73561D007FE0E9 /* Strategy.storyboard */; };
+		A84E1D281E735692007FE0E9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D241E735683007FE0E9 /* Realm.framework */; };
+		A84E1D291E735692007FE0E9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D251E735683007FE0E9 /* RealmSwift.framework */; };
+		A84E1D2A1E73569B007FE0E9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D241E735683007FE0E9 /* Realm.framework */; };
+		A84E1D2B1E73569B007FE0E9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D251E735683007FE0E9 /* RealmSwift.framework */; };
+		A84E1D2E1E7368F5007FE0E9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2C1E7368F5007FE0E9 /* Realm.framework */; };
+		A84E1D2F1E7368F5007FE0E9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2C1E7368F5007FE0E9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A84E1D301E7368F5007FE0E9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; };
+		A84E1D311E7368F5007FE0E9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEA51E7353CF00591493 /* AppDelegate.swift */; };
-		A8C8CEA81E7353CF00591493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEA71E7353CF00591493 /* ViewController.swift */; };
 		A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEA91E7353CF00591493 /* Main.storyboard */; };
 		A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAC1E7353CF00591493 /* Assets.xcassets */; };
 		A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAE1E7353CF00591493 /* LaunchScreen.storyboard */; };
-		A8C8CEBB1E7353CF00591493 /* PremiumReturnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEBA1E7353CF00591493 /* PremiumReturnsTests.swift */; };
 		A8C8CEC61E7353CF00591493 /* PremiumReturnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */; };
+		CCDDB989BBC465DF6CF0A423 /* Pods_PremiumReturns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,20 +65,68 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A84E1D321E7368F5007FE0E9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A84E1D311E7368F5007FE0E9 /* RealmSwift.framework in Embed Frameworks */,
+				A84E1D2F1E7368F5007FE0E9 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2822E789C056DED9BC133ABC /* Pods-PremiumReturns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns.debug.xcconfig"; sourceTree = "<group>"; };
+		3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturns.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns.release.xcconfig"; sourceTree = "<group>"; };
+		A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
+		A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyController.swift; sourceTree = "<group>"; };
+		A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStrategyTableViewController.swift; sourceTree = "<group>"; };
+		A84E1CF21E73560B007FE0E9 /* FormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormController.swift; sourceTree = "<group>"; };
+		A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		A84E1CF41E73560B007FE0E9 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilities.swift; sourceTree = "<group>"; };
+		A84E1CF61E73560B007FE0E9 /* RoutingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingController.swift; sourceTree = "<group>"; };
+		A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		A84E1CF81E73560B007FE0E9 /* StrategyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyController.swift; sourceTree = "<group>"; };
+		A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyFormController.swift; sourceTree = "<group>"; };
+		A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewController.swift; sourceTree = "<group>"; };
+		A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeFormController.swift; sourceTree = "<group>"; };
+		A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTableViewController.swift; sourceTree = "<group>"; };
+		A84E1CFE1E73560B007FE0E9 /* StoryboardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
+		A84E1D0F1E73561D007FE0E9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A84E1D101E73561D007FE0E9 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		A84E1D111E73561D007FE0E9 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		A84E1D131E73561D007FE0E9 /* Broker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broker.swift; sourceTree = "<group>"; };
+		A84E1D141E73561D007FE0E9 /* Strategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		A84E1D151E73561D007FE0E9 /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
+		A84E1D171E73561D007FE0E9 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		A84E1D181E73561D007FE0E9 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		A84E1D191E73561D007FE0E9 /* Strategy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Strategy.storyboard; sourceTree = "<group>"; };
+		A84E1D231E735628007FE0E9 /* TastyReturns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TastyReturns.playground; sourceTree = "<group>"; };
+		A84E1D241E735683007FE0E9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A84E1D251E735683007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A84E1D2C1E7368F5007FE0E9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A8C8CEA21E7353CF00591493 /* PremiumReturns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PremiumReturns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEA51E7353CF00591493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8C8CEA71E7353CF00591493 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A8C8CEAA1E7353CF00591493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8C8CEAC1E7353CF00591493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8C8CEAF1E7353CF00591493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8C8CEB11E7353CF00591493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C8CEB61E7353CF00591493 /* PremiumReturnsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PremiumReturnsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8C8CEBA1E7353CF00591493 /* PremiumReturnsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumReturnsTests.swift; sourceTree = "<group>"; };
 		A8C8CEBC1E7353CF00591493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C8CEC11E7353CF00591493 /* PremiumReturnsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PremiumReturnsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumReturnsUITests.swift; sourceTree = "<group>"; };
 		A8C8CEC71E7353CF00591493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E41BD25766C6F8E51B52B16B /* Pods-PremiumReturnsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturnsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84E1D2E1E7368F5007FE0E9 /* Realm.framework in Frameworks */,
+				CCDDB989BBC465DF6CF0A423 /* Pods_PremiumReturns.framework in Frameworks */,
+				A84E1D301E7368F5007FE0E9 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +144,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52478249C536DCFE6AF4DB38 /* Pods_PremiumReturnsTests.framework in Frameworks */,
+				A84E1D281E735692007FE0E9 /* Realm.framework in Frameworks */,
+				A84E1D291E735692007FE0E9 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +154,95 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84E1D2A1E73569B007FE0E9 /* Realm.framework in Frameworks */,
+				A84E1D2B1E73569B007FE0E9 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		632AE14A76760F55948E1EAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1D241E735683007FE0E9 /* Realm.framework */,
+				A84E1D251E735683007FE0E9 /* RealmSwift.framework */,
+				3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */,
+				FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A84E1CEE1E73560B007FE0E9 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */,
+				A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */,
+				A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */,
+				A84E1CF21E73560B007FE0E9 /* FormController.swift */,
+				A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */,
+				A84E1CF41E73560B007FE0E9 /* ModelController.swift */,
+				A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */,
+				A84E1CF61E73560B007FE0E9 /* RoutingController.swift */,
+				A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */,
+				A84E1CF81E73560B007FE0E9 /* StrategyController.swift */,
+				A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */,
+				A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */,
+				A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */,
+				A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		A84E1CFD1E73560B007FE0E9 /* factories */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1CFE1E73560B007FE0E9 /* StoryboardFactory.swift */,
+			);
+			path = factories;
+			sourceTree = "<group>";
+		};
+		A84E1D0E1E73561D007FE0E9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1D0F1E73561D007FE0E9 /* Constants.swift */,
+				A84E1D101E73561D007FE0E9 /* Realm.swift */,
+				A84E1D111E73561D007FE0E9 /* Utilities.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		A84E1D121E73561D007FE0E9 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1D131E73561D007FE0E9 /* Broker.swift */,
+				A84E1D141E73561D007FE0E9 /* Strategy.swift */,
+				A84E1D151E73561D007FE0E9 /* Trade.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A84E1D161E73561D007FE0E9 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1D171E73561D007FE0E9 /* Help.storyboard */,
+				A84E1D181E73561D007FE0E9 /* Splash.storyboard */,
+				A84E1D191E73561D007FE0E9 /* Strategy.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
 		A8C8CE991E7353CF00591493 = {
 			isa = PBXGroup;
 			children = (
+				A84E1D2C1E7368F5007FE0E9 /* Realm.framework */,
+				A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */,
 				A8C8CEA41E7353CF00591493 /* PremiumReturns */,
 				A8C8CEB91E7353CF00591493 /* PremiumReturnsTests */,
 				A8C8CEC41E7353CF00591493 /* PremiumReturnsUITests */,
 				A8C8CEA31E7353CF00591493 /* Products */,
+				E7ED3FA78569AE7B0325882F /* Pods */,
+				632AE14A76760F55948E1EAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +259,17 @@
 		A8C8CEA41E7353CF00591493 /* PremiumReturns */ = {
 			isa = PBXGroup;
 			children = (
+				A84E1D231E735628007FE0E9 /* TastyReturns.playground */,
 				A8C8CEA51E7353CF00591493 /* AppDelegate.swift */,
-				A8C8CEA71E7353CF00591493 /* ViewController.swift */,
 				A8C8CEA91E7353CF00591493 /* Main.storyboard */,
 				A8C8CEAC1E7353CF00591493 /* Assets.xcassets */,
 				A8C8CEAE1E7353CF00591493 /* LaunchScreen.storyboard */,
 				A8C8CEB11E7353CF00591493 /* Info.plist */,
+				A84E1CEE1E73560B007FE0E9 /* controllers */,
+				A84E1D0E1E73561D007FE0E9 /* lib */,
+				A84E1D121E73561D007FE0E9 /* models */,
+				A84E1D161E73561D007FE0E9 /* storyboards */,
+				A84E1CFD1E73560B007FE0E9 /* factories */,
 			);
 			path = PremiumReturns;
 			sourceTree = "<group>";
@@ -110,7 +277,6 @@
 		A8C8CEB91E7353CF00591493 /* PremiumReturnsTests */ = {
 			isa = PBXGroup;
 			children = (
-				A8C8CEBA1E7353CF00591493 /* PremiumReturnsTests.swift */,
 				A8C8CEBC1E7353CF00591493 /* Info.plist */,
 			);
 			path = PremiumReturnsTests;
@@ -125,6 +291,17 @@
 			path = PremiumReturnsUITests;
 			sourceTree = "<group>";
 		};
+		E7ED3FA78569AE7B0325882F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2822E789C056DED9BC133ABC /* Pods-PremiumReturns.debug.xcconfig */,
+				A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */,
+				E41BD25766C6F8E51B52B16B /* Pods-PremiumReturnsTests.debug.xcconfig */,
+				7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +309,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8C8CECA1E7353CF00591493 /* Build configuration list for PBXNativeTarget "PremiumReturns" */;
 			buildPhases = (
+				172558EB234D6E9954DD9698 /* [CP] Check Pods Manifest.lock */,
 				A8C8CE9E1E7353CF00591493 /* Sources */,
 				A8C8CE9F1E7353CF00591493 /* Frameworks */,
 				A8C8CEA01E7353CF00591493 /* Resources */,
+				249F5156A8A5453BA9657915 /* [CP] Embed Pods Frameworks */,
+				A5048273BD679602C0C1351F /* [CP] Copy Pods Resources */,
+				A84E1D321E7368F5007FE0E9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,9 +330,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8C8CECD1E7353CF00591493 /* Build configuration list for PBXNativeTarget "PremiumReturnsTests" */;
 			buildPhases = (
+				42E5EA5100A22ED3D710C016 /* [CP] Check Pods Manifest.lock */,
 				A8C8CEB21E7353CF00591493 /* Sources */,
 				A8C8CEB31E7353CF00591493 /* Frameworks */,
 				A8C8CEB41E7353CF00591493 /* Resources */,
+				960FF0C570BF0BF190554281 /* [CP] Embed Pods Frameworks */,
+				5FAA0BE2468EC4BAAB70E35C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +422,9 @@
 				A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */,
 				A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */,
 				A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */,
+				A84E1D211E73561D007FE0E9 /* Splash.storyboard in Resources */,
+				A84E1D201E73561D007FE0E9 /* Help.storyboard in Resources */,
+				A84E1D221E73561D007FE0E9 /* Strategy.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,13 +444,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		172558EB234D6E9954DD9698 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		249F5156A8A5453BA9657915 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42E5EA5100A22ED3D710C016 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5FAA0BE2468EC4BAAB70E35C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		960FF0C570BF0BF190554281 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5048273BD679602C0C1351F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A8C8CE9E1E7353CF00591493 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C8CEA81E7353CF00591493 /* ViewController.swift in Sources */,
+				A84E1D011E73560B007FE0E9 /* EditStrategyTableViewController.swift in Sources */,
+				A84E1D1A1E73561D007FE0E9 /* Constants.swift in Sources */,
+				A84E1D031E73560B007FE0E9 /* HelpViewController.swift in Sources */,
+				A84E1D0C1E73560B007FE0E9 /* TradeTableViewController.swift in Sources */,
+				A84E1D0D1E73560B007FE0E9 /* StoryboardFactory.swift in Sources */,
+				A84E1D0B1E73560B007FE0E9 /* TradeFormController.swift in Sources */,
+				A84E1D061E73560B007FE0E9 /* RoutingController.swift in Sources */,
+				A84E1D051E73560B007FE0E9 /* ModelControllerUtilities.swift in Sources */,
+				A84E1D1D1E73561D007FE0E9 /* Broker.swift in Sources */,
+				A84E1D081E73560B007FE0E9 /* StrategyController.swift in Sources */,
+				A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */,
 				A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */,
+				A84E1D1F1E73561D007FE0E9 /* Trade.swift in Sources */,
+				A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */,
+				A84E1D041E73560B007FE0E9 /* ModelController.swift in Sources */,
+				A84E1D1C1E73561D007FE0E9 /* Utilities.swift in Sources */,
+				A84E1D021E73560B007FE0E9 /* FormController.swift in Sources */,
+				A84E1D091E73560B007FE0E9 /* StrategyFormController.swift in Sources */,
+				A84E1D1E1E73561D007FE0E9 /* Strategy.swift in Sources */,
+				A84E1D071E73560B007FE0E9 /* SplashViewController.swift in Sources */,
+				A84E1D0A1E73560B007FE0E9 /* StrategyTableViewController.swift in Sources */,
+				A84E1D1B1E73561D007FE0E9 /* Realm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +571,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C8CEBB1E7353CF00591493 /* PremiumReturnsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,9 +710,14 @@
 		};
 		A8C8CECB1E7353CF00591493 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2822E789C056DED9BC133ABC /* Pods-PremiumReturns.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturns;
@@ -424,9 +728,14 @@
 		};
 		A8C8CECC1E7353CF00591493 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturns;
@@ -437,10 +746,15 @@
 		};
 		A8C8CECE1E7353CF00591493 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E41BD25766C6F8E51B52B16B /* Pods-PremiumReturnsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturnsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsTests;
@@ -452,10 +766,15 @@
 		};
 		A8C8CECF1E7353CF00591493 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturnsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsTests;
@@ -470,6 +789,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturnsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsUITests;
@@ -484,6 +807,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PremiumReturnsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsUITests;
@@ -512,6 +839,7 @@
 				A8C8CECC1E7353CF00591493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8C8CECD1E7353CF00591493 /* Build configuration list for PBXNativeTarget "PremiumReturnsTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +848,7 @@
 				A8C8CECF1E7353CF00591493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8C8CED01E7353CF00591493 /* Build configuration list for PBXNativeTarget "PremiumReturnsUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +857,7 @@
 				A8C8CED21E7353CF00591493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

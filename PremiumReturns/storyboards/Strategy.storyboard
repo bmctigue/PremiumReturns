@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--StrategyTableViewController-->
+        <scene sceneID="sND-Bn-pc9">
+            <objects>
+                <tableViewController storyboardIdentifier="StrategyTableViewController" title="StrategyTableViewController" id="BvR-WE-RQs" customClass="StrategyTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="za0-ub-YDb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StrategyCell" id="qWG-lH-3yF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qWG-lH-3yF" id="vul-bS-zJP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BvR-WE-RQs" id="NUT-p6-AhX"/>
+                            <outlet property="delegate" destination="BvR-WE-RQs" id="GGU-wg-p1t"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OaM-Kv-F9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-769" y="-3"/>
+        </scene>
+        <!--EditStrategyTableViewController-->
+        <scene sceneID="iLe-qr-njR">
+            <objects>
+                <viewController storyboardIdentifier="EditStrategyTableViewController" title="EditStrategyTableViewController" id="IPS-X3-HU9" customClass="EditStrategyTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gqf-Pp-jMW"/>
+                        <viewControllerLayoutGuide type="bottom" id="oH9-Yw-j6b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gHX-Mx-oKu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dTM-dE-uLF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2E-UB-heq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="E3y-fl-jSY"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="Ypt-iq-ES5">
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="IPS-X3-HU9" id="2Ph-Lp-x8z"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NZe-EW-4Ic"/>
+                                    <barButtonItem systemItem="done" id="LS0-u6-sCT">
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="IPS-X3-HU9" id="AoW-Uo-8yN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="k2E-UB-heq" secondAttribute="trailing" id="0Bd-W9-9FX"/>
+                            <constraint firstItem="dTM-dE-uLF" firstAttribute="top" secondItem="k2E-UB-heq" secondAttribute="bottom" id="MWf-rw-sbC"/>
+                            <constraint firstItem="k2E-UB-heq" firstAttribute="leading" secondItem="gHX-Mx-oKu" secondAttribute="leading" id="W4C-nf-fCi"/>
+                            <constraint firstItem="oH9-Yw-j6b" firstAttribute="top" secondItem="dTM-dE-uLF" secondAttribute="bottom" id="Xeq-Uv-hXB"/>
+                            <constraint firstItem="dTM-dE-uLF" firstAttribute="leading" secondItem="gHX-Mx-oKu" secondAttribute="leading" id="cs0-9i-l2d"/>
+                            <constraint firstAttribute="trailing" secondItem="dTM-dE-uLF" secondAttribute="trailing" id="hZn-EZ-6IZ"/>
+                            <constraint firstItem="k2E-UB-heq" firstAttribute="top" secondItem="Gqf-Pp-jMW" secondAttribute="bottom" id="tPx-3a-PPi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBarButton" destination="Ypt-iq-ES5" id="VYF-rU-7vf"/>
+                        <outlet property="doneBarButton" destination="LS0-u6-sCT" id="3Wn-z3-mWq"/>
+                        <outlet property="tableView" destination="dTM-dE-uLF" id="FDV-qn-5g0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ie4-qP-5db" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-3.1484257871064472"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,26 +1,154 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4ry-bS-HGU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Tab Bar Controller-->
+        <scene sceneID="7vm-S3-hbl">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="4ry-bS-HGU" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="FAg-VN-2SY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HMb-Ut-Vkk" kind="relationship" relationship="viewControllers" id="zTQ-3V-kyi"/>
+                        <segue destination="Wvb-mo-VMG" kind="relationship" relationship="viewControllers" id="gP6-PF-mOE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RoG-ga-36Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2132" y="55"/>
+        </scene>
+        <!--TradeTableViewController-->
+        <scene sceneID="r8v-r8-aXe">
+            <objects>
+                <viewController storyboardIdentifier="TradeTableViewController" title="TradeTableViewController" id="WaX-6Y-guZ" customClass="TradeTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="rev-h0-Jfl"/>
+                        <viewControllerLayoutGuide type="bottom" id="xpA-ye-qAw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="eoO-eo-b5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="tFv-6T-eLV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xpA-ye-qAw" firstAttribute="top" secondItem="tFv-6T-eLV" secondAttribute="bottom" id="3xE-uu-fvu"/>
+                            <constraint firstItem="tFv-6T-eLV" firstAttribute="leading" secondItem="eoO-eo-b5h" secondAttribute="leading" id="F99-FI-wbj"/>
+                            <constraint firstItem="tFv-6T-eLV" firstAttribute="top" secondItem="rev-h0-Jfl" secondAttribute="bottom" constant="-64" id="I1k-l9-6uw"/>
+                            <constraint firstAttribute="trailing" secondItem="tFv-6T-eLV" secondAttribute="trailing" id="JKa-uP-PQO"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="PremiumReturns" id="aZf-HQ-sds">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="mi1-MG-bro">
+                            <connections>
+                                <action selector="helpButtonPressed:" destination="WaX-6Y-guZ" id="mdc-Mg-D9q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="rcq-9W-5ME">
+                            <connections>
+                                <action selector="resetButtonPressed:" destination="WaX-6Y-guZ" id="Hq9-sd-Cs5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="helpBarButton" destination="mi1-MG-bro" id="dIs-mc-O6Q"/>
+                        <outlet property="resetBarButton" destination="rcq-9W-5ME" id="5EP-eu-H0j"/>
+                        <outlet property="tableView" destination="tFv-6T-eLV" id="fUt-28-FCD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTK-96-yzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-411" y="-218"/>
+        </scene>
+        <!--Trade-->
+        <scene sceneID="ToO-Gv-Mso">
+            <objects>
+                <navigationController id="HMb-Ut-Vkk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trade" image="Home" id="kJy-YG-tQq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k2m-Ug-e2G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WaX-6Y-guZ" kind="relationship" relationship="rootViewController" id="Q3w-Mo-Yv1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2UZ-9F-TGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1269" y="-219"/>
+        </scene>
+        <!--StrategyTableViewController-->
+        <scene sceneID="eML-hM-mrl">
+            <objects>
+                <tableViewController storyboardIdentifier="StrategyTableViewController" title="StrategyTableViewController" id="rS3-Gl-cRS" customClass="StrategyTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aXr-yg-w7h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StrategyCell" id="pZg-Or-6Ra">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pZg-Or-6Ra" id="Olz-h2-6eQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rS3-Gl-cRS" id="xDN-MB-ec0"/>
+                            <outlet property="delegate" destination="rS3-Gl-cRS" id="CIF-on-avg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Strategies" id="o26-Ts-TwC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ltr-my-qA4">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="rS3-Gl-cRS" id="srT-xg-pP9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButton" destination="Ltr-my-qA4" id="KpS-VE-WV2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UmW-LC-Ppb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-413" y="461"/>
+        </scene>
+        <!--Strategies-->
+        <scene sceneID="JZV-kM-QIH">
+            <objects>
+                <navigationController id="Wvb-mo-VMG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Strategies" image="Files" id="LHO-WC-UUY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oJb-DJ-NIW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rS3-Gl-cRS" kind="relationship" relationship="rootViewController" id="YG9-wr-LRE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="83n-wM-Nek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1269" y="461"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Files" width="22" height="27"/>
+        <image name="Home" width="25" height="25"/>
+    </resources>
 </document>
