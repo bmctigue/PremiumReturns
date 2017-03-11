@@ -165,6 +165,8 @@
 		632AE14A76760F55948E1EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A84E1D2C1E7368F5007FE0E9 /* Realm.framework */,
+				A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */,
 				A84E1D241E735683007FE0E9 /* Realm.framework */,
 				A84E1D251E735683007FE0E9 /* RealmSwift.framework */,
 				3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */,
@@ -235,8 +237,6 @@
 		A8C8CE991E7353CF00591493 = {
 			isa = PBXGroup;
 			children = (
-				A84E1D2C1E7368F5007FE0E9 /* Realm.framework */,
-				A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */,
 				A8C8CEA41E7353CF00591493 /* PremiumReturns */,
 				A8C8CEB91E7353CF00591493 /* PremiumReturnsTests */,
 				A8C8CEC41E7353CF00591493 /* PremiumReturnsUITests */,

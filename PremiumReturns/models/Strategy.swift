@@ -24,14 +24,17 @@ enum StrategyType: String {
 
 protocol StrategyProtocol {
     var strategyId: String { get }
+    var strategyType: String { get }
     var name: String { get }
     var legs: Int { get }
     var maxProfitPercentage: Double { get }
     var winningProbability: Double { get }
+    func copyWithID() -> Strategy
 }
 
 class Strategy: Object, StrategyProtocol {
     dynamic var strategyId: String = NSUUID().uuidString
+    dynamic var strategyType: String = ""
     dynamic var name: String = ""
     dynamic var legs: Int = 0
     dynamic var maxProfitPercentage: Double = 0.0
@@ -46,65 +49,15 @@ class Strategy: Object, StrategyProtocol {
     }
     
     class func forType(type: StrategyType,name: String, legs: Int, maxProfitPercentage: Double, winningProbability: Double) -> Strategy {
-        switch type {
-        case .IronCondor:
-            return IronCondor.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .IronFly:
-            return IronFly.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .VerticalSpread:
-            return VerticalSpread.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .Straddle:
-            return Straddle.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .Strangle:
-            return Strangle.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .RatioSpread:
-            return RatioSpread.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .JadeLizard:
-            return JadeLizard.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        case .Custom:
-            return Custom.create(name: name, legs: legs, maxProfitPercentage: maxProfitPercentage, winningProbability: winningProbability)
-        }
+        let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "winningProbability": winningProbability] as [String : Any]
+        return Strategy(value: attributesHash)
     }
     
-    class func copyForClass(strategy: StrategyProtocol) -> Strategy {
-        var strategyType: StrategyType = .Custom
-        switch String(describing: strategy.self) {
-        case "IronCondor":
-            strategyType = .IronCondor
-        case "IronFly":
-            strategyType = .IronFly
-        case "VerticalSpread":
-            strategyType = .VerticalSpread
-        case "Straddle":
-            strategyType = .Straddle
-        case "Strangle":
-            strategyType = .Strangle
-        case "RatioSpread":
-            strategyType = .RatioSpread
-        case "JadeLizard":
-            strategyType = .JadeLizard
-        default:
-            strategyType = .Custom
-        }
-        return Strategy.forType(type: strategyType, name: strategy.name, legs: strategy.legs, maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability)
-    }
-    
-    class func create(name: String, legs: Int, maxProfitPercentage: Double, winningProbability: Double) -> Strategy {
-        let strategy = Strategy(value: ["name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "winningProbability": winningProbability])
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(strategy)
-        }
-        return strategy
+    func copyWithID() -> Strategy {
+        let strategyType = StrategyController.sharedInstance.strategyTypeFor(strategy: self)
+        let newStrategy = Strategy.forType(type: strategyType, name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, winningProbability: self.winningProbability)
+        newStrategy.strategyId = self.strategyId
+        return newStrategy
     }
 }
-
-final class IronCondor: Strategy {}
-final class IronFly: Strategy {}
-final class VerticalSpread: Strategy {}
-final class Straddle: Strategy {}
-final class Strangle: Strategy {}
-final class RatioSpread: Strategy {}
-final class JadeLizard: Strategy {}
-final class Custom: Strategy {}
 

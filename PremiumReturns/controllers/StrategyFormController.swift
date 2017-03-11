@@ -24,13 +24,7 @@ final class StrategyFormController: NSObject {
     func formSetup() {
         
         form!
-            
-            +++ Section(){ section in
-                section.header = {
-                    return FormController.sharedInstance.headerView(text: SectionNames.Data.rawValue)
-                }()
-            }
-            <<< TextRow(){ row in
+            +++ TextRow(){ row in
                 row.title = "Strategy Name"
                 row.placeholder = "Enter a unique name"
                 row.value = self.strategy.name
@@ -53,7 +47,6 @@ final class StrategyFormController: NSObject {
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.ProfitPercentage.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                 row.add(rule: RuleRequired())
                 }.cellSetup { cell, _  in
                     cell.textField.keyboardType = .numberPad
@@ -67,7 +60,6 @@ final class StrategyFormController: NSObject {
                 row.title = StrategyFormFieldNames.WinningProbability.rawValue
                 row.value = 0
                 row.add(rule: RuleRequired())
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                 }.cellSetup { cell, _  in
                     cell.textField.keyboardType = .numberPad
                 }.onChange { row in

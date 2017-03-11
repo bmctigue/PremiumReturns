@@ -28,6 +28,11 @@ class StrategyTableViewController: UITableViewController, EditStrategyTableViewC
         return StrategyController.sharedInstance.all()
     }
     
+    func refreshData() {
+        strategies = loadStrategies()
+        self.tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,7 +51,7 @@ class StrategyTableViewController: UITableViewController, EditStrategyTableViewC
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let strategy = strategies[indexPath.row]
-        let newStrategy = Strategy.copyForClass(strategy: strategy)
+        let newStrategy = strategy.copyWithID()
         RoutingController.sharedInstance.openEditStrategy(controller: self, strategy: newStrategy)
     }
     
@@ -56,6 +61,6 @@ class StrategyTableViewController: UITableViewController, EditStrategyTableViewC
     }
     
     func doneButtonPressed() {
-        self.tableView.reloadData()
+        refreshData()
     }
 }

@@ -12,10 +12,12 @@ final class RoutingController: NSObject {
     
     static let sharedInstance = RoutingController.init()
     
-    func openEditStrategy(controller: UIViewController, strategy: Strategy) {
+    func openEditStrategy(controller: EditStrategyTableViewControllerDelegate, strategy: Strategy) {
         let storyboard = StoryboardFactory().create(name: "Strategy")
         let editStrategyController: EditStrategyTableViewController = storyboard.instantiateViewController(withIdentifier: "EditStrategyTableViewController") as! EditStrategyTableViewController
         editStrategyController.strategy = strategy
-        controller.present(editStrategyController, animated: true, completion: nil)
+        editStrategyController.delegate = controller
+        let presentingController = controller as! UIViewController
+        presentingController.present(editStrategyController, animated: true, completion: nil)
     }
 }

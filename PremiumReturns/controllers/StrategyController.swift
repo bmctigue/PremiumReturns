@@ -20,11 +20,7 @@ final class StrategyController {
     }
     
     func all() -> [Strategy] {
-        let items = realm.objects(Strategy.self)
-        if items.count == 0 {
-            return [Strategy]()
-        }
-        return Array(items)
+        return Array(realm.objects(Strategy.self))
     }
     
     func find(key: String) -> Strategy? {
@@ -37,17 +33,50 @@ final class StrategyController {
         }
     }
     
-    func loadDefault() {
-        defaultStrategy()
-        _ = Strategy.forType(type: .IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 0.10, winningProbability: 0.70)
-        _ = Strategy.forType(type: .VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
-        _ = Strategy.forType(type: .Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 0.25, winningProbability: 0.75)
-        _ = Strategy.forType(type: .Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
-        _ = Strategy.forType(type: .RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 0.25, winningProbability: 0.75)
-        _ = Strategy.forType(type: .JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 0.50, winningProbability: 0.90)
+    func removeAll() {
+        try! realm.write {
+            realm.delete(realm.objects(Strategy.self))
+        }
     }
     
-    func defaultStrategy() {
-        _ = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
+    func strategyTypeFor(strategy: Strategy) -> StrategyType {
+        var strategyType: StrategyType = .Custom
+        switch String(describing: strategy.self) {
+        case "IronCondor":
+            strategyType = .IronCondor
+        case "IronFly":
+            strategyType = .IronFly
+        case "VerticalSpread":
+            strategyType = .VerticalSpread
+        case "Straddle":
+            strategyType = .Straddle
+        case "Strangle":
+            strategyType = .Strangle
+        case "RatioSpread":
+            strategyType = .RatioSpread
+        case "JadeLizard":
+            strategyType = .JadeLizard
+        default:
+            strategyType = .Custom
+        }
+        return strategyType
+    }
+    
+    func loadDefault() {
+        removeAll()
+        let ironCondor = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        StrategyController.sharedInstance.save(strategy: ironCondor)
+        let ironFly = Strategy.forType(type: .IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 0.25, winningProbability: 0.65)
+        StrategyController.sharedInstance.save(strategy: ironFly)
+        let verticalSpread = Strategy.forType(type: .VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        StrategyController.sharedInstance.save(strategy: verticalSpread)
+        let straddle = Strategy.forType(type: .Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 0.25, winningProbability: 0.75)
+        StrategyController.sharedInstance.save(strategy: straddle)
+        let strangle = Strategy.forType(type: .Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        StrategyController.sharedInstance.save(strategy: strangle)
+        let ratioSpread = Strategy.forType(type: .RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 0.25, winningProbability: 0.75)
+        StrategyController.sharedInstance.save(strategy: ratioSpread)
+        let jadeLizard = Strategy.forType(type: .JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        StrategyController.sharedInstance.save(strategy: jadeLizard)
     }
 }
