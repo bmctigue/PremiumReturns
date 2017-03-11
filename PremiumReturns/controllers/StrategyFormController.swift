@@ -29,6 +29,7 @@ final class StrategyFormController: NSObject {
                 row.placeholder = "Enter a unique name"
                 row.value = self.strategy.name
                 row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnBlur
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.strategy.name = rowValue

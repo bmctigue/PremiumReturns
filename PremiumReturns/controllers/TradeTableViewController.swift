@@ -18,7 +18,7 @@ enum SectionNames: String {
 }
 
 enum FormFieldNames: String {
-    case CurrentStrategy = "Select a Strategy"
+    case Strategy = "Select a Strategy"
     case Trade = "Expected Return"
     case ROC = "Return on Capital (%)"
     case Premium = "Premium"
@@ -40,7 +40,6 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     static let headerHeight: Float = 30.0
     static let fontName = "Avenir-Medium"
     static let fontSize: CGFloat = 12.0
-    static let strategyTitle = "Select a Strategy"
     static let helpViewDuration: Double = 0.75
     static let daysToExpiration: Int = 45
     
@@ -56,6 +55,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         super.viewDidLoad()
         
         self.tableView?.backgroundColor = UIColor.white
+        self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
         self.resetBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
         self.helpBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
         
@@ -65,11 +65,14 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         rowKeyboardSpacing = 20
 
         addHelpView()
+        resetBroker()
         resetTrade()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tradeFormController?.refreshForm()
         updateInputFields(premium: trade.premium, loss: trade.loss, contracts: trade.contracts, days: trade.daysToExpiration)
     }
     
@@ -148,8 +151,10 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetOutputFields() {
-        let strategyRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.CurrentStrategy.rawValue)
-        strategyRow?.value = StrategyType.strategyTypes.first?.rawValue
+        let strategies = StrategyController.sharedInstance.all()
+        let firstStrategy = strategies.first
+        let strategyRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Strategy.rawValue)
+        strategyRow?.value = firstStrategy?.name
         strategyRow?.updateCell()
         
         let expectedReturnRow: LabelRow? = self.form.rowBy(tag: FormFieldNames.Trade.rawValue)
@@ -180,14 +185,16 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetStrategy() {
-        if let stategyType = StrategyType.strategyTypes.first {
-            currentStrategy = StrategyController.sharedInstance.find(key: stategyType.rawValue)
+        let allStrategies = StrategyController.sharedInstance.all()
+        if allStrategies.count > 0 {
+            currentStrategy = allStrategies.first!
         }
     }
     
     func resetBroker() {
-        if let brokerType = BrokerType.brokerTypes.first {
-            currentBroker = BrokerController.sharedInstance.find(key: brokerType.rawValue)
+        let allBrokers = BrokerController.sharedInstance.all()
+        if allBrokers.count > 0 {
+            currentBroker = allBrokers.first!
         }
     }
 

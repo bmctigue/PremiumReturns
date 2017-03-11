@@ -27,9 +27,6 @@ protocol EditStrategyTableViewControllerDelegate {
 
 class EditStrategyTableViewController: FormViewController {
     
-    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    
     static let headerHeight: Float = 30.0
     static let fontName = "Avenir-Medium"
     static let fontSize: CGFloat = 12.0
@@ -42,9 +39,8 @@ class EditStrategyTableViewController: FormViewController {
         super.viewDidLoad()
 
         self.tableView?.backgroundColor = UIColor.white
-        self.cancelBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
-        self.doneBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
-        
+        setUpNavigationButtons()
+
         if strategy == nil {
             self.strategy = Strategy()
         }
@@ -59,6 +55,16 @@ class EditStrategyTableViewController: FormViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
+    }
+    
+    func setUpNavigationButtons() {
+        let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(EditStrategyTableViewController.cancelButtonPressed))
+        cancelBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EditStrategyTableViewController.doneButtonPressed))
+        doneBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
+        let topViewController = self.navigationController!.topViewController
+        topViewController!.navigationItem.leftBarButtonItem = cancelBarButton
+        topViewController!.navigationItem.rightBarButtonItem = doneBarButton
     }
     
     func updateInputFields(name: String, legs: Int, maxProfitPercentage: Double, winningProbability: Double) {
@@ -79,11 +85,11 @@ class EditStrategyTableViewController: FormViewController {
         winningProbabilityRow?.updateCell()
     }
 
-    @IBAction func cancelButtonPressed(_ sender: Any) {
+    func cancelButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func doneButtonPressed(_ sender: Any) {
+    func doneButtonPressed() {
         StrategyController.sharedInstance.save(strategy: strategy!)
         self.delegate?.doneButtonPressed()
         self.dismiss(animated: true, completion: nil)

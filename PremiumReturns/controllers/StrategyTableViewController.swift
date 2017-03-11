@@ -13,6 +13,7 @@ class StrategyTableViewController: UITableViewController, EditStrategyTableViewC
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     
     var strategies: [StrategyProtocol] = []
+    var deleteStrategyIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,46 @@ class StrategyTableViewController: UITableViewController, EditStrategyTableViewC
         let strategy = strategies[indexPath.row]
         let newStrategy = strategy.copyWithID()
         RoutingController.sharedInstance.openEditStrategy(controller: self, strategy: newStrategy)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteStrategyIndexPath = indexPath as NSIndexPath?
+            let strategyToDelete = strategies[indexPath.row]
+            confirmDelete(strategyName: strategyToDelete.name)
+        }
+    }
+    
+    func confirmDelete(strategyName: String) {
+        let alert = UIAlertController(title: "Delete Strategy", message: "Are you sure you want to delete \(strategyName)?", preferredStyle: .actionSheet)
+
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteStrategy)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteStrategy)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        // Support display in iPad
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.size.width / 2.0, y: self.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func handleDeleteStrategy(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = deleteStrategyIndexPath {
+            let strategy = strategies[indexPath.row]
+            StrategyController.sharedInstance.remove(strategy: strategy as! Strategy)
+            tableView.beginUpdates()
+            strategies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+            deleteStrategyIndexPath = nil
+            tableView.endUpdates()
+        }
+    }
+    
+    func cancelDeleteStrategy(alertAction: UIAlertAction!) {
+        deleteStrategyIndexPath = nil
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {

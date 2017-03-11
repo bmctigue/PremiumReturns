@@ -27,9 +27,20 @@ final class StrategyController {
         return realm.object(ofType: Strategy.self, forPrimaryKey: key)
     }
     
+    func find(name: String) -> [Strategy] {
+        let predicate = NSPredicate(format: "name = %@", name)
+        return Array(realm.objects(Strategy.self).filter(predicate))
+    }
+    
     func save(strategy: Strategy) {
         try! realm.write {
             realm.add(strategy, update: true)
+        }
+    }
+    
+    func remove(strategy: Strategy) {
+        try! realm.write {
+            realm.delete(strategy)
         }
     }
     

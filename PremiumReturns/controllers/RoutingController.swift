@@ -17,7 +17,10 @@ final class RoutingController: NSObject {
         let editStrategyController: EditStrategyTableViewController = storyboard.instantiateViewController(withIdentifier: "EditStrategyTableViewController") as! EditStrategyTableViewController
         editStrategyController.strategy = strategy
         editStrategyController.delegate = controller
+        editStrategyController.title = strategy.name
+        let navigationController = UINavigationController(rootViewController: editStrategyController)
+        navigationController.navigationBar.isTranslucent = false
         let presentingController = controller as! UIViewController
-        presentingController.present(editStrategyController, animated: true, completion: nil)
+        presentingController.present(navigationController, animated: true, completion: nil)
     }
 }

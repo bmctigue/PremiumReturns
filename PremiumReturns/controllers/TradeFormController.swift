@@ -13,10 +13,20 @@ final class TradeFormController: NSObject {
     
     var form: Form?
     var controller: TradeTableViewController?
+    var strategies = StrategyController.sharedInstance.all()
+    var firstStrategy: Strategy?
     
     init(form: Form, controller: TradeTableViewController) {
         self.form = form
         self.controller = controller
+    }
+    
+    func refreshForm() {
+        strategies = StrategyController.sharedInstance.all()
+        firstStrategy = strategies.first
+        let row: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Strategy.rawValue)
+        row?.options = strategies.map{$0.name}
+        row?.reload()
     }
     
     func formSetup() {
@@ -41,18 +51,19 @@ final class TradeFormController: NSObject {
             }
             
             +++ Section(){ section in
+                section.tag = "StrategySection"
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Strategies.rawValue)
                 }()
             }
-            <<< ActionSheetRow<String>(FormFieldNames.CurrentStrategy.rawValue) { row in
-                row.title = FormFieldNames.CurrentStrategy.rawValue
-                row.selectorTitle = TradeTableViewController.strategyTitle
-                row.options = StrategyType.strategyTypes.map{$0.rawValue}
-                row.value = StrategyType.strategyTypes.first?.rawValue
+            <<< ActionSheetRow<String>(FormFieldNames.Strategy.rawValue) { row in
+                row.title = FormFieldNames.Strategy.rawValue
+                row.selectorTitle = FormFieldNames.Strategy.rawValue
+                row.options = strategies.map{$0.name}
+                row.value = firstStrategy?.name
                 }.onChange { row in
-                    if let rowValue = row.value, let strategyType = StrategyType.strategyTypesHash[rowValue] {
-                        self.controller?.currentStrategy = StrategyController.sharedInstance.find(key: strategyType.rawValue)
+                    if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
+                        self.controller?.currentStrategy = strategy
                         self.controller?.updateOutputFields()
                     }
             }
