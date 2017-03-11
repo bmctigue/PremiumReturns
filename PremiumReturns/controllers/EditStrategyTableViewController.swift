@@ -90,8 +90,20 @@ class EditStrategyTableViewController: FormViewController {
     }
     
     func doneButtonPressed() {
-        StrategyController.sharedInstance.save(strategy: strategy!)
-        self.delegate?.doneButtonPressed()
-        self.dismiss(animated: true, completion: nil)
+        let validationErrors = form.validate()
+        if validationErrors.count == 0 {
+            StrategyController.sharedInstance.save(strategy: strategy!)
+            self.delegate?.doneButtonPressed()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            print("\(validationErrors)")
+            let alert = UIAlertController(title: "Missing Name", message: "Your stategy needs a unique name.", preferredStyle: .alert)
+            let CancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(CancelAction)
+            // Support display in iPad
+            alert.popoverPresentationController?.sourceView = self.view
+            alert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.size.width / 2.0, y: self.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

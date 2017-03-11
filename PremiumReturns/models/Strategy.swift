@@ -18,8 +18,6 @@ enum StrategyType: String {
     case RatioSpread = "Ratio Spread"
     case JadeLizard = "Jade Lizard"
     case Custom = "Custom"
-    static let strategyTypes = [IronCondor,IronFly,VerticalSpread,Straddle,Strangle,RatioSpread,JadeLizard,Custom]
-    static let strategyTypesHash = [IronCondor.rawValue:IronCondor,IronFly.rawValue:IronFly,VerticalSpread.rawValue:VerticalSpread,Straddle.rawValue:Straddle,Strangle.rawValue:Strangle,RatioSpread.rawValue:RatioSpread,JadeLizard.rawValue:JadeLizard,Custom.rawValue:Custom]
 }
 
 protocol StrategyProtocol {

@@ -54,6 +54,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Premium Returns"
         self.tableView?.backgroundColor = UIColor.white
         self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
         self.resetBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
