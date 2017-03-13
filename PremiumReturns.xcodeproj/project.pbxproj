@@ -45,6 +45,13 @@
 		A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAC1E7353CF00591493 /* Assets.xcassets */; };
 		A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAE1E7353CF00591493 /* LaunchScreen.storyboard */; };
 		A8C8CEC61E7353CF00591493 /* PremiumReturnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */; };
+		A8F184B31E76DB5D0019F04E /* BrokerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184AC1E76DB5D0019F04E /* BrokerControllerTests.swift */; };
+		A8F184B41E76DB5D0019F04E /* CurrencyControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184AD1E76DB5D0019F04E /* CurrencyControllerTests.swift */; };
+		A8F184B51E76DB5D0019F04E /* ModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184AE1E76DB5D0019F04E /* ModelControllerTests.swift */; };
+		A8F184B61E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184AF1E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift */; };
+		A8F184B71E76DB5D0019F04E /* StrategyControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */; };
+		A8F184B81E76DB5D0019F04E /* TradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B11E76DB5D0019F04E /* TradeTests.swift */; };
+		A8F184B91E76DB5D0019F04E /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */; };
 		CCDDB989BBC465DF6CF0A423 /* Pods_PremiumReturns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +132,13 @@
 		A8C8CEC11E7353CF00591493 /* PremiumReturnsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PremiumReturnsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumReturnsUITests.swift; sourceTree = "<group>"; };
 		A8C8CEC71E7353CF00591493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8F184AC1E76DB5D0019F04E /* BrokerControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerControllerTests.swift; sourceTree = "<group>"; };
+		A8F184AD1E76DB5D0019F04E /* CurrencyControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyControllerTests.swift; sourceTree = "<group>"; };
+		A8F184AE1E76DB5D0019F04E /* ModelControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerTests.swift; sourceTree = "<group>"; };
+		A8F184AF1E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilitiesTests.swift; sourceTree = "<group>"; };
+		A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyControllerTests.swift; sourceTree = "<group>"; };
+		A8F184B11E76DB5D0019F04E /* TradeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTests.swift; sourceTree = "<group>"; };
+		A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
 		E41BD25766C6F8E51B52B16B /* Pods-PremiumReturnsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturnsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -277,6 +291,13 @@
 		A8C8CEB91E7353CF00591493 /* PremiumReturnsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A8F184AC1E76DB5D0019F04E /* BrokerControllerTests.swift */,
+				A8F184AD1E76DB5D0019F04E /* CurrencyControllerTests.swift */,
+				A8F184AE1E76DB5D0019F04E /* ModelControllerTests.swift */,
+				A8F184AF1E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift */,
+				A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */,
+				A8F184B11E76DB5D0019F04E /* TradeTests.swift */,
+				A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */,
 				A8C8CEBC1E7353CF00591493 /* Info.plist */,
 			);
 			path = PremiumReturnsTests;
@@ -383,6 +404,7 @@
 					A8C8CEB51E7353CF00591493 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 462PHCYTGY;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A8C8CEA11E7353CF00591493;
 					};
@@ -571,6 +593,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F184B81E76DB5D0019F04E /* TradeTests.swift in Sources */,
+				A8F184B41E76DB5D0019F04E /* CurrencyControllerTests.swift in Sources */,
+				A8F184B51E76DB5D0019F04E /* ModelControllerTests.swift in Sources */,
+				A8F184B91E76DB5D0019F04E /* UtilitiesTests.swift in Sources */,
+				A8F184B61E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift in Sources */,
+				A8F184B31E76DB5D0019F04E /* BrokerControllerTests.swift in Sources */,
+				A8F184B71E76DB5D0019F04E /* StrategyControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +779,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -759,6 +789,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PremiumReturns.app/PremiumReturns";
 			};
@@ -770,6 +801,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 462PHCYTGY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
