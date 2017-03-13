@@ -41,4 +41,9 @@ class UtilitiesTests: XCTestCase {
         XCTAssertEqual(result, " - ")
     }
     
+    func testDisplayAlert() {
+        let controller = UIViewController()
+        Utilities.sharedInstance.displayAlert(controller: controller, title: "Test", message: "Test Message")
+    }
+    
 }

@@ -52,6 +52,7 @@
 		A8F184B71E76DB5D0019F04E /* StrategyControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */; };
 		A8F184B81E76DB5D0019F04E /* TradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B11E76DB5D0019F04E /* TradeTests.swift */; };
 		A8F184B91E76DB5D0019F04E /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */; };
+		A8F184BB1E76EAB70019F04E /* StrategyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184BA1E76EAB70019F04E /* StrategyTests.swift */; };
 		CCDDB989BBC465DF6CF0A423 /* Pods_PremiumReturns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 		A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyControllerTests.swift; sourceTree = "<group>"; };
 		A8F184B11E76DB5D0019F04E /* TradeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTests.swift; sourceTree = "<group>"; };
 		A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
+		A8F184BA1E76EAB70019F04E /* StrategyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTests.swift; sourceTree = "<group>"; };
 		E41BD25766C6F8E51B52B16B /* Pods-PremiumReturnsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturnsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -299,6 +301,7 @@
 				A8F184B11E76DB5D0019F04E /* TradeTests.swift */,
 				A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */,
 				A8C8CEBC1E7353CF00591493 /* Info.plist */,
+				A8F184BA1E76EAB70019F04E /* StrategyTests.swift */,
 			);
 			path = PremiumReturnsTests;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				A8F184B41E76DB5D0019F04E /* CurrencyControllerTests.swift in Sources */,
 				A8F184B51E76DB5D0019F04E /* ModelControllerTests.swift in Sources */,
 				A8F184B91E76DB5D0019F04E /* UtilitiesTests.swift in Sources */,
+				A8F184BB1E76EAB70019F04E /* StrategyTests.swift in Sources */,
 				A8F184B61E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift in Sources */,
 				A8F184B31E76DB5D0019F04E /* BrokerControllerTests.swift in Sources */,
 				A8F184B71E76DB5D0019F04E /* StrategyControllerTests.swift in Sources */,

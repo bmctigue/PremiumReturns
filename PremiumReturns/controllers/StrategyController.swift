@@ -57,20 +57,21 @@ final class StrategyController {
     
     func strategyTypeFor(strategy: Strategy) -> StrategyType {
         var strategyType: StrategyType = .Custom
-        switch String(describing: strategy.self) {
-        case "IronCondor":
+        let strategyTypeString = strategy.self.strategyType
+        switch strategyTypeString {
+        case StrategyType.IronCondor.rawValue:
             strategyType = .IronCondor
-        case "IronFly":
+        case StrategyType.IronFly.rawValue:
             strategyType = .IronFly
-        case "VerticalSpread":
+        case StrategyType.VerticalSpread.rawValue:
             strategyType = .VerticalSpread
-        case "Straddle":
+        case StrategyType.Straddle.rawValue:
             strategyType = .Straddle
-        case "Strangle":
+        case StrategyType.Strangle.rawValue:
             strategyType = .Strangle
-        case "RatioSpread":
+        case StrategyType.RatioSpread.rawValue:
             strategyType = .RatioSpread
-        case "JadeLizard":
+        case StrategyType.JadeLizard.rawValue:
             strategyType = .JadeLizard
         default:
             strategyType = .Custom
