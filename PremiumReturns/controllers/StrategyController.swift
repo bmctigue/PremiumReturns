@@ -79,10 +79,23 @@ final class StrategyController {
         return strategyType
     }
     
+    func resetStrategy() -> Strategy {
+        let allStrategies = all()
+        if allStrategies.count > 0 {
+            return allStrategies.first!
+        }
+        return loadDefaultStrategy()
+    }
+    
+    func loadDefaultStrategy() -> Strategy {
+        let strategy = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        save(strategy: strategy)
+        return strategy
+    }
+    
     func loadDefault() {
         removeAll()
-        let ironCondor = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
-        StrategyController.sharedInstance.save(strategy: ironCondor)
+        _ = loadDefaultStrategy()
         let ironFly = Strategy.forType(type: .IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 0.25, winningProbability: 0.65)
         StrategyController.sharedInstance.save(strategy: ironFly)
         let verticalSpread = Strategy.forType(type: .VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)

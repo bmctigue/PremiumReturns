@@ -34,6 +34,56 @@ final class TradeFormController: NSObject {
         form!
             +++ Section(){ section in
                 section.header = {
+                    return FormController.sharedInstance.headerView(text: SectionNames.Data.rawValue)
+                }()
+            }
+            <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
+                row.useFormatterDuringInput = true
+                row.title = FormFieldNames.Premium.rawValue
+                row.value = 0
+                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                }.cellSetup { cell, _  in
+                    cell.textField.keyboardType = .numberPad
+                }.onChange { row in
+                    if let rowValue = row.value {
+                        self.controller?.trade.premium = Double(rowValue)
+                        self.updateOutputFields()
+                    }
+            }
+            <<< DecimalRow(FormFieldNames.MaxLoss.rawValue){ row in
+                row.useFormatterDuringInput = true
+                row.title = FormFieldNames.MaxLoss.rawValue
+                row.value = 0
+                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                }.cellSetup { cell, _  in
+                    cell.textField.keyboardType = .numberPad
+                }.onChange { row in
+                    if let rowValue = row.value {
+                        self.controller?.trade.loss = Double(rowValue)
+                        self.updateOutputFields()
+                    }
+            }
+            <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
+                row.title = FormFieldNames.Contracts.rawValue
+                row.value = self.controller?.trade.contracts
+                }.onChange { row in
+                    if let rowValue = row.value {
+                        self.controller?.trade.contracts = rowValue
+                        self.updateOutputFields()
+                    }
+            }
+            <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
+                row.title = FormFieldNames.DaysToExpiration.rawValue
+                row.value = self.controller?.trade.daysToExpiration
+                }.onChange { row in
+                    if let rowValue = row.value {
+                        self.controller?.trade.daysToExpiration = rowValue
+                        self.updateOutputFields()
+                    }
+            }
+            
+            +++ Section(){ section in
+                section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Returns.rawValue)
                 }()
             }
@@ -64,57 +114,7 @@ final class TradeFormController: NSObject {
                 }.onChange { row in
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentStrategy = strategy
-                        self.controller?.updateOutputFields()
-                    }
-            }
-            
-            +++ Section(){ section in
-                section.header = {
-                    return FormController.sharedInstance.headerView(text: SectionNames.Data.rawValue)
-                }()
-            }
-            <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
-                row.useFormatterDuringInput = true
-                row.title = FormFieldNames.Premium.rawValue
-                row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.premium = Double(rowValue)
-                        self.controller?.updateOutputFields()
-                    }
-            }
-            <<< DecimalRow(FormFieldNames.MaxLoss.rawValue){ row in
-                row.useFormatterDuringInput = true
-                row.title = FormFieldNames.MaxLoss.rawValue
-                row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.loss = Double(rowValue)
-                        self.controller?.updateOutputFields()
-                    }
-            }
-            <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
-                row.title = FormFieldNames.Contracts.rawValue
-                row.value = self.controller?.trade.contracts
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.contracts = rowValue
-                        self.controller?.updateOutputFields()
-                    }
-            }
-            <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
-                row.title = FormFieldNames.DaysToExpiration.rawValue
-                row.value = self.controller?.trade.daysToExpiration
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.daysToExpiration = rowValue
-                        self.controller?.updateOutputFields()
+                        self.updateOutputFields()
                     }
             }
             
@@ -127,5 +127,9 @@ final class TradeFormController: NSObject {
                 row.title = FormFieldNames.Commissions.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         }
+    }
+    
+    func updateOutputFields() {
+        TradeController.sharedInstance.updateOutputFields(form: self.controller!.form, trade: self.controller!.trade, strategy: self.controller!.currentStrategy!, broker: self.controller!.currentBroker!)
     }
 }

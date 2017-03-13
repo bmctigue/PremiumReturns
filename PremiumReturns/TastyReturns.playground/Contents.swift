@@ -79,7 +79,9 @@ import UIKit
  ====
  Maybe - Update MaxLoss to default to MaxProfit/2 (premium * Double(contracts) * 100.0)/2.0
  
- Add ability to create/edit strategies
+ Refactor EditStrategyTableViewController
+ Add ability to create/edit brokers
+ Save Selected Strategy/Broker
  ====
  
 */

@@ -40,6 +40,7 @@
 		A84E1D2F1E7368F5007FE0E9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2C1E7368F5007FE0E9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A84E1D301E7368F5007FE0E9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; };
 		A84E1D311E7368F5007FE0E9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8BD83911E771162002EF3F5 /* TradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD83901E771162002EF3F5 /* TradeController.swift */; };
 		A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEA51E7353CF00591493 /* AppDelegate.swift */; };
 		A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEA91E7353CF00591493 /* Main.storyboard */; };
 		A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAC1E7353CF00591493 /* Assets.xcassets */; };
@@ -122,6 +123,7 @@
 		A84E1D251E735683007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A84E1D2C1E7368F5007FE0E9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A8BD83901E771162002EF3F5 /* TradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeController.swift; sourceTree = "<group>"; };
 		A8C8CEA21E7353CF00591493 /* PremiumReturns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PremiumReturns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEA51E7353CF00591493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8C8CEAA1E7353CF00591493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				A84E1CF81E73560B007FE0E9 /* StrategyController.swift */,
 				A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */,
 				A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */,
+				A8BD83901E771162002EF3F5 /* TradeController.swift */,
 				A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */,
 				A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */,
 			);
@@ -576,6 +579,7 @@
 				A84E1D061E73560B007FE0E9 /* RoutingController.swift in Sources */,
 				A84E1D051E73560B007FE0E9 /* ModelControllerUtilities.swift in Sources */,
 				A84E1D1D1E73561D007FE0E9 /* Broker.swift in Sources */,
+				A8BD83911E771162002EF3F5 /* TradeController.swift in Sources */,
 				A84E1D081E73560B007FE0E9 /* StrategyController.swift in Sources */,
 				A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */,
 				A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */,

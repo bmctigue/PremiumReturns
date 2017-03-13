@@ -6,7 +6,6 @@
 //  Copyright © 2017 tiguer. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 final class BrokerController {
@@ -31,11 +30,34 @@ final class BrokerController {
         return realm.object(ofType: Broker.self, forPrimaryKey: key)
     }
     
-    func loadDefault() {
-        defaultStrategy()
+    func save(broker: Broker) {
+        try! realm.write {
+            realm.add(broker, update: true)
+        }
     }
     
-    func defaultStrategy() {
-        _ = Broker.forType(type: .TastyWorks, name: BrokerType.TastyWorks.rawValue, commission: 1.0)
+    func removeAll() {
+        try! realm.write {
+            realm.delete(realm.objects(Broker.self))
+        }
+    }
+    
+    func resetBroker() -> Broker {
+        let allBrokers = all()
+        if allBrokers.count > 0 {
+            return allBrokers.first!
+        }
+        return loadDefaultBroker()
+    }
+    
+    func loadDefault() {
+        removeAll()
+        _ = loadDefaultBroker()
+    }
+    
+    func loadDefaultBroker() -> Broker {
+        let broker = Broker.forType(type: .TastyWorks, name: BrokerType.TastyWorks.rawValue, commission: 1.0)
+        save(broker: broker)
+        return broker
     }
 }
