@@ -1,6 +1,6 @@
 //
 //  StrategyController.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 3/4/17.
 //  Copyright © 2017 tiguer. All rights reserved.

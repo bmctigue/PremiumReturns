@@ -1,6 +1,6 @@
 //
 //  CurrencyControllerTests.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 2/25/17.
 //  Copyright © 2017 tiguer. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 import Eureka
-@testable import TastyReturns
+@testable import PremiumReturns
 
 class CurrencyControllerTests: XCTestCase {
     

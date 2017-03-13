@@ -1,13 +1,13 @@
 //
 //  BrokerControllerTests.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 3/6/17.
 //  Copyright © 2017 tiguer. All rights reserved.
 //
 
 import XCTest
-@testable import TastyReturns
+@testable import PremiumReturns
 
 class BrokerControllerTests: XCTestCase {
     

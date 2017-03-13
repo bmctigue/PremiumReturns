@@ -1,6 +1,6 @@
 //
 //  CurrencyController.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 2/24/17.
 //  Copyright © 2017 tiguer. All rights reserved.

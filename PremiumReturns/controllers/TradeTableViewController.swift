@@ -1,6 +1,6 @@
 //
 //  TradeTableViewController.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 2/22/17.
 //  Copyright © 2017 tiguer. All rights reserved.
@@ -219,7 +219,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func closeButtonPressed() {
-        self.title = "TastyReturns"
+        self.title = "PremiumReturns"
         UIView.animate(withDuration: TradeTableViewController.helpViewDuration, animations: {
             self.helpViewController?.view.alpha = 0
         })

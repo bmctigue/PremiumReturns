@@ -1,13 +1,13 @@
 //
 //  StrategyControllerTests.swift
-//  TastyReturns
+//  PremiumReturns
 //
 //  Created by Bruce McTigue on 3/5/17.
 //  Copyright © 2017 tiguer. All rights reserved.
 //
 
 import XCTest
-@testable import TastyReturns
+@testable import PremiumReturns
 
 class StrategyControllerTests: XCTestCase {
     

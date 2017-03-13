@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import TastyReturns
+@testable import PremiumReturns
 
 class ModelControllerTests: XCTestCase {
     
