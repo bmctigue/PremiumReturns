@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52478249C536DCFE6AF4DB38 /* Pods_PremiumReturnsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */; };
+		A84127ED1E78786400C24788 /* StrategyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */; };
+		A84127EF1E787C0300C24788 /* StrategyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */; };
 		A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */; };
 		A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */; };
 		A84E1D011E73560B007FE0E9 /* EditStrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */; };
@@ -94,6 +96,8 @@
 		3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturns.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns.release.xcconfig"; sourceTree = "<group>"; };
+		A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDataSource.swift; sourceTree = "<group>"; };
+		A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDelegate.swift; sourceTree = "<group>"; };
 		A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
 		A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyController.swift; sourceTree = "<group>"; };
 		A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStrategyTableViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				A8BD83901E771162002EF3F5 /* TradeController.swift */,
 				A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */,
 				A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */,
+				A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */,
+				A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -586,6 +592,8 @@
 				A84E1D1F1E73561D007FE0E9 /* Trade.swift in Sources */,
 				A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */,
 				A84E1D041E73560B007FE0E9 /* ModelController.swift in Sources */,
+				A84127EF1E787C0300C24788 /* StrategyTableViewDelegate.swift in Sources */,
+				A84127ED1E78786400C24788 /* StrategyTableViewDataSource.swift in Sources */,
 				A84E1D1C1E73561D007FE0E9 /* Utilities.swift in Sources */,
 				A84E1D021E73560B007FE0E9 /* FormController.swift in Sources */,
 				A84E1D091E73560B007FE0E9 /* StrategyFormController.swift in Sources */,
