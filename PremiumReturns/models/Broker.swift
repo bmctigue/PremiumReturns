@@ -11,43 +11,42 @@ import RealmSwift
 
 enum BrokerType: String {
     case TastyWorks = "TastyWorks"
-    static let brokerTypes = [TastyWorks]
-    static let brokerTypesHash = [TastyWorks.rawValue:TastyWorks]
+    case Custom = "Custom"
+    static let brokerTypes = [TastyWorks,Custom]
 }
 
 protocol BrokerProtocol {
     var brokerId: String { get }
+    var brokerType: String { get }
     var name: String { get }
     var commission: Double { get }
+    func copyWithID() -> Broker
 }
 
 class Broker: Object, BrokerProtocol {
     dynamic var brokerId: String = NSUUID().uuidString
     dynamic var name: String = ""
+    dynamic var brokerType: String = ""
     dynamic var commission: Double = 0.0
     
     override static func indexedProperties() -> [String] {
-        return ["name"]
+        return ["brokerId","name"]
     }
     
     override static func primaryKey() -> String? {
-        return "name"
+        return "brokerId"
     }
     
     class func forType(type: BrokerType, name: String, commission: Double) -> Broker {
-        switch type {
-        case .TastyWorks:
-            return TastyWorks.create(name: name, commission: commission)
-        }
+        let attributesHash = ["brokerType": type.rawValue, "name": name, "commission": commission] as [String : Any]
+        return Broker(value: attributesHash)
     }
     
-    class func create(name: String, commission: Double) -> Broker {
-        let broker = Broker(value: ["name": name, "commission": commission])
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(broker)
-        }
-        return broker
+    func copyWithID() -> Broker {
+        let brokerType = BrokerController.sharedInstance.brokerTypeFor(broker: self)
+        let newBroker = Broker.forType(type: brokerType, name: self.name, commission: self.commission)
+        newBroker.brokerId = self.brokerId
+        return newBroker
     }
 }
 

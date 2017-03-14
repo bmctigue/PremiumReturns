@@ -39,6 +39,13 @@ class StrategyControllerTests: XCTestCase {
         XCTAssertEqual(count, StrategyType.strategyTypes.count - 2)
     }
     
+    func testRemoveAll() {
+        ModelControllerUtilities.sharedInstance.refreshAppData()
+        StrategyController.sharedInstance.removeAll()
+        let count = StrategyController.sharedInstance.all().count
+        XCTAssertEqual(count, 0)
+    }
+    
     func testIsUnique() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         let firstStrategy = StrategyController.sharedInstance.all().first!

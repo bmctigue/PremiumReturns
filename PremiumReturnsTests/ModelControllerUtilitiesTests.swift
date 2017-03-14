@@ -20,7 +20,7 @@ class ModelControllerUtilitiesTests: XCTestCase {
         let strategies = StrategyController.sharedInstance.all()
         XCTAssertEqual(strategies.count, StrategyType.strategyTypes.count - 1)
         let brokers = BrokerController.sharedInstance.all()
-        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count)
+        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count - 1)
     }
     
     func testClearAllModelControllers() {
@@ -35,7 +35,7 @@ class ModelControllerUtilitiesTests: XCTestCase {
         let strategies = StrategyController.sharedInstance.all()
         XCTAssertEqual(strategies.count, StrategyType.strategyTypes.count - 1)
         let brokers = BrokerController.sharedInstance.all()
-        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count)
+        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count  - 1)
     }
     
     func testSaveAllModelControllers() {
@@ -46,6 +46,6 @@ class ModelControllerUtilitiesTests: XCTestCase {
         let strategies = StrategyController.sharedInstance.all()
         XCTAssertEqual(strategies.count, StrategyType.strategyTypes.count - 1)
         let brokers = BrokerController.sharedInstance.all()
-        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count)
+        XCTAssertEqual(brokers.count, BrokerType.brokerTypes.count  - 1)
     }
 }
