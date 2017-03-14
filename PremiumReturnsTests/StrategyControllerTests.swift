@@ -75,4 +75,14 @@ class StrategyControllerTests: XCTestCase {
         testStrategyType = StrategyController.sharedInstance.strategyTypeFor(strategy: testStrategy)
         XCTAssertEqual(testStrategy.strategyType,testStrategyType.rawValue)
     }
+    
+    func testResetStrategy() {
+        ModelControllerUtilities.sharedInstance.refreshAppData()
+        var firstStrategy = StrategyController.sharedInstance.resetStrategy()
+        XCTAssertEqual(firstStrategy.strategyType, StrategyType.IronCondor.rawValue)
+        StrategyController.sharedInstance.removeAll()
+        firstStrategy = StrategyController.sharedInstance.resetStrategy()
+        XCTAssertEqual(firstStrategy.strategyType, StrategyType.IronCondor.rawValue)
+        
+    }
 }

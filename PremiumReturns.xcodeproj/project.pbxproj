@@ -301,10 +301,10 @@
 				A8F184AE1E76DB5D0019F04E /* ModelControllerTests.swift */,
 				A8F184AF1E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift */,
 				A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */,
+				A8F184BA1E76EAB70019F04E /* StrategyTests.swift */,
 				A8F184B11E76DB5D0019F04E /* TradeTests.swift */,
 				A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */,
 				A8C8CEBC1E7353CF00591493 /* Info.plist */,
-				A8F184BA1E76EAB70019F04E /* StrategyTests.swift */,
 			);
 			path = PremiumReturnsTests;
 			sourceTree = "<group>";
