@@ -21,6 +21,11 @@ class StrategyTableViewDelegate: NSObject {
         super.init()
         tableView.delegate = self
     }
+    
+    func addButtonPressed() {
+        let strategy = Strategy.forType(type: .Custom, name: "", legs: 0, maxProfitPercentage: 0, winningProbability: 0)
+        RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditStrategyTableViewControllerDelegate, strategy: strategy)
+    }
 }
 
 extension StrategyTableViewDelegate: UITableViewDelegate {
