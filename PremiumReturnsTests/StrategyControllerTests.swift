@@ -49,11 +49,14 @@ class StrategyControllerTests: XCTestCase {
     func testIsUnique() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         let firstStrategy = StrategyController.sharedInstance.all().first!
-        var isUniqueStrategy = StrategyController.sharedInstance.isUnique(name: firstStrategy.name)
-        XCTAssertFalse(isUniqueStrategy)
-        let testStrategy = Strategy.forType(type: .IronCondor, name: "Test", legs: 4, maxProfitPercentage: 0, winningProbability: 0)
-        isUniqueStrategy = StrategyController.sharedInstance.isUnique(name: testStrategy.name)
+        var isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: firstStrategy.strategyId, name: firstStrategy.name)
         XCTAssertTrue(isUniqueStrategy)
+        let testStrategy = Strategy.forType(type: .IronCondor, name: "Test", legs: 4, maxProfitPercentage: 0, winningProbability: 0)
+        isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: firstStrategy.strategyId, name: testStrategy.name)
+        XCTAssertTrue(isUniqueStrategy)
+        let sameNameStrategy = Strategy.forType(type: .IronCondor, name: firstStrategy.name, legs: 4, maxProfitPercentage: 0, winningProbability: 0)
+        isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: testStrategy.strategyId, name: sameNameStrategy.name)
+        XCTAssertFalse(isUniqueStrategy)
     }
     
     func testStrategyTypeFor() {

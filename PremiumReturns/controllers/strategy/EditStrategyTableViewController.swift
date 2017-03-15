@@ -78,7 +78,7 @@ class EditStrategyTableViewController: FormViewController {
         let missingNameTitle = "Strategy Name"
         let missingNameMessage = "Your stategy needs a unique name."
         let validationErrors = form.validate()
-        if validationErrors.count == 0 && StrategyController.sharedInstance.isUnique(name: strategy!.name) {
+        if validationErrors.count == 0 && StrategyController.sharedInstance.isUnique(strategyId: strategy!.strategyId, name: strategy!.name) {
             StrategyController.sharedInstance.save(strategy: strategy!)
             self.delegate?.doneButtonPressed()
             self.dismiss(animated: true, completion: nil)

@@ -32,9 +32,13 @@ final class StrategyController {
         return Array(realm.objects(Strategy.self).filter(predicate))
     }
     
-    func isUnique(name: String) -> Bool {
+    func isUnique(strategyId: String, name: String) -> Bool {
         let strategies = self.find(name: name)
-        return strategies.isEmpty
+        if strategies.isEmpty {
+            return true
+        }
+        let strategy = strategies.first!
+        return strategy.strategyId == strategyId
     }
     
     func save(strategy: Strategy) {

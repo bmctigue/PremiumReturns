@@ -34,6 +34,7 @@
 		A84E1D311E7368F5007FE0E9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A889C36E1E79A43A004F3AD7 /* BrokerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */; };
 		A889C36F1E79A43A004F3AD7 /* EditBrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */; };
+		A889C3711E79C0B8004F3AD7 /* Broker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A889C3701E79C0B8004F3AD7 /* Broker.storyboard */; };
 		A89EEF451E78C41100CDE038 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF441E78C41100CDE038 /* BrokerController.swift */; };
 		A89EEF491E78C41B00CDE038 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */; };
 		A89EEF4A1E78C41B00CDE038 /* ItemTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */; };
@@ -127,6 +128,7 @@
 		A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerFormController.swift; sourceTree = "<group>"; };
 		A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBrokerTableViewController.swift; sourceTree = "<group>"; };
+		A889C3701E79C0B8004F3AD7 /* Broker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Broker.storyboard; sourceTree = "<group>"; };
 		A89EEF441E78C41100CDE038 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
 		A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				A84E1D171E73561D007FE0E9 /* Help.storyboard */,
 				A84E1D181E73561D007FE0E9 /* Splash.storyboard */,
 				A84E1D191E73561D007FE0E9 /* Strategy.storyboard */,
+				A889C3701E79C0B8004F3AD7 /* Broker.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A889C3711E79C0B8004F3AD7 /* Broker.storyboard in Resources */,
 				A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */,
 				A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */,
 				A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */,

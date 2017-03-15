@@ -36,9 +36,13 @@ final class BrokerController {
         return Array(realm.objects(Broker.self).filter(predicate))
     }
     
-    func isUnique(name: String) -> Bool {
+    func isUnique(brokerId: String, name: String) -> Bool {
         let brokers = self.find(name: name)
-        return brokers.isEmpty
+        if brokers.isEmpty {
+            return true
+        }
+        let broker = brokers.first!
+        return broker.brokerId == brokerId
     }
     
     func save(broker: Broker) {

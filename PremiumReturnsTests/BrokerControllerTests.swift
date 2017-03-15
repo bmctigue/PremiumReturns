@@ -49,11 +49,14 @@ class BrokerControllerTests: XCTestCase {
     func testIsUnique() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         let firstBroker = BrokerController.sharedInstance.all().first!
-        var isUniqueBroker = BrokerController.sharedInstance.isUnique(name: firstBroker.name)
-        XCTAssertFalse(isUniqueBroker)
-        let testBroker = Broker.forType(type: .TastyWorks, name: "Test", commission: 1.0)
-        isUniqueBroker = BrokerController.sharedInstance.isUnique(name: testBroker.name)
+        var isUniqueBroker = BrokerController.sharedInstance.isUnique(brokerId: firstBroker.brokerId, name: firstBroker.name)
         XCTAssertTrue(isUniqueBroker)
+        let testBroker = Broker.forType(type: .TastyWorks, name: "Test", commission: 1.0)
+        isUniqueBroker = BrokerController.sharedInstance.isUnique(brokerId: firstBroker.brokerId, name: testBroker.name)
+        XCTAssertTrue(isUniqueBroker)
+        let sameNameBroker = Broker.forType(type: .TastyWorks, name: firstBroker.name, commission: 1.0)
+        isUniqueBroker = BrokerController.sharedInstance.isUnique(brokerId: testBroker.brokerId, name: sameNameBroker.name)
+        XCTAssertFalse(isUniqueBroker)
     }
     
     func testBrokerTypeFor() {

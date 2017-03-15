@@ -70,7 +70,7 @@ class EditBrokerTableViewController: FormViewController {
         let missingNameTitle = "Broker Name"
         let missingNameMessage = "Your broker needs a unique name."
         let validationErrors = form.validate()
-        if validationErrors.count == 0 && BrokerController.sharedInstance.isUnique(name: broker!.name) {
+        if validationErrors.count == 0 && BrokerController.sharedInstance.isUnique(brokerId: broker!.brokerId, name: broker!.name) {
             BrokerController.sharedInstance.save(broker: broker!)
             self.delegate?.doneButtonPressed()
             self.dismiss(animated: true, completion: nil)
