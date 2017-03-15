@@ -21,6 +21,7 @@
                     <connections>
                         <segue destination="HMb-Ut-Vkk" kind="relationship" relationship="viewControllers" id="zTQ-3V-kyi"/>
                         <segue destination="Wvb-mo-VMG" kind="relationship" relationship="viewControllers" id="gP6-PF-mOE"/>
+                        <segue destination="d7Y-W7-JZ8" kind="relationship" relationship="viewControllers" id="JHX-PQ-Jv9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RoG-ga-36Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,6 +130,63 @@
             </objects>
             <point key="canvasLocation" x="-413" y="461"/>
         </scene>
+        <!--BrokerTableViewController-->
+        <scene sceneID="ekI-EI-ahU">
+            <objects>
+                <tableViewController storyboardIdentifier="BrokerTableViewController" title="BrokerTableViewController" id="HM4-k8-4bz" customClass="BrokerTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPz-WO-YdH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="B01-xo-yTg" customClass="ItemCell" customModule="PremiumReturns" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B01-xo-yTg" id="8zh-vL-r8G">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HM4-k8-4bz" id="HJe-fm-KvB"/>
+                            <outlet property="delegate" destination="HM4-k8-4bz" id="4Xj-4U-hPd"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Brokers" id="iJQ-Lf-sHa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2sf-NA-sLG">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="HM4-k8-4bz" id="bMg-Yl-ykf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addBarButton" destination="2sf-NA-sLG" id="Mh7-5G-jqI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tY4-oL-vlc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-412" y="1191"/>
+        </scene>
+        <!--Brokers-->
+        <scene sceneID="qHR-5v-mLJ">
+            <objects>
+                <navigationController id="d7Y-W7-JZ8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Brokers" image="Group" id="H59-3T-XFR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZZH-Al-otB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HM4-k8-4bz" kind="relationship" relationship="rootViewController" id="1AX-7g-0Nw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4WB-UP-i31" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1270" y="1191"/>
+        </scene>
         <!--Strategies-->
         <scene sceneID="JZV-kM-QIH">
             <objects>
@@ -149,6 +207,7 @@
     </scenes>
     <resources>
         <image name="Files" width="22" height="27"/>
+        <image name="Group" width="31" height="29"/>
         <image name="Home" width="25" height="25"/>
     </resources>
 </document>

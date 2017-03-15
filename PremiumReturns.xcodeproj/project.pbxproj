@@ -8,25 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		52478249C536DCFE6AF4DB38 /* Pods_PremiumReturnsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */; };
-		A84127ED1E78786400C24788 /* StrategyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */; };
-		A84127EF1E787C0300C24788 /* StrategyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */; };
-		A84127F11E78A2F600C24788 /* ItemTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127F01E78A2F600C24788 /* ItemTableViewDataSource.swift */; };
-		A84127F31E78AE6000C24788 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127F21E78AE6000C24788 /* ItemTableViewController.swift */; };
 		A84127F81E78B61100C24788 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84127F71E78B61100C24788 /* ItemCell.swift */; };
-		A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */; };
 		A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */; };
-		A84E1D011E73560B007FE0E9 /* EditStrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */; };
 		A84E1D021E73560B007FE0E9 /* FormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF21E73560B007FE0E9 /* FormController.swift */; };
 		A84E1D031E73560B007FE0E9 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */; };
-		A84E1D041E73560B007FE0E9 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF41E73560B007FE0E9 /* ModelController.swift */; };
-		A84E1D051E73560B007FE0E9 /* ModelControllerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */; };
 		A84E1D061E73560B007FE0E9 /* RoutingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF61E73560B007FE0E9 /* RoutingController.swift */; };
 		A84E1D071E73560B007FE0E9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */; };
-		A84E1D081E73560B007FE0E9 /* StrategyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF81E73560B007FE0E9 /* StrategyController.swift */; };
-		A84E1D091E73560B007FE0E9 /* StrategyFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */; };
-		A84E1D0A1E73560B007FE0E9 /* StrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */; };
-		A84E1D0B1E73560B007FE0E9 /* TradeFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */; };
-		A84E1D0C1E73560B007FE0E9 /* TradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */; };
 		A84E1D0D1E73560B007FE0E9 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1CFE1E73560B007FE0E9 /* StoryboardFactory.swift */; };
 		A84E1D1A1E73561D007FE0E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D0F1E73561D007FE0E9 /* Constants.swift */; };
 		A84E1D1B1E73561D007FE0E9 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E1D101E73561D007FE0E9 /* Realm.swift */; };
@@ -45,7 +32,23 @@
 		A84E1D2F1E7368F5007FE0E9 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2C1E7368F5007FE0E9 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A84E1D301E7368F5007FE0E9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; };
 		A84E1D311E7368F5007FE0E9 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A8BD83911E771162002EF3F5 /* TradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BD83901E771162002EF3F5 /* TradeController.swift */; };
+		A89EEF451E78C41100CDE038 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF441E78C41100CDE038 /* BrokerController.swift */; };
+		A89EEF491E78C41B00CDE038 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */; };
+		A89EEF4A1E78C41B00CDE038 /* ItemTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */; };
+		A89EEF4E1E78C42600CDE038 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF4C1E78C42600CDE038 /* ModelController.swift */; };
+		A89EEF4F1E78C42600CDE038 /* ModelControllerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF4D1E78C42600CDE038 /* ModelControllerUtilities.swift */; };
+		A89EEF571E78C43000CDE038 /* EditStrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF511E78C43000CDE038 /* EditStrategyTableViewController.swift */; };
+		A89EEF581E78C43000CDE038 /* StrategyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF521E78C43000CDE038 /* StrategyController.swift */; };
+		A89EEF591E78C43000CDE038 /* StrategyFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF531E78C43000CDE038 /* StrategyFormController.swift */; };
+		A89EEF5A1E78C43000CDE038 /* StrategyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF541E78C43000CDE038 /* StrategyTableViewController.swift */; };
+		A89EEF5B1E78C43000CDE038 /* StrategyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF551E78C43000CDE038 /* StrategyTableViewDataSource.swift */; };
+		A89EEF5C1E78C43000CDE038 /* StrategyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF561E78C43000CDE038 /* StrategyTableViewDelegate.swift */; };
+		A89EEF611E78C43B00CDE038 /* TradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF5E1E78C43B00CDE038 /* TradeController.swift */; };
+		A89EEF621E78C43B00CDE038 /* TradeFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF5F1E78C43B00CDE038 /* TradeFormController.swift */; };
+		A89EEF631E78C43B00CDE038 /* TradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF601E78C43B00CDE038 /* TradeTableViewController.swift */; };
+		A89EEF671E78C4CA00CDE038 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF641E78C4CA00CDE038 /* BrokerTableViewController.swift */; };
+		A89EEF681E78C4CA00CDE038 /* BrokerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF651E78C4CA00CDE038 /* BrokerTableViewDataSource.swift */; };
+		A89EEF691E78C4CA00CDE038 /* BrokerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF661E78C4CA00CDE038 /* BrokerTableViewDelegate.swift */; };
 		A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEA51E7353CF00591493 /* AppDelegate.swift */; };
 		A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEA91E7353CF00591493 /* Main.storyboard */; };
 		A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAC1E7353CF00591493 /* Assets.xcassets */; };
@@ -99,25 +102,12 @@
 		3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturns.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns.release.xcconfig"; sourceTree = "<group>"; };
-		A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDataSource.swift; sourceTree = "<group>"; };
-		A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDelegate.swift; sourceTree = "<group>"; };
-		A84127F01E78A2F600C24788 /* ItemTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewDataSource.swift; sourceTree = "<group>"; };
-		A84127F21E78AE6000C24788 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		A84127F71E78B61100C24788 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
 		A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyController.swift; sourceTree = "<group>"; };
-		A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStrategyTableViewController.swift; sourceTree = "<group>"; };
 		A84E1CF21E73560B007FE0E9 /* FormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormController.swift; sourceTree = "<group>"; };
 		A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		A84E1CF41E73560B007FE0E9 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilities.swift; sourceTree = "<group>"; };
 		A84E1CF61E73560B007FE0E9 /* RoutingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingController.swift; sourceTree = "<group>"; };
 		A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		A84E1CF81E73560B007FE0E9 /* StrategyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyController.swift; sourceTree = "<group>"; };
-		A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyFormController.swift; sourceTree = "<group>"; };
-		A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewController.swift; sourceTree = "<group>"; };
-		A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeFormController.swift; sourceTree = "<group>"; };
-		A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTableViewController.swift; sourceTree = "<group>"; };
 		A84E1CFE1E73560B007FE0E9 /* StoryboardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
 		A84E1D0F1E73561D007FE0E9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A84E1D101E73561D007FE0E9 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
@@ -133,7 +123,23 @@
 		A84E1D251E735683007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A84E1D2C1E7368F5007FE0E9 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A84E1D2D1E7368F5007FE0E9 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		A8BD83901E771162002EF3F5 /* TradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeController.swift; sourceTree = "<group>"; };
+		A89EEF441E78C41100CDE038 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
+		A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewDataSource.swift; sourceTree = "<group>"; };
+		A89EEF4C1E78C42600CDE038 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		A89EEF4D1E78C42600CDE038 /* ModelControllerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelControllerUtilities.swift; sourceTree = "<group>"; };
+		A89EEF511E78C43000CDE038 /* EditStrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStrategyTableViewController.swift; sourceTree = "<group>"; };
+		A89EEF521E78C43000CDE038 /* StrategyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyController.swift; sourceTree = "<group>"; };
+		A89EEF531E78C43000CDE038 /* StrategyFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyFormController.swift; sourceTree = "<group>"; };
+		A89EEF541E78C43000CDE038 /* StrategyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewController.swift; sourceTree = "<group>"; };
+		A89EEF551E78C43000CDE038 /* StrategyTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDataSource.swift; sourceTree = "<group>"; };
+		A89EEF561E78C43000CDE038 /* StrategyTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyTableViewDelegate.swift; sourceTree = "<group>"; };
+		A89EEF5E1E78C43B00CDE038 /* TradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeController.swift; sourceTree = "<group>"; };
+		A89EEF5F1E78C43B00CDE038 /* TradeFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeFormController.swift; sourceTree = "<group>"; };
+		A89EEF601E78C43B00CDE038 /* TradeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTableViewController.swift; sourceTree = "<group>"; };
+		A89EEF641E78C4CA00CDE038 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
+		A89EEF651E78C4CA00CDE038 /* BrokerTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewDataSource.swift; sourceTree = "<group>"; };
+		A89EEF661E78C4CA00CDE038 /* BrokerTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8C8CEA21E7353CF00591493 /* PremiumReturns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PremiumReturns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEA51E7353CF00591493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8C8CEAA1E7353CF00591493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,25 +220,16 @@
 		A84E1CEE1E73560B007FE0E9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A84E1CEF1E73560B007FE0E9 /* BrokerController.swift */,
+				A89EEF431E78C41100CDE038 /* broker */,
+				A89EEF461E78C41B00CDE038 /* item */,
+				A89EEF4B1E78C42600CDE038 /* model */,
+				A89EEF501E78C43000CDE038 /* strategy */,
+				A89EEF5D1E78C43B00CDE038 /* trade */,
 				A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */,
-				A84E1CF11E73560B007FE0E9 /* EditStrategyTableViewController.swift */,
 				A84E1CF21E73560B007FE0E9 /* FormController.swift */,
 				A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */,
-				A84E1CF41E73560B007FE0E9 /* ModelController.swift */,
-				A84E1CF51E73560B007FE0E9 /* ModelControllerUtilities.swift */,
 				A84E1CF61E73560B007FE0E9 /* RoutingController.swift */,
 				A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */,
-				A84E1CF81E73560B007FE0E9 /* StrategyController.swift */,
-				A84E1CF91E73560B007FE0E9 /* StrategyFormController.swift */,
-				A84E1CFA1E73560B007FE0E9 /* StrategyTableViewController.swift */,
-				A84127EC1E78786400C24788 /* StrategyTableViewDataSource.swift */,
-				A84127EE1E787C0300C24788 /* StrategyTableViewDelegate.swift */,
-				A8BD83901E771162002EF3F5 /* TradeController.swift */,
-				A84E1CFB1E73560B007FE0E9 /* TradeFormController.swift */,
-				A84E1CFC1E73560B007FE0E9 /* TradeTableViewController.swift */,
-				A84127F21E78AE6000C24788 /* ItemTableViewController.swift */,
-				A84127F01E78A2F600C24788 /* ItemTableViewDataSource.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -273,6 +270,58 @@
 				A84E1D191E73561D007FE0E9 /* Strategy.storyboard */,
 			);
 			path = storyboards;
+			sourceTree = "<group>";
+		};
+		A89EEF431E78C41100CDE038 /* broker */ = {
+			isa = PBXGroup;
+			children = (
+				A89EEF441E78C41100CDE038 /* BrokerController.swift */,
+				A89EEF641E78C4CA00CDE038 /* BrokerTableViewController.swift */,
+				A89EEF651E78C4CA00CDE038 /* BrokerTableViewDataSource.swift */,
+				A89EEF661E78C4CA00CDE038 /* BrokerTableViewDelegate.swift */,
+			);
+			path = broker;
+			sourceTree = "<group>";
+		};
+		A89EEF461E78C41B00CDE038 /* item */ = {
+			isa = PBXGroup;
+			children = (
+				A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */,
+				A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */,
+			);
+			path = item;
+			sourceTree = "<group>";
+		};
+		A89EEF4B1E78C42600CDE038 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A89EEF4C1E78C42600CDE038 /* ModelController.swift */,
+				A89EEF4D1E78C42600CDE038 /* ModelControllerUtilities.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A89EEF501E78C43000CDE038 /* strategy */ = {
+			isa = PBXGroup;
+			children = (
+				A89EEF511E78C43000CDE038 /* EditStrategyTableViewController.swift */,
+				A89EEF521E78C43000CDE038 /* StrategyController.swift */,
+				A89EEF531E78C43000CDE038 /* StrategyFormController.swift */,
+				A89EEF541E78C43000CDE038 /* StrategyTableViewController.swift */,
+				A89EEF551E78C43000CDE038 /* StrategyTableViewDataSource.swift */,
+				A89EEF561E78C43000CDE038 /* StrategyTableViewDelegate.swift */,
+			);
+			path = strategy;
+			sourceTree = "<group>";
+		};
+		A89EEF5D1E78C43B00CDE038 /* trade */ = {
+			isa = PBXGroup;
+			children = (
+				A89EEF5E1E78C43B00CDE038 /* TradeController.swift */,
+				A89EEF5F1E78C43B00CDE038 /* TradeFormController.swift */,
+				A89EEF601E78C43B00CDE038 /* TradeTableViewController.swift */,
+			);
+			path = trade;
 			sourceTree = "<group>";
 		};
 		A8C8CE991E7353CF00591493 = {
@@ -593,34 +642,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A84E1D011E73560B007FE0E9 /* EditStrategyTableViewController.swift in Sources */,
-				A84127F31E78AE6000C24788 /* ItemTableViewController.swift in Sources */,
+				A89EEF631E78C43B00CDE038 /* TradeTableViewController.swift in Sources */,
+				A89EEF621E78C43B00CDE038 /* TradeFormController.swift in Sources */,
+				A89EEF591E78C43000CDE038 /* StrategyFormController.swift in Sources */,
 				A84E1D1A1E73561D007FE0E9 /* Constants.swift in Sources */,
 				A84E1D031E73560B007FE0E9 /* HelpViewController.swift in Sources */,
 				A84127F81E78B61100C24788 /* ItemCell.swift in Sources */,
-				A84E1D0C1E73560B007FE0E9 /* TradeTableViewController.swift in Sources */,
+				A89EEF4E1E78C42600CDE038 /* ModelController.swift in Sources */,
 				A84E1D0D1E73560B007FE0E9 /* StoryboardFactory.swift in Sources */,
-				A84E1D0B1E73560B007FE0E9 /* TradeFormController.swift in Sources */,
+				A89EEF691E78C4CA00CDE038 /* BrokerTableViewDelegate.swift in Sources */,
+				A89EEF4F1E78C42600CDE038 /* ModelControllerUtilities.swift in Sources */,
+				A89EEF581E78C43000CDE038 /* StrategyController.swift in Sources */,
 				A84E1D061E73560B007FE0E9 /* RoutingController.swift in Sources */,
-				A84E1D051E73560B007FE0E9 /* ModelControllerUtilities.swift in Sources */,
 				A84E1D1D1E73561D007FE0E9 /* Broker.swift in Sources */,
-				A8BD83911E771162002EF3F5 /* TradeController.swift in Sources */,
-				A84E1D081E73560B007FE0E9 /* StrategyController.swift in Sources */,
-				A84127F11E78A2F600C24788 /* ItemTableViewDataSource.swift in Sources */,
-				A84E1CFF1E73560B007FE0E9 /* BrokerController.swift in Sources */,
+				A89EEF671E78C4CA00CDE038 /* BrokerTableViewController.swift in Sources */,
+				A89EEF5A1E78C43000CDE038 /* StrategyTableViewController.swift in Sources */,
 				A8C8CEA61E7353CF00591493 /* AppDelegate.swift in Sources */,
 				A84E1D1F1E73561D007FE0E9 /* Trade.swift in Sources */,
 				A84E1D001E73560B007FE0E9 /* CurrencyController.swift in Sources */,
-				A84E1D041E73560B007FE0E9 /* ModelController.swift in Sources */,
-				A84127EF1E787C0300C24788 /* StrategyTableViewDelegate.swift in Sources */,
-				A84127ED1E78786400C24788 /* StrategyTableViewDataSource.swift in Sources */,
 				A84E1D1C1E73561D007FE0E9 /* Utilities.swift in Sources */,
+				A89EEF571E78C43000CDE038 /* EditStrategyTableViewController.swift in Sources */,
+				A89EEF681E78C4CA00CDE038 /* BrokerTableViewDataSource.swift in Sources */,
 				A84E1D021E73560B007FE0E9 /* FormController.swift in Sources */,
-				A84E1D091E73560B007FE0E9 /* StrategyFormController.swift in Sources */,
 				A84E1D1E1E73561D007FE0E9 /* Strategy.swift in Sources */,
+				A89EEF4A1E78C41B00CDE038 /* ItemTableViewDataSource.swift in Sources */,
+				A89EEF451E78C41100CDE038 /* BrokerController.swift in Sources */,
 				A84E1D071E73560B007FE0E9 /* SplashViewController.swift in Sources */,
-				A84E1D0A1E73560B007FE0E9 /* StrategyTableViewController.swift in Sources */,
+				A89EEF5C1E78C43000CDE038 /* StrategyTableViewDelegate.swift in Sources */,
+				A89EEF491E78C41B00CDE038 /* ItemTableViewController.swift in Sources */,
 				A84E1D1B1E73561D007FE0E9 /* Realm.swift in Sources */,
+				A89EEF611E78C43B00CDE038 /* TradeController.swift in Sources */,
+				A89EEF5B1E78C43000CDE038 /* StrategyTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
