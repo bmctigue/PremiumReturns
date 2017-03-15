@@ -45,8 +45,6 @@ final class BrokerFormController: NSObject {
                 row.title = BrokerFormFieldNames.Commission.rawValue
                 row.value = 0
                 row.add(rule: RuleRequired())
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.broker.commission = Double(rowValue)

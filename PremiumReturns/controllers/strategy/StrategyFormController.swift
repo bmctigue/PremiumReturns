@@ -56,8 +56,6 @@ final class StrategyFormController: NSObject {
                 row.title = StrategyFormFieldNames.ProfitPercentage.rawValue
                 row.value = 0
                 row.add(rule: RuleRequired())
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.strategy.maxProfitPercentage = Double(rowValue)
@@ -68,8 +66,6 @@ final class StrategyFormController: NSObject {
                 row.title = StrategyFormFieldNames.WinningProbability.rawValue
                 row.value = 0
                 row.add(rule: RuleRequired())
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.strategy.winningProbability = Double(rowValue)

@@ -282,9 +282,9 @@
 		A89EEF431E78C41100CDE038 /* broker */ = {
 			isa = PBXGroup;
 			children = (
-				A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */,
 				A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */,
 				A89EEF441E78C41100CDE038 /* BrokerController.swift */,
+				A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */,
 				A89EEF641E78C4CA00CDE038 /* BrokerTableViewController.swift */,
 				A89EEF651E78C4CA00CDE038 /* BrokerTableViewDataSource.swift */,
 				A89EEF661E78C4CA00CDE038 /* BrokerTableViewDelegate.swift */,

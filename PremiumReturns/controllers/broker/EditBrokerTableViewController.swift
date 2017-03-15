@@ -15,6 +15,8 @@ class EditBrokerTableViewController: FormViewController {
     static let headerHeight: Float = 30.0
     static let fontName = "Avenir-Medium"
     static let fontSize: CGFloat = 12.0
+    static let missingTitle = "Broker Name"
+    static let missingMessage = "Your broker needs a unique name."
     
     var brokerFormController: BrokerFormController?
     var broker: Broker?
@@ -67,8 +69,8 @@ class EditBrokerTableViewController: FormViewController {
     }
     
     func doneButtonPressed() {
-        let missingNameTitle = "Broker Name"
-        let missingNameMessage = "Your broker needs a unique name."
+        let missingNameTitle = EditBrokerTableViewController.missingTitle
+        let missingNameMessage = EditBrokerTableViewController.missingMessage
         let validationErrors = form.validate()
         if validationErrors.count == 0 && BrokerController.sharedInstance.isUnique(brokerId: broker!.brokerId, name: broker!.name) {
             BrokerController.sharedInstance.save(broker: broker!)

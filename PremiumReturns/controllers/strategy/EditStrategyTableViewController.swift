@@ -15,6 +15,8 @@ class EditStrategyTableViewController: FormViewController {
     static let headerHeight: Float = 30.0
     static let fontName = "Avenir-Medium"
     static let fontSize: CGFloat = 12.0
+    static let missingTitle = "Strategy Name"
+    static let missingMessage = "Your stategy needs a unique name."
     
     var strategyFormController: StrategyFormController?
     var strategy: Strategy?
@@ -75,8 +77,8 @@ class EditStrategyTableViewController: FormViewController {
     }
     
     func doneButtonPressed() {
-        let missingNameTitle = "Strategy Name"
-        let missingNameMessage = "Your stategy needs a unique name."
+        let missingNameTitle = EditStrategyTableViewController.missingTitle
+        let missingNameMessage = EditStrategyTableViewController.missingMessage
         let validationErrors = form.validate()
         if validationErrors.count == 0 && StrategyController.sharedInstance.isUnique(strategyId: strategy!.strategyId, name: strategy!.name) {
             StrategyController.sharedInstance.save(strategy: strategy!)
