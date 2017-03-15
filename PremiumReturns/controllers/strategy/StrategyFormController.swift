@@ -9,6 +9,13 @@
 import UIKit
 import Eureka
 
+enum StrategyFormFieldNames: String {
+    case Name = "Strategy Name"
+    case Legs = "Legs"
+    case ProfitPercentage = "Profit Percentage"
+    case WinningProbability = "Probability of Winning"
+}
+
 final class StrategyFormController: NSObject {
     
     var form: Form?

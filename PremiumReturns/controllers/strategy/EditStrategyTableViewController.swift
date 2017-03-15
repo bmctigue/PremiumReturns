@@ -10,17 +10,6 @@ import UIKit
 import Eureka
 import ChameleonFramework
 
-enum StrategySectionNames: String {
-    case Data = "DATA"
-}
-
-enum StrategyFormFieldNames: String {
-    case Name = "Strategy Name"
-    case Legs = "Legs"
-    case ProfitPercentage = "Profit Percentage"
-    case WinningProbability = "Probability of Winning"
-}
-
 class EditStrategyTableViewController: FormViewController {
     
     static let headerHeight: Float = 30.0

@@ -23,8 +23,8 @@ class BrokerTableViewDelegate: NSObject {
     }
     
     func addButtonPressed() {
-//        let broker = broker.forType(type: .Custom, name: "", commission: 1.0)
-//        RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: broker)
+        let broker = Broker.forType(type: .Custom, name: "", commission: 1.0)
+        RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: broker)
     }
 }
 
@@ -33,6 +33,6 @@ extension BrokerTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         let newItem = item.copyWithID()
-//        RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: newItem)
+        RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: newItem)
     }
 }

@@ -24,15 +24,15 @@ final class RoutingController: NSObject {
         presentingController.present(navigationController, animated: true, completion: nil)
     }
     
-//    func openEditBroker(controller: EditItemTableViewControllerDelegate, broker: broker) {
-//        let storyboard = StoryboardFactory().create(name: "Broker")
-//        let editBrokerController: EditBrokerTableViewController = storyboard.instantiateViewController(withIdentifier: "EditBrokerTableViewController") as! EditBrokerTableViewController
-//        editBrokerController.strategy = broker
-//        editBrokerController.delegate = controller
-//        editBrokerController.title = broker.name
-//        let navigationController = UINavigationController(rootViewController: editBrokerController)
-//        navigationController.navigationBar.isTranslucent = false
-//        let presentingController = controller as! UIViewController
-//        presentingController.present(navigationController, animated: true, completion: nil)
-//    }
+    func openEditBroker(controller: EditItemTableViewControllerDelegate, broker: Broker) {
+        let storyboard = StoryboardFactory().create(name: "Broker")
+        let editBrokerController: EditBrokerTableViewController = storyboard.instantiateViewController(withIdentifier: "EditBrokerTableViewController") as! EditBrokerTableViewController
+        editBrokerController.broker = broker
+        editBrokerController.delegate = controller
+        editBrokerController.title = broker.name
+        let navigationController = UINavigationController(rootViewController: editBrokerController)
+        navigationController.navigationBar.isTranslucent = false
+        let presentingController = controller as! UIViewController
+        presentingController.present(navigationController, animated: true, completion: nil)
+    }
 }
