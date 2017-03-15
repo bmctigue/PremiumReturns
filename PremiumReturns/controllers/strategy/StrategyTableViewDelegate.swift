@@ -22,6 +22,10 @@ class StrategyTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
+    func updateDataSource() {
+        items = StrategyController.sharedInstance.all()
+    }
+    
     func addButtonPressed() {
         let strategy = Strategy.forType(type: .Custom, name: "", legs: 0, maxProfitPercentage: 0, winningProbability: 0)
         RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditItemTableViewControllerDelegate, strategy: strategy)

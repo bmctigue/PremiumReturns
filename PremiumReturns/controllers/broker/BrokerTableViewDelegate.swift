@@ -22,6 +22,10 @@ class BrokerTableViewDelegate: NSObject {
         tableView.delegate = self
     }
     
+    func updateDataSource() {
+        items = BrokerController.sharedInstance.all()
+    }
+    
     func addButtonPressed() {
         let broker = Broker.forType(type: .Custom, name: "", commission: 1.0)
         RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: broker)

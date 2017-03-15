@@ -24,6 +24,7 @@ class BrokerTableViewController: ItemTableViewController, EditItemTableViewContr
     
     func refreshData() {
         self.tableViewDataSource?.updateDataSource()
+        self.tableViewDelegate?.updateDataSource()
         self.tableView.reloadData()
     }
     
@@ -35,3 +36,4 @@ class BrokerTableViewController: ItemTableViewController, EditItemTableViewContr
         refreshData()
     }
 }
+

@@ -24,6 +24,7 @@ class StrategyTableViewController: ItemTableViewController, EditItemTableViewCon
     
     func refreshData() {
         self.tableViewDataSource?.updateDataSource()
+        self.tableViewDelegate?.updateDataSource()
         self.tableView.reloadData()
     }
     
