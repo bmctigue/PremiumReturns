@@ -12,7 +12,7 @@ final class RoutingController: NSObject {
     
     static let sharedInstance = RoutingController.init()
     
-    func openEditStrategy(controller: EditStrategyTableViewControllerDelegate, strategy: Strategy) {
+    func openEditStrategy(controller: EditItemTableViewControllerDelegate, strategy: Strategy) {
         let storyboard = StoryboardFactory().create(name: "Strategy")
         let editStrategyController: EditStrategyTableViewController = storyboard.instantiateViewController(withIdentifier: "EditStrategyTableViewController") as! EditStrategyTableViewController
         editStrategyController.strategy = strategy
@@ -24,7 +24,7 @@ final class RoutingController: NSObject {
         presentingController.present(navigationController, animated: true, completion: nil)
     }
     
-//    func openEditBroker(controller: EditBrokerTableViewControllerDelegate, broker: broker) {
+//    func openEditBroker(controller: EditItemTableViewControllerDelegate, broker: broker) {
 //        let storyboard = StoryboardFactory().create(name: "Broker")
 //        let editBrokerController: EditBrokerTableViewController = storyboard.instantiateViewController(withIdentifier: "EditBrokerTableViewController") as! EditBrokerTableViewController
 //        editBrokerController.strategy = broker

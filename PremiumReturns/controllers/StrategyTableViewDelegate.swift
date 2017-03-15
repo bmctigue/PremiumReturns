@@ -24,7 +24,7 @@ class StrategyTableViewDelegate: NSObject {
     
     func addButtonPressed() {
         let strategy = Strategy.forType(type: .Custom, name: "", legs: 0, maxProfitPercentage: 0, winningProbability: 0)
-        RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditStrategyTableViewControllerDelegate, strategy: strategy)
+        RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditItemTableViewControllerDelegate, strategy: strategy)
     }
 }
 
@@ -33,6 +33,6 @@ extension StrategyTableViewDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         let newItem = item.copyWithID()
-        RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditStrategyTableViewControllerDelegate, strategy: newItem)
+        RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditItemTableViewControllerDelegate, strategy: newItem)
     }
 }

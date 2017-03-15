@@ -8,33 +8,18 @@
 
 import UIKit
 
-class StrategyTableViewController: UITableViewController, EditStrategyTableViewControllerDelegate {
+class StrategyTableViewController: ItemTableViewController {
     
-    @IBOutlet weak var addBarButton: UIBarButtonItem!
-    
-    private(set) var tableViewDataSource: StrategyTableViewDataSource?
     private(set) var tableViewDelegate: StrategyTableViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView?.backgroundColor = UIColor.white
-        self.addBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
-        self.tableViewDataSource = StrategyTableViewDataSource(tableView: tableView, controller: self) 
         self.tableViewDelegate = StrategyTableViewDelegate(tableView: tableView, controller: self)
-        self.tableView.dataSource = tableViewDataSource
         self.tableView.delegate = tableViewDelegate
-    }
-    
-    func refreshData() {
-        self.tableViewDataSource?.updateDataSource()
-        self.tableView.reloadData()
+        refreshData()
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        self.tableViewDelegate?.addButtonPressed()
-    }
-    
-    func doneButtonPressed() {
-        refreshData()
+        tableViewDelegate?.addButtonPressed()
     }
 }

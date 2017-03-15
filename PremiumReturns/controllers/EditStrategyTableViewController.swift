@@ -21,10 +21,6 @@ enum StrategyFormFieldNames: String {
     case WinningProbability = "Probability of Winning"
 }
 
-protocol EditStrategyTableViewControllerDelegate {
-    func doneButtonPressed()
-}
-
 class EditStrategyTableViewController: FormViewController {
     
     static let headerHeight: Float = 30.0
@@ -33,7 +29,7 @@ class EditStrategyTableViewController: FormViewController {
     
     var strategyFormController: StrategyFormController?
     var strategy: Strategy?
-    var delegate: EditStrategyTableViewControllerDelegate?
+    var delegate: EditItemTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

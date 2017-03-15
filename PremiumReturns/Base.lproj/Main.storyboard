@@ -100,11 +100,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StrategyCell" id="pZg-Or-6Ra">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemCell" id="pZg-Or-6Ra" customClass="ItemCell" customModule="PremiumReturns" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pZg-Or-6Ra" id="Olz-h2-6eQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -117,7 +117,7 @@
                     <navigationItem key="navigationItem" title="Strategies" id="o26-Ts-TwC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ltr-my-qA4">
                             <connections>
-                                <action selector="addButtonPressed:" destination="rS3-Gl-cRS" id="srT-xg-pP9"/>
+                                <action selector="addButtonPressed:" destination="rS3-Gl-cRS" id="xEt-3j-zii"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
