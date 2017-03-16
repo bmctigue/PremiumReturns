@@ -11,7 +11,7 @@ import RealmSwift
 
 enum BrokerType: String {
     case TastyWorks = "TastyWorks"
-    case TDAmeritrade = "TDAmeritrade"
+    case TDAmeritrade = "TD Ameritrade"
     case Custom = "Custom"
     static let brokerTypes = [TastyWorks,Custom]
 }
