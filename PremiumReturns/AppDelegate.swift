@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureDefaultRealm()
         
-        loadDataIfEmpty()
+        Utilities.sharedInstance.loadDataIfEmpty()
         
         let storyboard = StoryboardFactory().create(name: "Splash")
         let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
@@ -27,16 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = UIColor(hexString: Constants.barButtonTintColor)
         
         return true
-    }
-    
-    func loadDataIfEmpty() {
-        if StrategyController.sharedInstance.all().count == 0 {
-            StrategyController.sharedInstance.loadDefault()
-        }
-        
-        if BrokerController.sharedInstance.all().count == 0 {
-            BrokerController.sharedInstance.loadDefault()
-        }
     }
 }
 

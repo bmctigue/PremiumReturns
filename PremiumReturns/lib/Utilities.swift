@@ -42,5 +42,15 @@ final class Utilities: NSObject {
         alert.popoverPresentationController?.sourceRect = CGRect(x: controller.view.bounds.size.width / 2.0, y: controller.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
         controller.present(alert, animated: true, completion: nil)
     }
+    
+    func loadDataIfEmpty() {
+        if StrategyController.sharedInstance.all().count == 0 {
+            StrategyController.sharedInstance.loadDefault()
+        }
+        
+        if BrokerController.sharedInstance.all().count == 0 {
+            BrokerController.sharedInstance.loadDefault()
+        }
+    }
 
 }
