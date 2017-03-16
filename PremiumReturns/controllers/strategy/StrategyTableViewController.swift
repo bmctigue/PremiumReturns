@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StrategyTableViewController: ItemTableViewController, EditItemTableViewControllerDelegate {
+final class StrategyTableViewController: ItemTableViewController, EditItemTableViewControllerDelegate {
     
     private(set) var tableViewDataSource: StrategyTableViewDataSource?
     private(set) var tableViewDelegate: StrategyTableViewDelegate?

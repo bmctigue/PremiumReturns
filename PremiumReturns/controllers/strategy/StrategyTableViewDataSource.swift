@@ -16,13 +16,19 @@ class StrategyTableViewDataSource: ItemTableViewDataSource {
     
     override func handleDeleteItem(alertAction: UIAlertAction!) -> Void {
         if let indexPath = deleteItemIndexPath {
-            let strategy = items[indexPath.row]
-            StrategyController.sharedInstance.remove(strategy: strategy as! Strategy)
-            tableView?.beginUpdates()
-            items.remove(at: indexPath.row)
-            tableView?.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-            deleteItemIndexPath = nil
-            tableView?.endUpdates()
+            let strategy = items[indexPath.row]  as! Strategy
+            if items.count == 1 {
+                let title = "Delete \(strategy.name)"
+                let message = "Sorry, you can't delete the last strategy."
+                Utilities.sharedInstance.displayAlert(controller: controller!, title: title, message: message)
+            } else {
+                StrategyController.sharedInstance.remove(strategy: strategy)
+                tableView?.beginUpdates()
+                items.remove(at: indexPath.row)
+                tableView?.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+                deleteItemIndexPath = nil
+                tableView?.endUpdates()
+            }
         }
     }
     
