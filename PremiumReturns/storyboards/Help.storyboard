@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oh2-3D-OEN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oh2-3D-OEN">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--HelpViewController-->
         <scene sceneID="9i8-5M-8qt">
             <objects>
-                <viewController storyboardIdentifier="HelpViewController" title="HelpViewController" id="Oh2-3D-OEN" customClass="HelpViewController" customModule="TastyReturns" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpViewController" title="HelpViewController" id="Oh2-3D-OEN" customClass="HelpViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="faa-w6-BeM"/>
                         <viewControllerLayoutGuide type="bottom" id="KOd-lW-eQv"/>
@@ -22,63 +22,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yM9-ef-mYY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZ6-Ev-VvG">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0b-MN-lAm">
-                                        <rect key="frame" x="10" y="62" width="300" height="380"/>
+                                        <rect key="frame" x="10" y="60" width="300" height="427"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Select your current strategy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3S-Fa-9fF">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Update Your Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3S-Fa-9fF">
                                                 <rect key="frame" x="24" y="0.0" width="252" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="strategySection" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-TP-mSQ">
-                                                <rect key="frame" x="0.0" y="29" width="300" height="50"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settingsSection" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-TP-mSQ">
+                                                <rect key="frame" x="0.0" y="29" width="300" height="77"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. Enter your trade data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGq-hf-nfo">
-                                                <rect key="frame" x="24" y="106" width="252" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. Enter Your Trade Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGq-hf-nfo">
+                                                <rect key="frame" x="24" y="124" width="252" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dataSection" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-cS-JvF">
-                                                <rect key="frame" x="0.0" y="135" width="300" height="108"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tradeSection" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-cS-JvF">
+                                                <rect key="frame" x="0.0" y="153" width="300" height="127"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. Review your returns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-ki-Gqv">
-                                                <rect key="frame" x="24" y="271" width="252" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. Review Your Returns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-ki-Gqv">
+                                                <rect key="frame" x="24" y="296" width="252" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="returnsSection" translatesAutoresizingMaskIntoConstraints="NO" id="1hW-CT-9hK">
-                                                <rect key="frame" x="0.0" y="300" width="300" height="80"/>
+                                                <rect key="frame" x="0.0" y="325" width="300" height="102"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="YuW-eW-Qof"/>
-                                            <constraint firstAttribute="height" constant="380" id="r6R-RQ-agf"/>
+                                            <constraint firstAttribute="height" constant="427" id="r6R-RQ-agf"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmv-3A-jjW">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmv-3A-jjW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="closeButtonPressed:" destination="Oh2-3D-OEN" eventType="touchUpInside" id="XPq-hs-zcL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFn-tg-Tac">
-                                        <rect key="frame" x="67" y="469" width="186" height="27"/>
+                                        <rect key="frame" x="67" y="513" width="186" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="186" id="5e1-EL-hbX"/>
                                         </constraints>
@@ -93,22 +94,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="bmv-3A-jjW" firstAttribute="leading" secondItem="EZ6-Ev-VvG" secondAttribute="leading" id="68S-aA-cWl"/>
-                                    <constraint firstItem="bmv-3A-jjW" firstAttribute="top" secondItem="EZ6-Ev-VvG" secondAttribute="top" id="Fag-nM-rUD"/>
-                                    <constraint firstAttribute="trailing" secondItem="bmv-3A-jjW" secondAttribute="trailing" id="Gua-ba-icl"/>
                                     <constraint firstAttribute="bottom" secondItem="tFn-tg-Tac" secondAttribute="bottom" constant="8" id="VkD-kB-E5w"/>
                                     <constraint firstItem="R0b-MN-lAm" firstAttribute="centerY" secondItem="EZ6-Ev-VvG" secondAttribute="centerY" id="i9B-Pz-Nsx"/>
-                                    <constraint firstAttribute="bottom" secondItem="bmv-3A-jjW" secondAttribute="bottom" id="iaq-Na-mpD"/>
                                     <constraint firstItem="tFn-tg-Tac" firstAttribute="centerX" secondItem="EZ6-Ev-VvG" secondAttribute="centerX" id="kMw-TL-gA0"/>
-                                    <constraint firstItem="R0b-MN-lAm" firstAttribute="centerX" secondItem="EZ6-Ev-VvG" secondAttribute="centerX" id="rh7-n1-ovm"/>
+                                    <constraint firstItem="R0b-MN-lAm" firstAttribute="centerX" secondItem="EZ6-Ev-VvG" secondAttribute="centerX" id="qk1-Gp-hri"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EZ6-Ev-VvG" firstAttribute="top" secondItem="faa-w6-BeM" secondAttribute="bottom" constant="44" id="C4M-xx-Guc"/>
+                            <constraint firstItem="EZ6-Ev-VvG" firstAttribute="top" secondItem="faa-w6-BeM" secondAttribute="bottom" id="C4M-xx-Guc"/>
                             <constraint firstItem="KOd-lW-eQv" firstAttribute="top" secondItem="EZ6-Ev-VvG" secondAttribute="bottom" id="Hfn-Br-73N"/>
-                            <constraint firstItem="yM9-ef-mYY" firstAttribute="top" secondItem="faa-w6-BeM" secondAttribute="bottom" constant="44" id="NEu-Ba-52j"/>
+                            <constraint firstItem="yM9-ef-mYY" firstAttribute="top" secondItem="faa-w6-BeM" secondAttribute="bottom" id="NEu-Ba-52j"/>
                             <constraint firstAttribute="trailing" secondItem="EZ6-Ev-VvG" secondAttribute="trailing" id="Qrx-Wi-3EN"/>
                             <constraint firstItem="yM9-ef-mYY" firstAttribute="leading" secondItem="Wkx-Mf-DWv" secondAttribute="leading" id="URZ-LC-389"/>
                             <constraint firstAttribute="trailing" secondItem="yM9-ef-mYY" secondAttribute="trailing" id="kDG-se-tWb"/>
@@ -126,8 +123,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dataSection" width="750" height="324"/>
-        <image name="returnsSection" width="750" height="239"/>
-        <image name="strategySection" width="750" height="149"/>
+        <image name="returnsSection" width="750" height="331"/>
+        <image name="settingsSection" width="750" height="246"/>
+        <image name="tradeSection" width="750" height="407"/>
     </resources>
 </document>

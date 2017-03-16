@@ -8,6 +8,27 @@
 
 import UIKit
 import Eureka
+import SwiftyUserDefaults
+
+enum SectionNames: String {
+    case Data = "TRADE"
+    case Settings = "SETTINGS"
+    case Returns = "RETURNS"
+    case Costs = "COSTS"
+}
+
+enum FormFieldNames: String {
+    case Strategy = "Select a Strategy"
+    case Broker = "Select a Broker"
+    case Trade = "Expected Return"
+    case ROC = "Return on Capital (%)"
+    case Premium = "Premium"
+    case MaxLoss = "Max Loss (BPR)"
+    case Contracts = "Contracts"
+    case Commissions = "Commissions"
+    case DaysToExpiration = "Days To Expiration"
+    case ReturnPerDay = "Return Per Day"
+}
 
 final class TradeFormController: NSObject {
     
@@ -15,6 +36,8 @@ final class TradeFormController: NSObject {
     var controller: TradeTableViewController?
     var strategies = StrategyController.sharedInstance.all()
     var firstStrategy: Strategy?
+    var brokers = BrokerController.sharedInstance.all()
+    var firstBroker: Broker?
     
     init(form: Form, controller: TradeTableViewController) {
         self.form = form
@@ -24,9 +47,15 @@ final class TradeFormController: NSObject {
     func refreshForm() {
         strategies = StrategyController.sharedInstance.all()
         firstStrategy = strategies.first
-        let row: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Strategy.rawValue)
-        row?.options = strategies.map{$0.name}
-        row?.reload()
+        let strategyRow: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Strategy.rawValue)
+        strategyRow?.options = strategies.map{$0.name}
+        strategyRow?.reload()
+        
+        brokers = BrokerController.sharedInstance.all()
+        firstBroker = brokers.first
+        let brokerRow: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Broker.rawValue)
+        brokerRow?.options = brokers.map{$0.name}
+        brokerRow?.reload()
     }
     
     func formSetup() {
@@ -42,8 +71,6 @@ final class TradeFormController: NSObject {
                 row.title = FormFieldNames.Premium.rawValue
                 row.value = 0
                 row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.controller?.trade.premium = Double(rowValue)
@@ -55,8 +82,6 @@ final class TradeFormController: NSObject {
                 row.title = FormFieldNames.MaxLoss.rawValue
                 row.value = 0
                 row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.cellSetup { cell, _  in
-                    cell.textField.keyboardType = .numberPad
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.controller?.trade.loss = Double(rowValue)
@@ -101,9 +126,9 @@ final class TradeFormController: NSObject {
             }
             
             +++ Section(){ section in
-                section.tag = "StrategySection"
+                section.tag = "SettingsSection"
                 section.header = {
-                    return FormController.sharedInstance.headerView(text: SectionNames.Strategies.rawValue)
+                    return FormController.sharedInstance.headerView(text: SectionNames.Settings.rawValue)
                 }()
             }
             <<< ActionSheetRow<String>(FormFieldNames.Strategy.rawValue) { row in
@@ -115,6 +140,19 @@ final class TradeFormController: NSObject {
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentStrategy = strategy
                         self.updateOutputFields()
+                        Defaults[.strategy] = strategy.strategyId
+                    }
+            }
+            <<< ActionSheetRow<String>(FormFieldNames.Broker.rawValue) { row in
+                row.title = FormFieldNames.Broker.rawValue
+                row.selectorTitle = FormFieldNames.Broker.rawValue
+                row.options = brokers.map{$0.name}
+                row.value = firstBroker?.name
+                }.onChange { row in
+                    if let rowValue = row.value, let broker = BrokerController.sharedInstance.find(name: rowValue).first {
+                        self.controller?.currentBroker = broker
+                        self.updateOutputFields()
+                        Defaults[.broker] = broker.brokerId
                     }
             }
             

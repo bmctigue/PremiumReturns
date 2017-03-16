@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyUserDefaults
 
 final class BrokerController {
     
@@ -78,6 +79,12 @@ final class BrokerController {
     func resetBroker() -> Broker {
         let allBrokers = all()
         if allBrokers.count > 0 {
+            if Defaults.hasKey(.broker) {
+                if let broker = BrokerController.sharedInstance.find(key: Defaults[.broker]) {
+                    return broker
+                }
+            }
+            Defaults[.broker] = allBrokers.first!.brokerId
             return allBrokers.first!
         }
         return loadDefaultBroker()
@@ -85,6 +92,7 @@ final class BrokerController {
     
     func loadDefaultBroker() -> Broker {
         let broker = Broker.forType(type: .TastyWorks, name: BrokerType.TastyWorks.rawValue, commission: 1.0)
+        Defaults[.broker] = broker.brokerId
         save(broker: broker)
         return broker
     }
@@ -92,5 +100,7 @@ final class BrokerController {
     func loadDefault() {
         removeAll()
         _ = loadDefaultBroker()
+        let tdAmeritradeBroker = Broker.forType(type: .TDAmeritrade, name: BrokerType.TDAmeritrade.rawValue, commission: 6.95)
+        save(broker: tdAmeritradeBroker)
     }
 }

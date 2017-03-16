@@ -3,10 +3,12 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - Eureka (2.0.1)
+  - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, tag `2.0.1`)
+  - SwiftyUserDefaults (from `https://github.com/radex/SwiftyUserDefaults.git`, tag `3.0.1`)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -14,6 +16,9 @@ EXTERNAL SOURCES:
   Eureka:
     :git: https://github.com/xmartlabs/Eureka.git
     :tag: 2.0.1
+  SwiftyUserDefaults:
+    :git: https://github.com/radex/SwiftyUserDefaults.git
+    :tag: 3.0.1
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
@@ -22,11 +27,15 @@ CHECKOUT OPTIONS:
   Eureka:
     :git: https://github.com/xmartlabs/Eureka.git
     :tag: 2.0.1
+  SwiftyUserDefaults:
+    :git: https://github.com/radex/SwiftyUserDefaults.git
+    :tag: 3.0.1
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: b40fbccd381b2b5d6a1c138d23806993a950d7d7
+  SwiftyUserDefaults: 38267a30d58b7c8570995cd5defd354e43f056c6
 
-PODFILE CHECKSUM: 1e2537d4eccd1c06c45ac9727bd8883eb3023be9
+PODFILE CHECKSUM: f0ef622d1d262acdff751bfad90f7659078b0cb5
 
 COCOAPODS: 1.2.0

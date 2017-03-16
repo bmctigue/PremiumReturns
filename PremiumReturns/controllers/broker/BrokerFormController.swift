@@ -44,6 +44,7 @@ final class BrokerFormController: NSObject {
                 row.useFormatterDuringInput = true
                 row.title = BrokerFormFieldNames.Commission.rawValue
                 row.value = 0
+                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {

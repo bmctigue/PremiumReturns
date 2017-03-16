@@ -61,11 +61,15 @@ final class TradeController {
     }
     
     func resetOutputFields(form: Form) {
-        let strategies = StrategyController.sharedInstance.all()
-        let firstStrategy = strategies.first
+        let strategy = StrategyController.sharedInstance.resetStrategy()
         let strategyRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Strategy.rawValue)
-        strategyRow?.value = firstStrategy?.name
+        strategyRow?.value = strategy.name
         strategyRow?.updateCell()
+        
+        let broker = BrokerController.sharedInstance.resetBroker()
+        let brokerRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Broker.rawValue)
+        brokerRow?.value = broker.name
+        brokerRow?.updateCell()
         
         let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.Trade.rawValue)
         expectedReturnRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)

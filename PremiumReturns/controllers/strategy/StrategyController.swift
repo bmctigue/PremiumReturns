@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyUserDefaults
 
 final class StrategyController {
     
@@ -86,6 +87,12 @@ final class StrategyController {
     func resetStrategy() -> Strategy {
         let allStrategies = all()
         if allStrategies.count > 0 {
+            if Defaults.hasKey(.strategy) {
+                if let strategy = StrategyController.sharedInstance.find(key: Defaults[.strategy]) {
+                    return strategy
+                }
+            }
+            Defaults[.strategy] = allStrategies.first!.strategyId
             return allStrategies.first!
         }
         return loadDefaultStrategy()
@@ -93,6 +100,7 @@ final class StrategyController {
     
     func loadDefaultStrategy() -> Strategy {
         let strategy = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        Defaults[.strategy] = strategy.strategyId
         save(strategy: strategy)
         return strategy
     }

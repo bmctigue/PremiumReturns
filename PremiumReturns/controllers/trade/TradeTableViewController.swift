@@ -10,25 +10,6 @@ import UIKit
 import Eureka
 import ChameleonFramework
 
-enum SectionNames: String {
-    case Data = "TRADE"
-    case Strategies = "STRATEGIES"
-    case Returns = "RETURNS"
-    case Costs = "COSTS"
-}
-
-enum FormFieldNames: String {
-    case Strategy = "Select a Strategy"
-    case Trade = "Expected Return"
-    case ROC = "Return on Capital (%)"
-    case Premium = "Premium"
-    case MaxLoss = "Max Loss (BPR)"
-    case Contracts = "Contracts"
-    case Commissions = "Commissions"
-    case DaysToExpiration = "Days To Expiration"
-    case ReturnPerDay = "Return Per Day"
-}
-
 class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     @IBOutlet weak var resetBarButton: UIBarButtonItem!
@@ -44,6 +25,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     static let fontSize: CGFloat = 12.0
     static let helpViewDuration: Double = 0.75
     static let daysToExpiration: Int = 45
+    static let tabBarHeight: CGFloat = 50.0
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
@@ -97,7 +79,8 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         let helpStoryboard = StoryboardFactory().create(name: "Help")
         if let helpViewController = helpStoryboard.instantiateInitialViewController() as? HelpViewController {
             self.helpViewController = helpViewController
-            self.helpViewController?.view.frame = self.view.bounds
+            let height = self.view.frame.height - TradeTableViewController.tabBarHeight
+            self.helpViewController?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: height)
             self.helpViewController?.view.alpha = 0
             self.helpViewController?.delegate = self
             self.view.addSubview((self.helpViewController?.view)!)
