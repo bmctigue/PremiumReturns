@@ -35,7 +35,8 @@ final class BrokerTableViewDataSource: ItemTableViewDataSource {
     override func textForCell(cell: ItemCell, item: AnyObject) -> ItemCell {
         let broker = item as! Broker
         let title = broker.name
-        let detailText = "commission: \(broker.commission)"
+        let formattedValue = Utilities.sharedInstance.formatOutput(value: broker.commission, showType: true)
+        let detailText = "commission: \(formattedValue)"
         cell.updateCell(title: title, detailText: detailText)
         return cell
     }

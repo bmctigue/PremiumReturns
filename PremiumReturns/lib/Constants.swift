@@ -20,7 +20,6 @@ import Foundation
 import SwiftyUserDefaults
 
 struct Constants {
-    static let kUserHasOnboardedKey = "user_has_onboarded"
     static let barButtonTintColor = "E31B23"
     static let headerHeight: Float = 30.0
     static let fontName = "Avenir-Medium"
@@ -28,6 +27,7 @@ struct Constants {
 }
 
 extension DefaultsKeys {
+    static let userHasOnboarded = DefaultsKey<Bool>("user_has_onboarded")
     static let broker = DefaultsKey<String>("broker")
     static let strategy = DefaultsKey<String>("strategy")
 }

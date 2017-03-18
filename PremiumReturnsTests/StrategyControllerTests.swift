@@ -93,6 +93,5 @@ class StrategyControllerTests: XCTestCase {
         StrategyController.sharedInstance.removeAll()
         firstStrategy = StrategyController.sharedInstance.resetStrategy()
         XCTAssertEqual(firstStrategy.strategyType, StrategyType.IronCondor.rawValue)
-        
     }
 }

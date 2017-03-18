@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import ChameleonFramework
+import SwiftyUserDefaults
 
 class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
@@ -61,13 +62,12 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let userHasOnboarded = UserDefaults.standard.bool(forKey: Constants.kUserHasOnboardedKey)
-        if (!userHasOnboarded) {
+        if (!Defaults[.userHasOnboarded]) {
             let when = DispatchTime.now() + 1
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.showHelpView()
             }
-            UserDefaults.standard.set(true, forKey: Constants.kUserHasOnboardedKey)
+            Defaults[.userHasOnboarded] = true
         }
     }
     
