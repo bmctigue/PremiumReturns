@@ -38,7 +38,9 @@ struct TastyReturn: Trade {
     
     func calculate(maxProfitPercentage: Double, winningProbability: Double, contracts: Int, commissions: Double) -> Double {
         let maxProfit = Double(premium * 100 * Double(contracts))
-        return ((maxProfitPercentage * maxProfit) * winningProbability) - (Double(1.0 - winningProbability) * loss) - commissions
+        let adjustedPercentage = maxProfitPercentage/100.0
+        let adjustedProbability = winningProbability/100.0
+        return ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * loss) - commissions
     }
     
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double {

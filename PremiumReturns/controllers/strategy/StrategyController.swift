@@ -99,7 +99,7 @@ final class StrategyController {
     }
     
     func loadDefaultStrategy() -> Strategy {
-        let strategy = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        let strategy = Strategy.forType(type: .IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 50, winningProbability: 90)
         Defaults[.strategy] = strategy.strategyId
         save(strategy: strategy)
         return strategy
@@ -108,17 +108,17 @@ final class StrategyController {
     func loadDefault() {
         removeAll()
         _ = loadDefaultStrategy()
-        let ironFly = Strategy.forType(type: .IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 0.25, winningProbability: 0.65)
+        let ironFly = Strategy.forType(type: .IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 25, winningProbability: 65)
         StrategyController.sharedInstance.save(strategy: ironFly)
-        let verticalSpread = Strategy.forType(type: .VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        let verticalSpread = Strategy.forType(type: .VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 50, winningProbability: 90)
         StrategyController.sharedInstance.save(strategy: verticalSpread)
-        let straddle = Strategy.forType(type: .Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 0.25, winningProbability: 0.75)
+        let straddle = Strategy.forType(type: .Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 25, winningProbability: 75)
         StrategyController.sharedInstance.save(strategy: straddle)
-        let strangle = Strategy.forType(type: .Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        let strangle = Strategy.forType(type: .Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 50, winningProbability: 90)
         StrategyController.sharedInstance.save(strategy: strangle)
-        let ratioSpread = Strategy.forType(type: .RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 0.25, winningProbability: 0.75)
+        let ratioSpread = Strategy.forType(type: .RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 25, winningProbability: 75)
         StrategyController.sharedInstance.save(strategy: ratioSpread)
-        let jadeLizard = Strategy.forType(type: .JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 0.50, winningProbability: 0.90)
+        let jadeLizard = Strategy.forType(type: .JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 50, winningProbability: 90)
         StrategyController.sharedInstance.save(strategy: jadeLizard)
     }
 }

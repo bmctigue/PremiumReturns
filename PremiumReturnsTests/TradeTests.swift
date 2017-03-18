@@ -26,7 +26,7 @@ class TradeTests: XCTestCase {
     override func setUp() {
         trade = TastyReturn(premium: TradeTests.premium, loss: TradeTests.loss, contracts: TradeTests.contracts)
         commissions = trade!.totalCommissions(commissionPerContract: TradeTests.commissionPerContract, legs: TradeTests.legs)
-        calculatedReturn = trade!.calculate(maxProfitPercentage: 0.25, winningProbability: 0.75, contracts: TradeTests.contracts, commissions: commissions!)
+        calculatedReturn = trade!.calculate(maxProfitPercentage: 25, winningProbability: 75, contracts: TradeTests.contracts, commissions: commissions!)
     }
     
     func testTotalCommissions() {

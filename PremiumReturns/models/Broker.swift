@@ -13,7 +13,7 @@ enum BrokerType: String {
     case TastyWorks = "TastyWorks"
     case TDAmeritrade = "TD Ameritrade"
     case Custom = "Custom"
-    static let brokerTypes = [TastyWorks,Custom]
+    static let brokerTypes = [TastyWorks, TDAmeritrade, Custom]
 }
 
 protocol BrokerProtocol {

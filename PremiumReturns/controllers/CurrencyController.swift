@@ -20,6 +20,13 @@ final class CurrencyController: NSObject {
         formatter.numberStyle = .currency
         return formatter
     }
+    
+    func defaultDecimalFormatter() -> CurrencyFormatter {
+        let formatter = CurrencyFormatter()
+        formatter.locale = .current
+        formatter.numberStyle = .decimal
+        return formatter
+    }
 }
 
 class CurrencyFormatter : NumberFormatter, FormatterProtocol {

@@ -55,7 +55,7 @@ final class StrategyFormController: NSObject {
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.ProfitPercentage.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                row.formatter = CurrencyController.sharedInstance.defaultDecimalFormatter()
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {
@@ -66,7 +66,7 @@ final class StrategyFormController: NSObject {
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.WinningProbability.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                row.formatter = CurrencyController.sharedInstance.defaultDecimalFormatter()
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {

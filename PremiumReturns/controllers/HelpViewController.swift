@@ -12,7 +12,7 @@ protocol HelpViewControllerProtocol {
     func closeButtonPressed()
 }
 
-class HelpViewController: UIViewController {
+final class HelpViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIButton!
     

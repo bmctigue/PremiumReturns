@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var logoView: UIView!
