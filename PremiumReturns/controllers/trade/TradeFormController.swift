@@ -84,7 +84,7 @@ final class TradeFormController: NSObject {
                 row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                 }.onChange { row in
                     if let rowValue = row.value {
-                        self.controller?.trade.loss = Double(rowValue)
+                        self.controller?.trade.maxLoss = Double(rowValue)
                         self.updateOutputFields()
                     }
             }

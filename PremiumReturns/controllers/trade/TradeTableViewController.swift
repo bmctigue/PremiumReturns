@@ -30,7 +30,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
-    var trade = TastyReturn(premium: 0, loss: 0, contracts: 1)
+    var trade = Trade(premium: 0, maxLoss: 0, contracts: 1, commission: 0)
     var helpViewController: HelpViewController?
     var tradeFormController: TradeFormController?
 
@@ -49,13 +49,13 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         addHelpView()
         currentBroker = BrokerController.sharedInstance.resetBroker()
         currentStrategy = StrategyController.sharedInstance.resetStrategy()
-        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade) as! TastyReturn
+        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission) 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tradeFormController?.refreshForm()
-        TradeController.sharedInstance.updateInputFields(form: form, premium: trade.premium, loss: trade.loss, contracts: trade.contracts, days: trade.daysToExpiration)
+        TradeController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
-        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade) as! TastyReturn
+        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission)
     }
     
     @IBAction func helpButtonPressed(_ sender: Any) {

@@ -12,10 +12,10 @@ import XCTest
 class TradeTests: XCTestCase {
     
     static var premium: Double = 2.22
-    static var loss: Double = 78
+    static var maxLoss: Double = 78
     static var contracts: Int = 1
     static var legs: Int = 4
-    static var commissionPerContract: Double = 1.0
+    static var commission: Double = 1.0
     static var totalReturns = 90.0
     static var days = 45
     
@@ -24,9 +24,14 @@ class TradeTests: XCTestCase {
     var calculatedReturn: Double?
     
     override func setUp() {
-        trade = TastyReturn(premium: TradeTests.premium, loss: TradeTests.loss, contracts: TradeTests.contracts)
-        commissions = trade!.totalCommissions(commissionPerContract: TradeTests.commissionPerContract, legs: TradeTests.legs)
-        calculatedReturn = trade!.calculate(maxProfitPercentage: 25, winningProbability: 75, contracts: TradeTests.contracts, commissions: commissions!)
+        trade = Trade(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, contracts: TradeTests.contracts, commission: TradeTests.commission)
+        commissions = trade!.totalCommissions(commissionPerContract: TradeTests.commission, legs: TradeTests.legs)
+        calculatedReturn = trade!.calculate(maxProfitPercentage: 25, winningProbability: 75, contracts: TradeTests.contracts, commission: commissions!)
+    }
+    
+    func testMaxProfit() {
+        let maxProfit = trade?.maxProfit(contracts: trade!.contracts)
+        XCTAssertEqual(roundValue(maxProfit!,toDecimalPlaces: 2), 222.00)
     }
     
     func testTotalCommissions() {
@@ -38,7 +43,7 @@ class TradeTests: XCTestCase {
     }
     
     func testReturnOnCapital() {
-        let roc = trade!.returnOnCapital(profit: calculatedReturn!, maxLoss: TradeTests.loss)
+        let roc = trade!.returnOnCapital(profit: calculatedReturn!, maxLoss: TradeTests.maxLoss)
         XCTAssertEqual(roundValue(roc,toDecimalPlaces: 2), 23.24)
     }
     
