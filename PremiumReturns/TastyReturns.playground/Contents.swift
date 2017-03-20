@@ -64,7 +64,6 @@ import UIKit
     dismiss
  done
     saveStrategy
- 
  ==================
  
  Broker
@@ -75,8 +74,6 @@ import UIKit
  
  TODO
  ====
- Add Max Profits to the trade view, refactor calculation
- Add commission to the trade
  Add Live tableview for trades with code to update with data base notifications
  Add section for live to display live activity with button to share
  Add code for Realm to use remote data store
