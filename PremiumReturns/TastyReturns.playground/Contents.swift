@@ -50,10 +50,8 @@ import UIKit
  
  StrategyTableViewController
  =======
- +
-    addCustomStrategy - using the strategy name for realm key
- rowSelected
-    open editStrategy
+ + addCustomStrategy
+ rowSelected - open editStrategy
  swipe to delete strategy
  =======
  
@@ -77,9 +75,11 @@ import UIKit
  
  TODO
  ====
- Maybe - Update MaxLoss to default to MaxProfit * 2 (premium * Double(contracts) * 100.0) * 2.0
- 
- Save Selected Strategy/Broker - user defaults
+ Add Max Profits to the trade view, refactor calculation
+ Add commission to the trade
+ Add Live tableview for trades with code to update with data base notifications
+ Add section for live to display live activity with button to share
+ Add code for Realm to use remote data store
  ====
  
 */
