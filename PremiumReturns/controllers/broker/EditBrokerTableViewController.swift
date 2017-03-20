@@ -13,8 +13,8 @@ import ChameleonFramework
 class EditBrokerTableViewController: FormViewController {
     
     static let headerHeight: Float = 30.0
-    static let fontName = "Avenir-Medium"
-    static let fontSize: CGFloat = 12.0
+    static let fontName = FontType.Primary.fontName
+    static let fontSize: CGFloat = FontType.Primary.fontSize
     static let missingTitle = "Broker Name"
     static let missingMessage = "Your broker needs a unique name."
     
@@ -46,9 +46,7 @@ class EditBrokerTableViewController: FormViewController {
     
     func setUpNavigationButtons() {
         let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(EditBrokerTableViewController.cancelButtonPressed))
-        cancelBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EditBrokerTableViewController.doneButtonPressed))
-        doneBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
         let topViewController = self.navigationController!.topViewController
         topViewController!.navigationItem.leftBarButtonItem = cancelBarButton
         topViewController!.navigationItem.rightBarButtonItem = doneBarButton

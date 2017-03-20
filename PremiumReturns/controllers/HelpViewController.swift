@@ -15,6 +15,7 @@ protocol HelpViewControllerProtocol {
 final class HelpViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var viewCloseButton: UIButton!
     
     var delegate: HelpViewControllerProtocol?
     
@@ -22,11 +23,12 @@ final class HelpViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Help"
-        self.closeButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
+        self.closeButton.tintColor = StyleManager.theme()
+        self.closeButton.backgroundColor = StyleManager.clearTheme()
+        self.viewCloseButton.backgroundColor = StyleManager.clearTheme()
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         delegate?.closeButtonPressed()
     }
-    
 }

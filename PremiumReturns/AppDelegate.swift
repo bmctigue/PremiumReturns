@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
         self.window?.rootViewController = controller
         
-        UITabBar.appearance().tintColor = UIColor(hexString: Constants.barButtonTintColor)
+        StyleManager.setUpTheme()
         
         return true
     }

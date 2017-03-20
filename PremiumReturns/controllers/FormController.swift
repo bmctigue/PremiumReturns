@@ -18,7 +18,7 @@ final class FormController {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: CGFloat(TradeTableViewController.headerHeight)))
             view.backgroundColor = .flatWhite
             let label = UILabel(frame: CGRect(x: 15.0, y: 0, width: view.frame.width - 15.0, height: view.frame.height))
-            label.font = UIFont(name: Constants.fontName, size: CGFloat(Constants.fontSize))
+            label.font = UIFont(name: FontType.Primary.fontName, size: FontType.Primary.fontSize)
             label.text = text
             view.addSubview(label)
             return view

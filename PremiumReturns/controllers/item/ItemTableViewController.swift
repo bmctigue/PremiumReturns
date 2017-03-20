@@ -19,6 +19,5 @@ class ItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView?.backgroundColor = UIColor.white
-        self.addBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
     }
 }

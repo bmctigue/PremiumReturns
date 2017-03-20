@@ -22,8 +22,8 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     static let maxLoss: Double = 1500.0
     static let contractsPremium: Double = 10
     static let headerHeight: Float = 30.0
-    static let fontName = "Avenir-Medium"
-    static let fontSize: CGFloat = 12.0
+    static let fontName = FontType.Primary.fontName
+    static let fontSize: CGFloat = FontType.Primary.fontSize
     static let helpViewDuration: Double = 0.75
     static let daysToExpiration: Int = 45
     static let tabBarHeight: CGFloat = 50.0
@@ -40,8 +40,6 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         self.title = TradeTableViewController.controllerTitle
         self.tableView?.backgroundColor = UIColor.white
         self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        self.resetBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
-        self.helpBarButton.tintColor = UIColor(hexString: Constants.barButtonTintColor)
         
         tradeFormController = TradeFormController(form: form, controller: self)
         tradeFormController?.formSetup()

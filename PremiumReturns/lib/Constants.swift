@@ -20,10 +20,7 @@ import Foundation
 import SwiftyUserDefaults
 
 struct Constants {
-    static let barButtonTintColor = "E31B23"
     static let headerHeight: Float = 30.0
-    static let fontName = "Avenir-Medium"
-    static let fontSize: Float = 12.0
 }
 
 extension DefaultsKeys {
