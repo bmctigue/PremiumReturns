@@ -22,11 +22,12 @@
                         <segue destination="HMb-Ut-Vkk" kind="relationship" relationship="viewControllers" id="zTQ-3V-kyi"/>
                         <segue destination="Wvb-mo-VMG" kind="relationship" relationship="viewControllers" id="gP6-PF-mOE"/>
                         <segue destination="d7Y-W7-JZ8" kind="relationship" relationship="viewControllers" id="JHX-PQ-Jv9"/>
+                        <segue destination="yec-Np-5Y2" kind="relationship" relationship="viewControllers" id="BZW-Fc-Vg0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RoG-ga-36Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2132" y="55"/>
+            <point key="canvasLocation" x="-2224" y="805"/>
         </scene>
         <!--TradeTableViewController-->
         <scene sceneID="r8v-r8-aXe">
@@ -202,6 +203,68 @@
             </objects>
             <point key="canvasLocation" x="-412" y="1191"/>
         </scene>
+        <!--LiveTradeTableViewController-->
+        <scene sceneID="bDa-DX-ttq">
+            <objects>
+                <tableViewController storyboardIdentifier="LiveTradeTableViewController" title="LiveTradeTableViewController" id="gT9-eB-2hs" customClass="LiveTradeTableViewController" customModule="PremiumReturns" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zv4-T9-TLi">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="orm-Ko-A6x" detailTextLabel="P5z-4h-UMZ" style="IBUITableViewCellStyleSubtitle" id="7R4-xy-Ymt" customClass="ItemCell" customModule="PremiumReturns" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7R4-xy-Ymt" id="JHB-KH-70S">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="orm-Ko-A6x">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P5z-4h-UMZ">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gT9-eB-2hs" id="JEh-w0-tfj"/>
+                            <outlet property="delegate" destination="gT9-eB-2hs" id="Jsx-it-VuL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Live Trades" id="rYV-zX-7n7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mU8-38-zbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-413" y="1969"/>
+        </scene>
+        <!--Live Trades-->
+        <scene sceneID="86B-7u-5qg">
+            <objects>
+                <navigationController id="yec-Np-5Y2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Live Trades" image="Upload" id="6Da-GY-Tvv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="E1K-Qn-6nO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gT9-eB-2hs" kind="relationship" relationship="rootViewController" id="7dk-PH-D6b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vqv-9I-KK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1269" y="1969"/>
+        </scene>
         <!--Brokers-->
         <scene sceneID="qHR-5v-mLJ">
             <objects>
@@ -241,5 +304,6 @@
         <image name="Files" width="22" height="27"/>
         <image name="Group" width="31" height="29"/>
         <image name="Home" width="25" height="25"/>
+        <image name="Upload" width="19" height="27"/>
     </resources>
 </document>
