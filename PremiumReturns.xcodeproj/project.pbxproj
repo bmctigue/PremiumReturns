@@ -35,6 +35,7 @@
 		A889C36E1E79A43A004F3AD7 /* BrokerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */; };
 		A889C36F1E79A43A004F3AD7 /* EditBrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */; };
 		A889C3711E79C0B8004F3AD7 /* Broker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A889C3701E79C0B8004F3AD7 /* Broker.storyboard */; };
+		A88F98B11E8081B100A15E17 /* TradeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F98B01E8081B100A15E17 /* TradeControllerTests.swift */; };
 		A89EEF451E78C41100CDE038 /* BrokerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF441E78C41100CDE038 /* BrokerController.swift */; };
 		A89EEF491E78C41B00CDE038 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */; };
 		A89EEF4A1E78C41B00CDE038 /* ItemTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */; };
@@ -132,6 +133,7 @@
 		A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerFormController.swift; sourceTree = "<group>"; };
 		A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBrokerTableViewController.swift; sourceTree = "<group>"; };
 		A889C3701E79C0B8004F3AD7 /* Broker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Broker.storyboard; sourceTree = "<group>"; };
+		A88F98B01E8081B100A15E17 /* TradeControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeControllerTests.swift; sourceTree = "<group>"; };
 		A89EEF441E78C41100CDE038 /* BrokerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerController.swift; sourceTree = "<group>"; };
 		A89EEF471E78C41B00CDE038 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		A89EEF481E78C41B00CDE038 /* ItemTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				A8F184B01E76DB5D0019F04E /* StrategyControllerTests.swift */,
 				A8F184BA1E76EAB70019F04E /* StrategyTests.swift */,
 				A8F184B11E76DB5D0019F04E /* TradeTests.swift */,
+				A88F98B01E8081B100A15E17 /* TradeControllerTests.swift */,
 				A8F184B21E76DB5D0019F04E /* UtilitiesTests.swift */,
 				A8C8CEBC1E7353CF00591493 /* Info.plist */,
 			);
@@ -708,6 +711,7 @@
 				A8F184B41E76DB5D0019F04E /* CurrencyControllerTests.swift in Sources */,
 				A8F184B51E76DB5D0019F04E /* ModelControllerTests.swift in Sources */,
 				A8F184B91E76DB5D0019F04E /* UtilitiesTests.swift in Sources */,
+				A88F98B11E8081B100A15E17 /* TradeControllerTests.swift in Sources */,
 				A8F184BB1E76EAB70019F04E /* StrategyTests.swift in Sources */,
 				A8F184B61E76DB5D0019F04E /* ModelControllerUtilitiesTests.swift in Sources */,
 				A8F184B31E76DB5D0019F04E /* BrokerControllerTests.swift in Sources */,

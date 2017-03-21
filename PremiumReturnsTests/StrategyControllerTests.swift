@@ -15,6 +15,10 @@ class StrategyControllerTests: XCTestCase {
         ModelControllerUtilities.sharedInstance.clearAllModelControllers()
     }
     
+    override func tearDown() {
+        ModelControllerUtilities.sharedInstance.clearAllModelControllers()
+    }
+    
     func testFind() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         let firstStrategy = StrategyController.sharedInstance.all().first!

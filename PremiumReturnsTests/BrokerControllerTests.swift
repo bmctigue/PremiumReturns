@@ -15,6 +15,10 @@ class BrokerControllerTests: XCTestCase {
         ModelControllerUtilities.sharedInstance.clearAllModelControllers()
     }
     
+    override func tearDown() {
+        ModelControllerUtilities.sharedInstance.clearAllModelControllers()
+    }
+    
     func testFind() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         let firstBroker = BrokerController.sharedInstance.all().first!

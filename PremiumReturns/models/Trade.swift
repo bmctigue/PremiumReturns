@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol TradeProtocol {
+    var tradeId: String { get }
     var premium: Double { set get }
     var maxLoss: Double { set get }
     var contracts: Int { set get }
@@ -21,19 +23,25 @@ protocol TradeProtocol {
     func returnPerDay(totalReturn: Double, days: Int) -> Double
 }
 
-struct Trade: TradeProtocol {
+class Trade: Object, TradeProtocol {
+    dynamic var tradeId: String = NSUUID().uuidString
+    dynamic var premium: Double = 0.0
+    dynamic var maxLoss: Double = 0.0
+    dynamic var contracts: Int = 1
+    dynamic var daysToExpiration: Int = 45
+    dynamic var commission: Double = 0
     
-    var premium: Double = 0.0
-    var maxLoss: Double = 0.0
-    var contracts: Int = 1
-    var daysToExpiration: Int = 45
-    var commission: Double = 0
+    class func withPremium(premium: Double, maxLoss: Double, contracts: Int, commission: Double) -> Trade {
+        let attributesHash = ["premium": premium, "maxLoss": maxLoss, "contracts": contracts, "commission":commission] as [String : Any]
+        return Trade(value: attributesHash)
+    }
     
-    init(premium: Double, maxLoss: Double, contracts: Int, commission: Double) {
-        self.premium = premium
-        self.maxLoss = maxLoss
-        self.contracts = contracts
-        self.commission = commission
+    override static func indexedProperties() -> [String] {
+        return ["tradeId"]
+    }
+    
+    override static func primaryKey() -> String? {
+        return "tradeId"
     }
     
     func maxProfit(contracts: Int) -> Double {
@@ -57,5 +65,10 @@ struct Trade: TradeProtocol {
     
     func returnPerDay(totalReturn: Double, days: Int) -> Double {
         return totalReturn/Double(days)
+    }
+    
+    func copyWithPremium() -> Trade {
+        let attributesHash = ["premium": self.premium, "maxLoss": self.maxLoss, "contracts": self.contracts, "commission":self.commission] as [String : Any]
+        return Trade(value: attributesHash)
     }
 }

@@ -30,7 +30,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
-    var trade = Trade(premium: 0, maxLoss: 0, contracts: 1, commission: 0)
+    var trade = Trade.withPremium(premium: 0, maxLoss: 0, contracts: 1, commission: 0)
     var helpViewController: HelpViewController?
     var tradeFormController: TradeFormController?
 

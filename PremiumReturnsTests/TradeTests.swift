@@ -24,7 +24,7 @@ class TradeTests: XCTestCase {
     var calculatedReturn: Double?
     
     override func setUp() {
-        trade = Trade(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, contracts: TradeTests.contracts, commission: TradeTests.commission)
+        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, contracts: TradeTests.contracts, commission: TradeTests.commission)
         commissions = trade!.totalCommissions(commissionPerContract: TradeTests.commission, legs: TradeTests.legs)
         calculatedReturn = trade!.calculate(maxProfitPercentage: 25, winningProbability: 75, contracts: TradeTests.contracts, commission: commissions!)
     }
@@ -50,6 +50,11 @@ class TradeTests: XCTestCase {
     func testReturnPerDay() {
         let returnPerDay = trade!.returnPerDay(totalReturn: TradeTests.totalReturns, days: TradeTests.days)
         XCTAssertEqual(returnPerDay, 2.0)
+    }
+    
+    func testCopyWithPremium() {
+        let copiedTrade = trade!.copyWithPremium()
+        XCTAssertEqual(copiedTrade.premium, trade!.premium)
     }
     
     func roundValue(_ value: Double, toDecimalPlaces places: Int) -> Double {
