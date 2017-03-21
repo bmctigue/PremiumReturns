@@ -27,19 +27,25 @@ class ItemTableViewDataSource: NSObject {
     }
     
     func confirmDelete(itemName: String) {
-        let alert = UIAlertController(title: "Delete \(itemName)", message: "Are you sure you want to delete \(itemName)?", preferredStyle: .actionSheet)
-        
-        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteItem)
-        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteItem)
-        
-        alert.addAction(DeleteAction)
-        alert.addAction(CancelAction)
-        
-        // Support display in iPad
-        alert.popoverPresentationController?.sourceView = controller!.view
-        alert.popoverPresentationController?.sourceRect = CGRect(x: controller!.view.bounds.size.width / 2.0, y: controller!.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
-        
-        controller!.present(alert, animated: true, completion: nil)
+        if items.count == 1 {
+            let title = "Delete \(itemName)"
+            let message = "Sorry, you can't delete the last entry."
+            Utilities.sharedInstance.displayAlert(controller: controller!, title: title, message: message)
+        } else {
+            let alert = UIAlertController(title: "Delete \(itemName)", message: "Are you sure you want to delete \(itemName)?", preferredStyle: .actionSheet)
+            
+            let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteItem)
+            let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteItem)
+            
+            alert.addAction(DeleteAction)
+            alert.addAction(CancelAction)
+            
+            // Support display in iPad
+            alert.popoverPresentationController?.sourceView = controller!.view
+            alert.popoverPresentationController?.sourceRect = CGRect(x: controller!.view.bounds.size.width / 2.0, y: controller!.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
+            
+            controller!.present(alert, animated: true, completion: nil)
+        }
     }
     
     func handleDeleteItem(alertAction: UIAlertAction!) -> Void {

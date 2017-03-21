@@ -17,18 +17,12 @@ final class BrokerTableViewDataSource: ItemTableViewDataSource {
     override func handleDeleteItem(alertAction: UIAlertAction!) -> Void {
         if let indexPath = deleteItemIndexPath {
             let broker = items[indexPath.row] as! Broker
-            if items.count == 1 {
-                let title = "Delete \(broker.name)"
-                let message = "Sorry, you can't delete the last broker."
-                Utilities.sharedInstance.displayAlert(controller: controller!, title: title, message: message)
-            } else {
-                BrokerController.sharedInstance.remove(broker: broker)
-                tableView?.beginUpdates()
-                items.remove(at: indexPath.row)
-                tableView?.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-                deleteItemIndexPath = nil
-                tableView?.endUpdates()
-            }
+            BrokerController.sharedInstance.remove(broker: broker)
+            tableView?.beginUpdates()
+            items.remove(at: indexPath.row)
+            tableView?.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+            deleteItemIndexPath = nil
+            tableView?.endUpdates()
         }
     }
     

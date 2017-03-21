@@ -21,7 +21,7 @@ final class TradeController {
     }
     
     func all() -> [Trade] {
-        let items = realm.objects(Trade.self)
+        let items = realm.objects(Trade.self).sorted(byKeyPath: "date", ascending: false)
         if items.count == 0 {
             return [Trade]()
         }
@@ -90,6 +90,10 @@ final class TradeController {
         let returnPerDayRowValue = Utilities.sharedInstance.formatOutput(value: returnPerDay, showType: true)
         returnPerDayRow?.value = "\(returnPerDayRowValue)"
         returnPerDayRow?.updateCell()
+        
+        let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
+        tickerRow?.value = trade.ticker.uppercased()
+        tickerRow?.updateCell()
     }
     
     func resetOutputFields(form: Form) {

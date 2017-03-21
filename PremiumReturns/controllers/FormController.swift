@@ -26,4 +26,28 @@ final class FormController {
         header.height = {CGFloat(Constants.headerHeight)}
         return header
     }
+    
+    func rowIsEmpty(row: TextRow?) -> Bool {
+        if let textRow = row {
+            if textRow.value == nil || textRow.value == "" {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func alertTextRowIsEmpty(name: String, controller: UIViewController?) {
+        if let controller = controller {
+            let title = "The \(name) field is empty"
+            let message = "Please fill in the \(name) field"
+            Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
+        }
+    }
+    
+    func share(trade: Trade, controller: UIViewController) {
+        TradeController.sharedInstance.save(trade: trade)
+        let title = "Share your Trade"
+        let message = "Your \(trade.ticker) trade was shared!"
+        Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
+    }
 }

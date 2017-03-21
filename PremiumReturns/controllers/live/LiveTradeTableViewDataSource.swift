@@ -28,7 +28,7 @@ class LiveTradeTableViewDataSource: NSObject {
     
     func textForCell(cell: ItemCell, item: AnyObject) -> ItemCell {
         let trade = item as! Trade
-        let title = "SPX"
+        let title = trade.ticker
         let formattedValue = Utilities.sharedInstance.formatOutput(value: trade.premium, showType: true)
         let detailText = "premium: \(formattedValue)"
         cell.updateCell(title: title, detailText: detailText)

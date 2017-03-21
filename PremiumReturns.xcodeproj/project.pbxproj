@@ -250,7 +250,6 @@
 		A84E1CEE1E73560B007FE0E9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A83DB5DE1E8178C90082BFE7 /* live */,
 				A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */,
 				A84E1CF21E73560B007FE0E9 /* FormController.swift */,
 				A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */,
@@ -259,6 +258,7 @@
 				A89EEF431E78C41100CDE038 /* broker */,
 				A89EEF461E78C41B00CDE038 /* item */,
 				A89EEF4B1E78C42600CDE038 /* model */,
+				A83DB5DE1E8178C90082BFE7 /* live */,
 				A89EEF501E78C43000CDE038 /* strategy */,
 				A89EEF5D1E78C43B00CDE038 /* trade */,
 			);

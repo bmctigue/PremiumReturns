@@ -15,6 +15,7 @@ enum SectionNames: String {
     case Settings = "SETTINGS"
     case Returns = "RETURNS"
     case Costs = "COSTS"
+    case LiveTrade = "Live Trade"
 }
 
 enum FormFieldNames: String {
@@ -28,9 +29,13 @@ enum FormFieldNames: String {
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
     case ReturnPerDay = "Return Per Day"
+    case Share = "Share"
+    case Ticker = "Ticker"
 }
 
 final class TradeFormController: NSObject {
+    
+    static let shareText = "Tap to Share"
     
     var form: Form?
     var controller: TradeTableViewController?
@@ -126,7 +131,35 @@ final class TradeFormController: NSObject {
             }
             
             +++ Section(){ section in
-                section.tag = "SettingsSection"
+                section.header = {
+                    return FormController.sharedInstance.headerView(text: SectionNames.LiveTrade.rawValue)
+                }()
+            }
+            <<< TextRow(FormFieldNames.Ticker.rawValue){ row in
+                row.title = FormFieldNames.Ticker.rawValue
+                row.value = self.controller?.trade.ticker
+                }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.ticker = rowValue
+                            self.updateOutputFields()
+                        }
+            }
+            <<< LabelRow(FormFieldNames.Share.rawValue){ row in
+                row.title = FormFieldNames.Share.rawValue
+                row.value = TradeFormController.shareText
+                }.onCellSelection { cell, row in
+                    let tickerRow: TextRow? = self.form?.rowBy(tag: FormFieldNames.Ticker.rawValue)
+                    let rowIsEmpty = FormController.sharedInstance.rowIsEmpty(row: tickerRow)
+                    if rowIsEmpty {
+                        FormController.sharedInstance.alertTextRowIsEmpty(name: FormFieldNames.Ticker.rawValue, controller: self.controller)
+                    } else {
+                        if let controller = self.controller {
+                            FormController.sharedInstance.share(trade: controller.trade, controller: controller)
+                        }
+                    }
+            }
+            
+            +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Settings.rawValue)
                 }()
