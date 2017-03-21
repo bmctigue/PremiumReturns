@@ -11,11 +11,13 @@ import RealmSwift
 
 protocol TradeProtocol {
     var tradeId: String { get }
+    var ticker: String { set get }
     var premium: Double { set get }
     var maxLoss: Double { set get }
     var contracts: Int { set get }
     var daysToExpiration: Int { set get }
     var commission: Double { set get }
+    var date: Date { set get }
     func maxProfit(contracts: Int) -> Double
     func totalCommissions(commissionPerContract: Double, legs: Int) -> Double
     func calculate(maxProfitPercentage: Double, winningProbability: Double, contracts: Int, commission: Double) -> Double
@@ -25,11 +27,13 @@ protocol TradeProtocol {
 
 class Trade: Object, TradeProtocol {
     dynamic var tradeId: String = NSUUID().uuidString
+    dynamic var ticker: String = ""
     dynamic var premium: Double = 0.0
     dynamic var maxLoss: Double = 0.0
     dynamic var contracts: Int = 1
     dynamic var daysToExpiration: Int = 45
     dynamic var commission: Double = 0
+    dynamic var date: Date = Date()
     
     class func withPremium(premium: Double, maxLoss: Double, contracts: Int, commission: Double) -> Trade {
         let attributesHash = ["premium": premium, "maxLoss": maxLoss, "contracts": contracts, "commission":commission] as [String : Any]
@@ -68,7 +72,7 @@ class Trade: Object, TradeProtocol {
     }
     
     func copyWithPremium() -> Trade {
-        let attributesHash = ["premium": self.premium, "maxLoss": self.maxLoss, "contracts": self.contracts, "commission":self.commission] as [String : Any]
+        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "contracts": self.contracts, "commission":self.commission] as [String : Any]
         return Trade(value: attributesHash)
     }
 }
