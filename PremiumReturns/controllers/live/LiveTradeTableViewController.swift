@@ -28,8 +28,8 @@ class LiveTradeTableViewController: UITableViewController {
         self.tableViewDelegate = LiveTradeTableViewDelegate(tableView: tableView, controller: self)
         self.tableView.delegate = tableViewDelegate
         
-        notificationToken = realm.addNotificationBlock { notification, realm in
-            self.refreshData()
+        notificationToken = realm.objects(Trade.self).addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            self?.refreshData()
         }
         
         refreshData()
