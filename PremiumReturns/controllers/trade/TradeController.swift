@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import RealmSwift
+import SwiftyUserDefaults
 
 final class TradeController {
     
@@ -93,6 +94,9 @@ final class TradeController {
         
         let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
         tickerRow?.value = trade.ticker.uppercased()
+        if let value = tickerRow?.value {
+            Defaults[.ticker] = value
+        }
         tickerRow?.updateCell()
     }
     
@@ -122,6 +126,14 @@ final class TradeController {
         let returnPerDayRow: LabelRow? = form.rowBy(tag: FormFieldNames.ReturnPerDay.rawValue)
         returnPerDayRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         returnPerDayRow?.updateCell()
+        
+        let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
+        if Defaults.hasKey(.ticker) {
+            tickerRow?.value = Defaults[.ticker]
+        } else {
+            tickerRow?.value = ""
+        }
+        tickerRow?.updateCell()
     }
     
     func resetTrade(form: Form, trade: Trade, commission: Double) -> Trade {
@@ -131,6 +143,7 @@ final class TradeController {
         trade.contracts = 1
         trade.commission = commission
         trade.daysToExpiration = TradeTableViewController.daysToExpiration
+        trade.ticker = Defaults[.ticker]
         updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
         resetOutputFields(form: form)
         return trade

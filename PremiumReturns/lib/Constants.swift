@@ -28,4 +28,5 @@ extension DefaultsKeys {
     static let userHasOnboarded = DefaultsKey<Bool>("user_has_onboarded")
     static let broker = DefaultsKey<String>("broker")
     static let strategy = DefaultsKey<String>("strategy")
+    static let ticker = DefaultsKey<String>("ticker")
 }

@@ -142,6 +142,7 @@ final class TradeFormController: NSObject {
                         if let rowValue = row.value {
                             self.controller?.trade.ticker = rowValue
                             self.updateOutputFields()
+                            Defaults[.ticker] = rowValue
                         }
             }
             <<< LabelRow(FormFieldNames.Share.rawValue){ row in
