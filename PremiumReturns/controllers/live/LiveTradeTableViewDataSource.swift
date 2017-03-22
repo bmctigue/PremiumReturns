@@ -30,7 +30,10 @@ class LiveTradeTableViewDataSource: NSObject {
         let trade = item as! Trade
         let title = trade.ticker
         let formattedValue = Utilities.sharedInstance.formatOutput(value: trade.premium, showType: true)
-        let detailText = "premium: \(formattedValue)"
+        var formattedDateString = ""
+        let formattedDate = Utilities.sharedInstance.dateFormatter.string(from: trade.date)
+        formattedDateString = " Date: \(formattedDate)"
+        let detailText = "premium: \(formattedValue)\(formattedDateString)"
         cell.updateCell(title: title, detailText: detailText)
         return cell
     }

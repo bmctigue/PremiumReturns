@@ -21,6 +21,7 @@ import SwiftyUserDefaults
 
 struct Constants {
     static let headerHeight: Float = 30.0
+    static let dateFormatString:String = "MMM yyyy HH:mm"
 }
 
 extension DefaultsKeys {

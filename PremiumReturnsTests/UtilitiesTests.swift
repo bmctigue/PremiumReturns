@@ -46,4 +46,8 @@ class UtilitiesTests: XCTestCase {
         Utilities.sharedInstance.displayAlert(controller: controller, title: "Test", message: "Test Message")
     }
     
+    func testDefaultDateFormatter() {
+        let dateFormatter = Utilities.sharedInstance.dateFormatter
+        XCTAssertEqual(dateFormatter!.dateFormat, Constants.dateFormatString)
+    }
 }

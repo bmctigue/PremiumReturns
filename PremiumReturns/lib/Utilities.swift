@@ -10,8 +10,13 @@ import UIKit
 
 final class Utilities: NSObject {
     
+    var dateFormatter: DateFormatter!
+    
     static let sharedInstance = Utilities()
-    private override init() {}
+    private override init() {
+        super.init()
+        self.dateFormatter = defaultDateFormatter()
+    }
     
     func formatOutput(value: Double, showType: Bool) -> String {
         var result = ""
@@ -53,6 +58,12 @@ final class Utilities: NSObject {
         if BrokerController.sharedInstance.all().count == 0 {
             BrokerController.sharedInstance.loadDefault()
         }
+    }
+    
+    func defaultDateFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormatString
+        return dateFormatter
     }
 
 }
