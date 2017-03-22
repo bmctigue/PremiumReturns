@@ -16,5 +16,4 @@ class StrategyTests: XCTestCase {
         let strategyCopy = testStrategy.copyWithID()
         XCTAssertEqual(testStrategy.strategyId, strategyCopy.strategyId)
     }
-    
 }
