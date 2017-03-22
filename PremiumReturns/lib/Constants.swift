@@ -22,6 +22,12 @@ import SwiftyUserDefaults
 struct Constants {
     static let headerHeight: Float = 30.0
     static let dateFormatString:String = "MMM yyyy HH:mm"
+    
+    static let localIPAddress = "192.168.1.66"
+    static let syncHost = localIPAddress
+    static let syncRealmPath = "premiumreturns"
+    static let syncServerURL = NSURL(string: "realm://\(syncHost):9080/~/\(syncRealmPath)")
+    static let syncAuthURL = NSURL(string: "http://\(syncHost):9080")!
 }
 
 extension DefaultsKeys {
