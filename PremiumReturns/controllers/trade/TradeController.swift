@@ -65,14 +65,18 @@ final class TradeController {
     }
     
     func updateOutputFields(form: Form, trade: Trade, strategy: Strategy, broker: Broker) {
+        let commissions = trade.totalCommissions(legs: strategy.legs)
         
-        let commissions = trade.totalCommissions(commissionPerContract: broker.commission, legs: strategy.legs)
-        
-        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability, contracts: trade.contracts, commission: commissions)
+        let maxProfit = trade.maxProfit()
+        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability)
         let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
-        let returnPerDay = trade.returnPerDay(totalReturn: returnOnCapital, days: trade.daysToExpiration)
+        let returnPerDay = trade.returnPerDay(totalReturn: calculatedReturn, days: trade.daysToExpiration)
         
-        let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.Trade.rawValue)
+        let maxProfitRow: LabelRow? = form.rowBy(tag: FormFieldNames.MaxProfit.rawValue)
+        maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: maxProfit, showType: true)
+        maxProfitRow?.updateCell()
+        
+        let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.ExpectedReturn.rawValue)
         let returnValue =  Utilities.sharedInstance.formatOutput(value: calculatedReturn, showType: true)
         expectedReturnRow?.value = "\(returnValue)"
         expectedReturnRow?.updateCell()
@@ -111,7 +115,11 @@ final class TradeController {
         brokerRow?.value = broker.name
         brokerRow?.updateCell()
         
-        let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.Trade.rawValue)
+        let maxProfitRow: LabelRow? = form.rowBy(tag: FormFieldNames.MaxProfit.rawValue)
+        maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+        maxProfitRow?.updateCell()
+        
+        let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.ExpectedReturn.rawValue)
         expectedReturnRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         expectedReturnRow?.updateCell()
         

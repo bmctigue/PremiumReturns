@@ -24,7 +24,7 @@ protocol BrokerProtocol {
     func copyWithID() -> Broker
 }
 
-class Broker: Object, BrokerProtocol {
+final class Broker: Object, BrokerProtocol {
     dynamic var brokerId: String = NSUUID().uuidString
     dynamic var name: String = ""
     dynamic var brokerType: String = ""

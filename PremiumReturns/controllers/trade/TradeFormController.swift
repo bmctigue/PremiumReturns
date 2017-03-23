@@ -21,16 +21,17 @@ enum SectionNames: String {
 enum FormFieldNames: String {
     case Strategy = "Select a Strategy"
     case Broker = "Select a Broker"
-    case Trade = "Expected Return"
+    case ExpectedReturn = "Expected Return"
     case ROC = "Return on Capital (%)"
     case Premium = "Premium"
-    case MaxLoss = "Max Loss (BPR)"
+    case MaxLoss = "Max Loss"
     case Contracts = "Contracts"
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
     case ReturnPerDay = "Return Per Day"
     case Share = "Share"
     case Ticker = "Ticker"
+    case MaxProfit = "Max Profit"
 }
 
 final class TradeFormController: NSObject {
@@ -117,8 +118,12 @@ final class TradeFormController: NSObject {
                     return FormController.sharedInstance.headerView(text: SectionNames.Returns.rawValue)
                 }()
             }
-            <<< LabelRow(FormFieldNames.Trade.rawValue){ row in
-                row.title = FormFieldNames.Trade.rawValue
+            <<< LabelRow(FormFieldNames.MaxProfit.rawValue){ row in
+                row.title = FormFieldNames.MaxProfit.rawValue
+                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+            }
+            <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue){ row in
+                row.title = FormFieldNames.ExpectedReturn.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
             }
             <<< LabelRow(FormFieldNames.ROC.rawValue){ row in
@@ -127,7 +132,7 @@ final class TradeFormController: NSObject {
             }
             <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue){ row in
                 row.title = FormFieldNames.ReturnPerDay.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
+                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
             }
             
             +++ Section(){ section in
@@ -185,6 +190,7 @@ final class TradeFormController: NSObject {
                 }.onChange { row in
                     if let rowValue = row.value, let broker = BrokerController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentBroker = broker
+                        self.controller?.trade.commission = broker.commission
                         self.updateOutputFields()
                         Defaults[.broker] = broker.brokerId
                     }

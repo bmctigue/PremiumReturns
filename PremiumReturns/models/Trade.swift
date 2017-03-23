@@ -18,14 +18,14 @@ protocol TradeProtocol {
     var daysToExpiration: Int { set get }
     var commission: Double { set get }
     var date: Date { set get }
-    func maxProfit(contracts: Int) -> Double
-    func totalCommissions(commissionPerContract: Double, legs: Int) -> Double
-    func calculate(maxProfitPercentage: Double, winningProbability: Double, contracts: Int, commission: Double) -> Double
+    func maxProfit() -> Double
+    func totalCommissions(legs: Int) -> Double
+    func calculate(maxProfitPercentage: Double, winningProbability: Double) -> Double
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double
     func returnPerDay(totalReturn: Double, days: Int) -> Double
 }
 
-class Trade: Object, TradeProtocol {
+final class Trade: Object, TradeProtocol {
     dynamic var tradeId: String = NSUUID().uuidString
     dynamic var ticker: String = ""
     dynamic var premium: Double = 0.0
@@ -48,16 +48,16 @@ class Trade: Object, TradeProtocol {
         return "tradeId"
     }
     
-    func maxProfit(contracts: Int) -> Double {
+    func maxProfit() -> Double {
         return Double(premium * 100 * Double(contracts))
     }
     
-    func totalCommissions(commissionPerContract: Double, legs: Int) -> Double {
-        return commissionPerContract * Double(contracts) * Double(legs)
+    func totalCommissions(legs: Int) -> Double {
+        return commission * Double(contracts) * Double(legs)
     }
     
-    func calculate(maxProfitPercentage: Double, winningProbability: Double, contracts: Int, commission: Double) -> Double {
-        let maxProfit = self.maxProfit(contracts: contracts)
+    func calculate(maxProfitPercentage: Double, winningProbability: Double) -> Double {
+        let maxProfit = self.maxProfit()
         let adjustedPercentage = maxProfitPercentage/100.0
         let adjustedProbability = winningProbability/100.0
         return ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commission

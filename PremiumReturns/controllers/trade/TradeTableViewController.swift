@@ -30,7 +30,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
-    var trade = Trade.withPremium(premium: 0, maxLoss: 0, contracts: 1, commission: 0)
+    var trade = Trade.withPremium(premium: 0, maxLoss: 0, contracts: 1, commission: 1)
     var helpViewController: HelpViewController?
     var tradeFormController: TradeFormController?
 
@@ -49,7 +49,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         addHelpView()
         currentBroker = BrokerController.sharedInstance.resetBroker()
         currentStrategy = StrategyController.sharedInstance.resetStrategy()
-        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission) 
+        resetTrade()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,8 +85,12 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         }
     }
     
-    @IBAction func resetButtonPressed(_ sender: Any) {
+    func resetTrade() {
         trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission)
+    }
+    
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        resetTrade()
     }
     
     @IBAction func helpButtonPressed(_ sender: Any) {

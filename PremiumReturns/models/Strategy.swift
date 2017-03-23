@@ -31,7 +31,7 @@ protocol StrategyProtocol {
     func copyWithID() -> Strategy
 }
 
-class Strategy: Object, StrategyProtocol {
+final class Strategy: Object, StrategyProtocol {
     dynamic var strategyId: String = NSUUID().uuidString
     dynamic var strategyType: String = ""
     dynamic var name: String = ""
