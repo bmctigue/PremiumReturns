@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "gold-coins.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "goldstack@2x.png",
       "scale" : "2x"
     },
     {

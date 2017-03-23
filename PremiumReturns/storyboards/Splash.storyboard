@@ -26,18 +26,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-GD-5fq">
-                                        <rect key="frame" x="8" y="235" width="304" height="99"/>
+                                        <rect key="frame" x="16" y="235" width="288" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="premium" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDU-3S-dsh">
-                                                <rect key="frame" x="79" y="0.0" width="225" height="50"/>
+                                                <rect key="frame" x="63" y="0.0" width="225" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="56"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="returns" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-vF-mpc">
-                                                <rect key="frame" x="79" y="49" width="225" height="50"/>
+                                                <rect key="frame" x="63" y="49" width="225" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="56"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,8 +46,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cherry" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Fg-70v">
-                                        <rect key="frame" x="23" y="235" width="61" height="99"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goldstack" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Fg-70v">
+                                        <rect key="frame" x="16" y="235" width="56" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -58,8 +58,8 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="cherryImageView" destination="SgC-Fg-70v" id="Q3v-l9-nZc"/>
                         <outlet property="containerView" destination="vFx-uf-Lsl" id="IXV-4M-ZJa"/>
+                        <outlet property="imageView" destination="SgC-Fg-70v" id="aOk-aE-CeG"/>
                         <outlet property="logoView" destination="dxW-GD-5fq" id="vGJ-Os-Evt"/>
                     </connections>
                 </viewController>
@@ -69,7 +69,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cherry" width="214" height="408"/>
+        <image name="goldstack" width="276" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
