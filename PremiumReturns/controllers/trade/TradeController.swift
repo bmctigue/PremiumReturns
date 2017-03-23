@@ -55,7 +55,7 @@ final class TradeController {
         maxLossRow?.value = maxLoss
         maxLossRow?.updateCell()
         
-        let contractsRow: IntRow? = form.rowBy(tag: FormFieldNames.Contracts.rawValue)
+        let contractsRow: IntRow? = form.rowBy(tag: FormFieldNames.Positions.rawValue)
         contractsRow?.value = contracts
         contractsRow?.updateCell()
         

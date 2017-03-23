@@ -25,7 +25,7 @@ enum FormFieldNames: String {
     case ROC = "Return on Capital (%)"
     case Premium = "Premium"
     case MaxLoss = "Max Loss"
-    case Contracts = "Contracts"
+    case Positions = "Positions"
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
     case ReturnPerDay = "Return Per Day"
@@ -94,8 +94,8 @@ final class TradeFormController: NSObject {
                         self.updateOutputFields()
                     }
             }
-            <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
-                row.title = FormFieldNames.Contracts.rawValue
+            <<< IntRow(FormFieldNames.Positions.rawValue) { row in
+                row.title = FormFieldNames.Positions.rawValue
                 row.value = self.controller?.trade.contracts
                 }.onChange { row in
                     if let rowValue = row.value {
