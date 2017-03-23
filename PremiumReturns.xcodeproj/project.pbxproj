@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52478249C536DCFE6AF4DB38 /* Pods_PremiumReturnsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC414F1783B36336ABD8B91E /* Pods_PremiumReturnsTests.framework */; };
+		A8110A421E847D9300D5C996 /* TradeFormFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8110A411E847D9300D5C996 /* TradeFormFieldController.swift */; };
 		A83DB5E01E8178FD0082BFE7 /* LiveTradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83DB5DF1E8178FD0082BFE7 /* LiveTradeTableViewController.swift */; };
 		A83DB5E21E817A340082BFE7 /* LiveTradeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83DB5E11E817A340082BFE7 /* LiveTradeTableViewDataSource.swift */; };
 		A83DB5E41E817A490082BFE7 /* LiveTradeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83DB5E31E817A490082BFE7 /* LiveTradeTableViewDelegate.swift */; };
@@ -113,6 +114,7 @@
 		3BBDF88558AF28B6347CBA47 /* Pods_PremiumReturns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PremiumReturns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D575226255B7D793A905837 /* Pods-PremiumReturnsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturnsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturnsTests/Pods-PremiumReturnsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1BE539EF3A9A4F5A1EF08D7 /* Pods-PremiumReturns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PremiumReturns.release.xcconfig"; path = "Pods/Target Support Files/Pods-PremiumReturns/Pods-PremiumReturns.release.xcconfig"; sourceTree = "<group>"; };
+		A8110A411E847D9300D5C996 /* TradeFormFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeFormFieldController.swift; sourceTree = "<group>"; };
 		A83DB5DF1E8178FD0082BFE7 /* LiveTradeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTradeTableViewController.swift; sourceTree = "<group>"; };
 		A83DB5E11E817A340082BFE7 /* LiveTradeTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTradeTableViewDataSource.swift; sourceTree = "<group>"; };
 		A83DB5E31E817A490082BFE7 /* LiveTradeTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTradeTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				A89EEF5E1E78C43B00CDE038 /* TradeController.swift */,
 				A89EEF5F1E78C43B00CDE038 /* TradeFormController.swift */,
+				A8110A411E847D9300D5C996 /* TradeFormFieldController.swift */,
 				A89EEF601E78C43B00CDE038 /* TradeTableViewController.swift */,
 			);
 			path = trade;
@@ -389,9 +392,9 @@
 		A8C8CEA41E7353CF00591493 /* PremiumReturns */ = {
 			isa = PBXGroup;
 			children = (
+				A8C8CEA51E7353CF00591493 /* AppDelegate.swift */,
 				A8DAB5811E79FC7E0044D76C /* Podfile */,
 				A84E1D231E735628007FE0E9 /* TastyReturns.playground */,
-				A8C8CEA51E7353CF00591493 /* AppDelegate.swift */,
 				A8C8CEAC1E7353CF00591493 /* Assets.xcassets */,
 				A8C8CEB11E7353CF00591493 /* Info.plist */,
 				A84127F41E78B5AA00C24788 /* cells */,
@@ -715,6 +718,7 @@
 				A889C36F1E79A43A004F3AD7 /* EditBrokerTableViewController.swift in Sources */,
 				A89EEF4A1E78C41B00CDE038 /* ItemTableViewDataSource.swift in Sources */,
 				A89EEF451E78C41100CDE038 /* BrokerController.swift in Sources */,
+				A8110A421E847D9300D5C996 /* TradeFormFieldController.swift in Sources */,
 				A84E1D071E73560B007FE0E9 /* SplashViewController.swift in Sources */,
 				A89EEF5C1E78C43000CDE038 /* StrategyTableViewDelegate.swift in Sources */,
 				A89EEF491E78C41B00CDE038 /* ItemTableViewController.swift in Sources */,

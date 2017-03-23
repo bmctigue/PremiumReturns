@@ -55,7 +55,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tradeFormController?.refreshForm()
-        TradeController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetTrade() {
-        trade = TradeController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission)
+        trade = TradeFormFieldController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission)
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {

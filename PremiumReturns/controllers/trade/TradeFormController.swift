@@ -210,6 +210,6 @@ final class TradeFormController: NSObject {
     }
     
     func updateOutputFields() {
-        TradeController.sharedInstance.updateOutputFields(form: self.controller!.form, trade: self.controller!.trade, strategy: self.controller!.currentStrategy!, broker: self.controller!.currentBroker!)
+        TradeFormFieldController.sharedInstance.updateOutputFields(form: self.controller!.form, trade: self.controller!.trade, strategy: self.controller!.currentStrategy!, broker: self.controller!.currentBroker!)
     }
 }
