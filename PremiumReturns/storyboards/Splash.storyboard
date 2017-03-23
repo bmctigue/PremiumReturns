@@ -21,23 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFx-uf-Lsl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFx-uf-Lsl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-GD-5fq">
-                                        <rect key="frame" x="16" y="235" width="288" height="99"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-GD-5fq">
+                                        <rect key="frame" x="47" y="233.5" width="226" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="premium" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDU-3S-dsh">
-                                                <rect key="frame" x="63" y="0.0" width="225" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="56"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="returns" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-vF-mpc">
-                                                <rect key="frame" x="63" y="49" width="225" height="50"/>
+                                                <rect key="frame" x="0.0" y="50" width="226" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="56"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,21 +43,30 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="226" id="fNl-os-hGN"/>
+                                            <constraint firstAttribute="height" constant="100" id="rMJ-2f-s1B"/>
+                                        </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goldstack" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Fg-70v">
-                                        <rect key="frame" x="16" y="235" width="56" height="99"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dxW-GD-5fq" firstAttribute="centerY" secondItem="vFx-uf-Lsl" secondAttribute="centerY" id="Oxr-6O-l8Y"/>
+                                    <constraint firstItem="dxW-GD-5fq" firstAttribute="centerX" secondItem="vFx-uf-Lsl" secondAttribute="centerX" id="UZJ-z3-N7p"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="60h-AB-wFf" firstAttribute="top" secondItem="vFx-uf-Lsl" secondAttribute="bottom" id="9Wc-CA-Wgg"/>
+                            <constraint firstItem="vFx-uf-Lsl" firstAttribute="leading" secondItem="EFC-jM-mBb" secondAttribute="leading" id="IwJ-eR-rJG"/>
+                            <constraint firstItem="vFx-uf-Lsl" firstAttribute="top" secondItem="EFC-jM-mBb" secondAttribute="top" id="Kz3-GC-xaV"/>
+                            <constraint firstAttribute="trailing" secondItem="vFx-uf-Lsl" secondAttribute="trailing" id="Wdp-Sq-RKc"/>
+                        </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="containerView" destination="vFx-uf-Lsl" id="IXV-4M-ZJa"/>
-                        <outlet property="imageView" destination="SgC-Fg-70v" id="aOk-aE-CeG"/>
                         <outlet property="logoView" destination="dxW-GD-5fq" id="vGJ-Os-Evt"/>
                     </connections>
                 </viewController>
@@ -68,9 +75,6 @@
             <point key="canvasLocation" x="-9257" y="-11558"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="goldstack" width="276" height="512"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -27,11 +27,9 @@ final class FormController {
         return header
     }
     
-    func rowIsEmpty(row: TextRow?) -> Bool {
-        if let textRow = row {
-            if textRow.value == nil || textRow.value == "" {
-                return true
-            }
+    func rowIsEmpty(row: TextRow) -> Bool {
+        if row.value == nil || row.value == "" {
+            return true
         }
         return false
     }

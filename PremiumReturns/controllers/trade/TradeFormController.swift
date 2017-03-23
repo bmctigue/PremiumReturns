@@ -155,12 +155,14 @@ final class TradeFormController: NSObject {
                 row.value = TradeFormController.shareText
                 }.onCellSelection { cell, row in
                     let tickerRow: TextRow? = self.form?.rowBy(tag: FormFieldNames.Ticker.rawValue)
-                    let rowIsEmpty = FormController.sharedInstance.rowIsEmpty(row: tickerRow)
-                    if rowIsEmpty {
-                        FormController.sharedInstance.alertTextRowIsEmpty(name: FormFieldNames.Ticker.rawValue, controller: self.controller)
-                    } else {
-                        if let controller = self.controller {
-                            FormController.sharedInstance.share(trade: controller.trade, controller: controller)
+                    if let row = tickerRow {
+                        let rowIsEmpty = FormController.sharedInstance.rowIsEmpty(row: row)
+                        if rowIsEmpty {
+                            FormController.sharedInstance.alertTextRowIsEmpty(name: FormFieldNames.Ticker.rawValue, controller: self.controller)
+                        } else {
+                            if let controller = self.controller {
+                                FormController.sharedInstance.share(trade: controller.trade, controller: controller)
+                            }
                         }
                     }
             }
