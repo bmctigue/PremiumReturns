@@ -10,6 +10,14 @@ import UIKit
 import Eureka
 import SwiftyUserDefaults
 
+enum CalculationKey: String {
+    case Commissions = "Commissions"
+    case MaxProfit = "MaxProfit"
+    case CalculatedReturn = "CalculatedReturn"
+    case ReturnOnCapital = "ReturnOnCapital"
+    case ReturnPerDay = "ReturnPerDay"
+}
+
 final class TradeFormFieldController {
     
     static let sharedInstance = TradeFormFieldController.init()
@@ -32,35 +40,23 @@ final class TradeFormFieldController {
         dteRow?.updateCell()
     }
     
-    func updateOutputFields(form: Form, trade: Trade, strategy: Strategy, broker: Broker) {
-        let commissions = trade.totalCommissions(legs: strategy.legs)
-        
-        let maxProfit = trade.maxProfit()
-        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability)
-        let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
-        let returnPerDay = trade.returnPerDay(totalReturn: calculatedReturn, days: trade.daysToExpiration)
-        
+    func updateOutputFields(form: Form, trade: Trade,calculatedFieldValueHash: [CalculationKey:Double]) {
         let maxProfitRow: LabelRow? = form.rowBy(tag: FormFieldNames.MaxProfit.rawValue)
-        maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: maxProfit, showType: true)
+        maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.MaxProfit]!, showType: true)
         maxProfitRow?.updateCell()
         
         let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.ExpectedReturn.rawValue)
-        let returnValue =  Utilities.sharedInstance.formatOutput(value: calculatedReturn, showType: true)
+        let returnValue =  Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.CalculatedReturn]!, showType: true)
         expectedReturnRow?.value = "\(returnValue)"
         expectedReturnRow?.updateCell()
         
         let rocRow: LabelRow? = form.rowBy(tag: FormFieldNames.ROC.rawValue)
-        let rocValue = Utilities.sharedInstance.formatOutput(value: returnOnCapital, showType: false)
+        let rocValue = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.ReturnOnCapital]!, showType: false)
         rocRow?.value = "\(rocValue)"
         rocRow?.updateCell()
         
-        let commissionsRow: LabelRow? = form.rowBy(tag: FormFieldNames.Commissions.rawValue)
-        let commissionsValue = Utilities.sharedInstance.formatOutput(value: commissions, showType: true)
-        commissionsRow?.value = "\(commissionsValue)"
-        commissionsRow?.updateCell()
-        
         let returnPerDayRow: LabelRow? = form.rowBy(tag: FormFieldNames.ReturnPerDay.rawValue)
-        let returnPerDayRowValue = Utilities.sharedInstance.formatOutput(value: returnPerDay, showType: true)
+        let returnPerDayRowValue = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.ReturnPerDay]!, showType: true)
         returnPerDayRow?.value = "\(returnPerDayRowValue)"
         returnPerDayRow?.updateCell()
         
@@ -70,9 +66,14 @@ final class TradeFormFieldController {
             Defaults[.ticker] = value
         }
         tickerRow?.updateCell()
+        
+        let commissionsRow: LabelRow? = form.rowBy(tag: FormFieldNames.Commissions.rawValue)
+        let commissionsValue = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.Commissions]!, showType: true)
+        commissionsRow?.value = "\(commissionsValue)"
+        commissionsRow?.updateCell()
     }
     
-    func resetOutputFields(form: Form) {
+    func resetOutputFields(form: Form, trade: Trade) {
         let strategy = StrategyController.sharedInstance.resetStrategy()
         let strategyRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Strategy.rawValue)
         strategyRow?.value = strategy.name
@@ -83,25 +84,8 @@ final class TradeFormFieldController {
         brokerRow?.value = broker.name
         brokerRow?.updateCell()
         
-        let maxProfitRow: LabelRow? = form.rowBy(tag: FormFieldNames.MaxProfit.rawValue)
-        maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-        maxProfitRow?.updateCell()
-        
-        let expectedReturnRow: LabelRow? = form.rowBy(tag: FormFieldNames.ExpectedReturn.rawValue)
-        expectedReturnRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-        expectedReturnRow?.updateCell()
-        
-        let rocRow: LabelRow? = form.rowBy(tag: FormFieldNames.ROC.rawValue)
-        rocRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
-        rocRow?.updateCell()
-        
-        let commissionsRow: LabelRow? = form.rowBy(tag: FormFieldNames.Commissions.rawValue)
-        commissionsRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-        commissionsRow?.updateCell()
-        
-        let returnPerDayRow: LabelRow? = form.rowBy(tag: FormFieldNames.ReturnPerDay.rawValue)
-        returnPerDayRow?.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-        returnPerDayRow?.updateCell()
+        let calculatedFieldValueHash: [CalculationKey:Double] = [CalculationKey.Commissions:0, CalculationKey.MaxProfit:0, CalculationKey.CalculatedReturn:0, CalculationKey.ReturnOnCapital: 0, CalculationKey.ReturnPerDay:0]
+        updateOutputFields(form: form, trade: trade, calculatedFieldValueHash: calculatedFieldValueHash)
         
         let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
         if Defaults.hasKey(.ticker) {
@@ -110,6 +94,15 @@ final class TradeFormFieldController {
             tickerRow?.value = ""
         }
         tickerRow?.updateCell()
+    }
+    
+    func calculatedHash(trade: Trade, strategy: Strategy, broker: Broker) -> [CalculationKey:Double] {
+        let commissions = trade.totalCommissions(legs: strategy.legs)
+        let maxProfit = trade.maxProfit()
+        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability)
+        let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
+        let returnPerDay = trade.returnPerDay(totalReturn: calculatedReturn, days: trade.daysToExpiration)
+        return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital, CalculationKey.ReturnPerDay:returnPerDay]
     }
     
     func resetTrade(form: Form, trade: Trade, commission: Double) -> Trade {
@@ -121,7 +114,7 @@ final class TradeFormFieldController {
         trade.daysToExpiration = TradeTableViewController.daysToExpiration
         trade.ticker = Defaults[.ticker]
         updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
-        resetOutputFields(form: form)
+        resetOutputFields(form: form, trade: trade)
         return trade
     }
 

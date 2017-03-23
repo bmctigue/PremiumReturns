@@ -233,6 +233,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A8110A451E84809000D5C996 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */,
+				A84E1CF21E73560B007FE0E9 /* FormController.swift */,
+				A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */,
+				A84E1CF61E73560B007FE0E9 /* RoutingController.swift */,
+				A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
 		A83DB5DE1E8178C90082BFE7 /* live */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,17 +266,13 @@
 		A84E1CEE1E73560B007FE0E9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A84E1CF01E73560B007FE0E9 /* CurrencyController.swift */,
-				A84E1CF21E73560B007FE0E9 /* FormController.swift */,
-				A84E1CF31E73560B007FE0E9 /* HelpViewController.swift */,
-				A84E1CF61E73560B007FE0E9 /* RoutingController.swift */,
-				A84E1CF71E73560B007FE0E9 /* SplashViewController.swift */,
 				A89EEF431E78C41100CDE038 /* broker */,
 				A89EEF461E78C41B00CDE038 /* item */,
-				A89EEF4B1E78C42600CDE038 /* model */,
 				A83DB5DE1E8178C90082BFE7 /* live */,
+				A89EEF4B1E78C42600CDE038 /* model */,
 				A89EEF501E78C43000CDE038 /* strategy */,
 				A89EEF5D1E78C43B00CDE038 /* trade */,
+				A8110A451E84809000D5C996 /* misc */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
