@@ -18,9 +18,6 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     static let controllerTitle: String = "Returns"
     static let helpTitle: String = "Help"
-    static let maxPremium: Double = 20.0
-    static let maxLoss: Double = 1500.0
-    static let contractsPremium: Double = 10
     static let headerHeight: Float = 30.0
     static let fontName = FontType.Primary.fontName
     static let fontSize: CGFloat = FontType.Primary.fontSize
@@ -30,7 +27,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
-    var trade = Trade.withPremium(premium: 0, maxLoss: 0, contracts: 1, commission: 1)
+    var trade = Trade.withPremium(premium: 0, maxLoss: 0, pop: 0,  contracts: 1, commission: 1)
     var helpViewController: HelpViewController?
     var tradeFormController: TradeFormController?
 
@@ -55,7 +52,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tradeFormController?.refreshForm()
-        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts, days: trade.daysToExpiration)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,7 +83,12 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetTrade() {
-        trade = TradeFormFieldController.sharedInstance.resetTrade(form: form, trade: trade, commission: currentBroker!.commission)
+        trade.reset(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs)
+    }
+    
+    func resetForm() {
+        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts, days: trade.daysToExpiration)
+        TradeFormFieldController.sharedInstance.resetOutputFields(form: form, trade: trade)
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {

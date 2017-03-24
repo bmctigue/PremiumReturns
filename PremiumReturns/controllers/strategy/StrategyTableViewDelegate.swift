@@ -27,7 +27,7 @@ class StrategyTableViewDelegate: NSObject {
     }
     
     func addButtonPressed() {
-        let strategy = Strategy.forType(type: .Custom, name: "", legs: 0, maxProfitPercentage: 0, winningProbability: 0)
+        let strategy = Strategy.forType(type: .Custom, name: "", legs: 0, maxProfitPercentage: 0, pop: 0)
         RoutingController.sharedInstance.openEditStrategy(controller: controller as! EditItemTableViewControllerDelegate, strategy: strategy)
     }
 }

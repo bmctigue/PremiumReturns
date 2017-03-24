@@ -11,7 +11,7 @@ import Eureka
 import SwiftyUserDefaults
 
 enum SectionNames: String {
-    case Data = "TRADE"
+    case Input = "INPUT"
     case Settings = "SETTINGS"
     case Returns = "RETURNS"
     case Costs = "COSTS"
@@ -25,6 +25,7 @@ enum FormFieldNames: String {
     case ROC = "Return on Capital (%)"
     case Premium = "Premium"
     case MaxLoss = "Max Loss"
+    case POP = "POP"
     case Contracts = "Contracts"
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
@@ -69,7 +70,7 @@ final class TradeFormController: NSObject {
         form!
             +++ Section(){ section in
                 section.header = {
-                    return FormController.sharedInstance.headerView(text: SectionNames.Data.rawValue)
+                    return FormController.sharedInstance.headerView(text: SectionNames.Input.rawValue)
                 }()
             }
             <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
@@ -91,6 +92,15 @@ final class TradeFormController: NSObject {
                 }.onChange { row in
                     if let rowValue = row.value {
                         self.controller?.trade.maxLoss = Double(rowValue)
+                        self.updateOutputFields()
+                    }
+            }
+            <<< IntRow(FormFieldNames.POP.rawValue) { row in
+                row.title = FormFieldNames.POP.rawValue
+                row.value = self.controller?.trade.pop
+                }.onChange { row in
+                    if let rowValue = row.value {
+                        self.controller?.trade.pop = rowValue
                         self.updateOutputFields()
                     }
             }

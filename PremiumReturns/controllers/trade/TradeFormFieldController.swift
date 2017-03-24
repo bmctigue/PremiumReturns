@@ -22,7 +22,7 @@ final class TradeFormFieldController {
     
     static let sharedInstance = TradeFormFieldController.init()
     
-    func updateInputFields(form: Form, premium: Double, maxLoss: Double, contracts: Int, days: Int) {
+    func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int, days: Int) {
         let premiumRow: DecimalRow? = form.rowBy(tag: FormFieldNames.Premium.rawValue)
         premiumRow?.value = premium
         premiumRow?.updateCell()
@@ -30,6 +30,10 @@ final class TradeFormFieldController {
         let maxLossRow: DecimalRow? = form.rowBy(tag: FormFieldNames.MaxLoss.rawValue)
         maxLossRow?.value = maxLoss
         maxLossRow?.updateCell()
+        
+        let popRow: IntRow? = form.rowBy(tag: FormFieldNames.POP.rawValue)
+        popRow?.value = pop
+        popRow?.updateCell()
         
         let contractsRow: IntRow? = form.rowBy(tag: FormFieldNames.Contracts.rawValue)
         contractsRow?.value = contracts
@@ -97,25 +101,12 @@ final class TradeFormFieldController {
     }
     
     func calculatedHash(trade: Trade, strategy: Strategy, broker: Broker) -> [CalculationKey:Double] {
-        let commissions = trade.totalCommissions(legs: strategy.legs)
+        let commissions = trade.commission
         let maxProfit = trade.maxProfit()
-        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage, winningProbability: strategy.winningProbability)
+        let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage)
         let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
         let returnPerDay = trade.returnPerDay(totalReturn: calculatedReturn, days: trade.daysToExpiration)
         return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital, CalculationKey.ReturnPerDay:returnPerDay]
-    }
-    
-    func resetTrade(form: Form, trade: Trade, commission: Double) -> Trade {
-        let trade = trade
-        trade.premium = 0
-        trade.maxLoss = 0
-        trade.contracts = 1
-        trade.commission = commission
-        trade.daysToExpiration = TradeTableViewController.daysToExpiration
-        trade.ticker = Defaults[.ticker]
-        updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, contracts: trade.contracts, days: trade.daysToExpiration)
-        resetOutputFields(form: form, trade: trade)
-        return trade
     }
 
 }

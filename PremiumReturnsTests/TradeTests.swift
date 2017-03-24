@@ -18,15 +18,16 @@ class TradeTests: XCTestCase {
     static var commission: Double = 1.0
     static var totalReturns = 90.0
     static var days = 45
+    static var pop = 100
     
     var trade: Trade?
     var commissions: Double?
     var calculatedReturn: Double?
     
     override func setUp() {
-        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, contracts: TradeTests.contracts, commission: TradeTests.commission)
-        commissions = trade!.totalCommissions(legs: TradeTests.legs)
-        calculatedReturn = trade!.calculate(maxProfitPercentage: 100, winningProbability: 100)
+        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commission: TradeTests.commission)
+        commissions = trade!.totalCommissions(commission: TradeTests.commission, legs: TradeTests.legs)
+        calculatedReturn = trade!.calculate(maxProfitPercentage: 100)
     }
     
     func testMaxProfit() {

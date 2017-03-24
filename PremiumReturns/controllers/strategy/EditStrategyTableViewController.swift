@@ -37,7 +37,7 @@ class EditStrategyTableViewController: FormViewController {
         animateScroll = true
         rowKeyboardSpacing = 20
         
-        updateInputFields(name: strategy!.name, legs: strategy!.legs, maxProfitPercentage: strategy!.maxProfitPercentage, winningProbability: strategy!.winningProbability)
+        updateInputFields(name: strategy!.name, legs: strategy!.legs, maxProfitPercentage: strategy!.maxProfitPercentage, pop: strategy!.pop)
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -52,7 +52,7 @@ class EditStrategyTableViewController: FormViewController {
         topViewController!.navigationItem.rightBarButtonItem = doneBarButton
     }
     
-    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Double, winningProbability: Double) {
+    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Double, pop: Int) {
         let nameRow: TextRow? = form.rowBy(tag: StrategyFormFieldNames.Name.rawValue)
         nameRow?.value = name
         nameRow?.updateCell()
@@ -65,9 +65,9 @@ class EditStrategyTableViewController: FormViewController {
         profitPercentageRow?.value = maxProfitPercentage
         profitPercentageRow?.updateCell()
         
-        let winningProbabilityRow: DecimalRow? = form.rowBy(tag: StrategyFormFieldNames.WinningProbability.rawValue)
-        winningProbabilityRow?.value = winningProbability
-        winningProbabilityRow?.updateCell()
+        let popRow: IntRow? = form.rowBy(tag: StrategyFormFieldNames.POP.rawValue)
+        popRow?.value = pop
+        popRow?.updateCell()
     }
 
     func cancelButtonPressed() {

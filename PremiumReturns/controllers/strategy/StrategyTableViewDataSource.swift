@@ -29,7 +29,7 @@ class StrategyTableViewDataSource: ItemTableViewDataSource {
     override func textForCell(cell: ItemCell, item: AnyObject) -> ItemCell {
         let strategy = item as! Strategy
         let title = strategy.name
-        let detailText = "Legs: \(strategy.legs)   Profit %: \(strategy.maxProfitPercentage)   POP: \(strategy.winningProbability)"
+        let detailText = "Legs: \(strategy.legs)   Profit %: \(strategy.maxProfitPercentage)   POP: \(strategy.pop)"
         cell.updateCell(title: title, detailText: detailText)
         return cell
     }

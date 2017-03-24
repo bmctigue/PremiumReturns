@@ -11,7 +11,7 @@ import UIKit
  
  Value for a loss: loss
  
- Probability of being a winner: winningProbability
+ Probability of being a winner: pop
  Probability of being a loser: losingProbability
  
  // Commissions
@@ -20,7 +20,7 @@ import UIKit
  commissions = commissionPerContract * numberContracts
 
  // Calculate the expected value(return)
- trade = ((maxProfitPercentage * maxProfit) * winningProbability) - (losingProbability * loss) - commissions
+ trade = ((maxProfitPercentage * maxProfit) * pop) - (losingProbability * loss) - commissions
  
  Trade
  =======
@@ -31,7 +31,7 @@ import UIKit
  -----
  - maxProfit() -> Double
  - totalCommissions(legs: Int) -> Double
- - calculate(maxProfitPercentage: Double, winningProbability: Double) -> Double
+ - calculate(maxProfitPercentage: Double, pop: Double) -> Double
  - returnOnCapital(profit: Double, maxLoss: Double) -> Double
  - returnPerDay(totalReturn: Double, days: Int) -> Double
  =======
@@ -41,7 +41,7 @@ import UIKit
  type
  legs
  maxProfitPercentage
- winningProbability
+ pop
  =======
  
  StrategyFactory

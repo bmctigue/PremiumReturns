@@ -27,7 +27,7 @@ protocol StrategyProtocol {
     var name: String { get }
     var legs: Int { get }
     var maxProfitPercentage: Double { get }
-    var winningProbability: Double { get }
+    var pop: Int { get }
     func copyWithID() -> Strategy
 }
 
@@ -37,7 +37,7 @@ final class Strategy: Object, StrategyProtocol {
     dynamic var name: String = ""
     dynamic var legs: Int = 0
     dynamic var maxProfitPercentage: Double = 0.0
-    dynamic var winningProbability: Double = 0.0
+    dynamic var pop: Int = 0
     
     override static func indexedProperties() -> [String] {
         return ["strategyId","name"]
@@ -47,14 +47,14 @@ final class Strategy: Object, StrategyProtocol {
         return "strategyId"
     }
     
-    class func forType(type: StrategyType,name: String, legs: Int, maxProfitPercentage: Double, winningProbability: Double) -> Strategy {
-        let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "winningProbability": winningProbability] as [String : Any]
+    class func forType(type: StrategyType,name: String, legs: Int, maxProfitPercentage: Double, pop: Int) -> Strategy {
+        let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "pop": pop] as [String : Any]
         return Strategy(value: attributesHash)
     }
     
     func copyWithID() -> Strategy {
         let strategyType = StrategyController.sharedInstance.strategyTypeFor(strategy: self)
-        let newStrategy = Strategy.forType(type: strategyType, name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, winningProbability: self.winningProbability)
+        let newStrategy = Strategy.forType(type: strategyType, name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, pop: self.pop)
         newStrategy.strategyId = self.strategyId
         return newStrategy
     }

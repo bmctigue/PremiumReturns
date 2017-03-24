@@ -13,7 +13,7 @@ enum StrategyFormFieldNames: String {
     case Name = "Strategy Name"
     case Legs = "Legs"
     case ProfitPercentage = "Profit Percentage"
-    case WinningProbability = "Probability of Winning"
+    case POP = "POP"
 }
 
 final class StrategyFormController: NSObject {
@@ -62,15 +62,14 @@ final class StrategyFormController: NSObject {
                         self.strategy.maxProfitPercentage = Double(rowValue)
                     }
             }
-            <<< DecimalRow(StrategyFormFieldNames.WinningProbability.rawValue){ row in
+            <<< IntRow(StrategyFormFieldNames.POP.rawValue){ row in
                 row.useFormatterDuringInput = true
-                row.title = StrategyFormFieldNames.WinningProbability.rawValue
+                row.title = StrategyFormFieldNames.POP.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultDecimalFormatter()
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {
-                        self.strategy.winningProbability = Double(rowValue)
+                        self.strategy.pop = rowValue
                     }
         }
     }
