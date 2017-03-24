@@ -25,7 +25,7 @@ class TradeTests: XCTestCase {
     var calculatedReturn: Double?
     
     override func setUp() {
-        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commission: TradeTests.commission)
+        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commissions: TradeTests.commission)
         commissions = trade!.totalCommissions(commission: TradeTests.commission, legs: TradeTests.legs)
         calculatedReturn = trade!.calculate(maxProfitPercentage: 100)
     }

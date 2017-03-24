@@ -77,18 +77,19 @@ final class TradeFormFieldController {
         commissionsRow?.updateCell()
     }
     
-    func resetOutputFields(form: Form, trade: Trade) {
+    func resetOutputFields(form: Form, trade: Trade, commission: Double, legs: Int) {
         let strategy = StrategyController.sharedInstance.resetStrategy()
         let strategyRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Strategy.rawValue)
         strategyRow?.value = strategy.name
         strategyRow?.updateCell()
+        
         
         let broker = BrokerController.sharedInstance.resetBroker()
         let brokerRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Broker.rawValue)
         brokerRow?.value = broker.name
         brokerRow?.updateCell()
         
-        let calculatedFieldValueHash: [CalculationKey:Double] = [CalculationKey.Commissions:0, CalculationKey.MaxProfit:0, CalculationKey.CalculatedReturn:0, CalculationKey.ReturnOnCapital: 0, CalculationKey.ReturnPerDay:0]
+        let calculatedFieldValueHash: [CalculationKey:Double] = [CalculationKey.Commissions:trade.commissions, CalculationKey.MaxProfit:0, CalculationKey.CalculatedReturn:0, CalculationKey.ReturnOnCapital: 0, CalculationKey.ReturnPerDay:0]
         updateOutputFields(form: form, trade: trade, calculatedFieldValueHash: calculatedFieldValueHash)
         
         let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
@@ -101,7 +102,7 @@ final class TradeFormFieldController {
     }
     
     func calculatedHash(trade: Trade, strategy: Strategy, broker: Broker) -> [CalculationKey:Double] {
-        let commissions = trade.commission
+        let commissions = trade.totalCommissions(commission: broker.commission, legs: strategy.legs)
         let maxProfit = trade.maxProfit()
         let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage)
         let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)

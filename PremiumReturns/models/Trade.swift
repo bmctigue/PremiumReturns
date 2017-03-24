@@ -18,7 +18,7 @@ protocol TradeProtocol {
     var maxLoss: Double { set get }
     var contracts: Int { set get }
     var daysToExpiration: Int { set get }
-    var commission: Double { set get }
+    var commissions: Double { set get }
     var pop: Int { set get }
     var date: Date { set get }
     func maxProfit() -> Double
@@ -37,12 +37,12 @@ final class Trade: Object, TradeProtocol {
     dynamic var maxLoss: Double = 0.0
     dynamic var contracts: Int = 1
     dynamic var daysToExpiration: Int = 45
-    dynamic var commission: Double = 0
+    dynamic var commissions: Double = 0
     dynamic var pop: Int = 0
     dynamic var date: Date = Date()
     
-    class func withPremium(premium: Double, maxLoss: Double, pop: Int, contracts: Int, commission: Double) -> Trade {
-        let attributesHash = ["premium": premium, "maxLoss": maxLoss, "pop": pop, "contracts": contracts, "commission":commission] as [String : Any]
+    class func withPremium(premium: Double, maxLoss: Double, pop: Int, contracts: Int, commissions: Double) -> Trade {
+        let attributesHash = ["premium": premium, "maxLoss": maxLoss, "pop": pop, "contracts": contracts, "commissions":commissions] as [String : Any]
         return Trade(value: attributesHash)
     }
     
@@ -66,7 +66,7 @@ final class Trade: Object, TradeProtocol {
         let maxProfit = self.maxProfit()
         let adjustedPercentage = maxProfitPercentage/100.0
         let adjustedProbability = Double(pop)/100.0
-        return ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commission
+        return ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commissions
     }
     
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double {
@@ -78,7 +78,7 @@ final class Trade: Object, TradeProtocol {
     }
     
     func copyWithPremium() -> Trade {
-        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commission":self.commission] as [String : Any]
+        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissio":self.commissions] as [String : Any]
         return Trade(value: attributesHash)
     }
     
@@ -87,7 +87,7 @@ final class Trade: Object, TradeProtocol {
         self.maxLoss = 0
         self.pop = pop
         self.contracts = 1
-        self.commission = totalCommissions(commission: commission, legs: legs)
+        self.commissions = totalCommissions(commission: commission, legs: legs)
         self.daysToExpiration = TradeTableViewController.daysToExpiration
         self.ticker = Defaults[.ticker]
     }

@@ -190,6 +190,7 @@ final class TradeFormController: NSObject {
                 }.onChange { row in
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentStrategy = strategy
+                        self.controller?.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
                         self.updateOutputFields()
                         Defaults[.strategy] = strategy.strategyId
                     }
@@ -202,7 +203,7 @@ final class TradeFormController: NSObject {
                 }.onChange { row in
                     if let rowValue = row.value, let broker = BrokerController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentBroker = broker
-                        self.controller?.trade.commission = broker.commission
+                        self.controller?.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
                         self.updateOutputFields()
                         Defaults[.broker] = broker.brokerId
                     }

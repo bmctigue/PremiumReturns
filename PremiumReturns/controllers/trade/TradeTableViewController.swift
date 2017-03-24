@@ -27,7 +27,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     var currentBroker: Broker?
     var currentStrategy: Strategy?
-    var trade = Trade.withPremium(premium: 0, maxLoss: 0, pop: 0,  contracts: 1, commission: 1)
+    var trade: Trade!
     var helpViewController: HelpViewController?
     var tradeFormController: TradeFormController?
 
@@ -37,16 +37,19 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         self.title = TradeTableViewController.controllerTitle
         self.tableView?.backgroundColor = UIColor.white
         self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+
+        addHelpView()
+        
+        currentBroker = BrokerController.sharedInstance.resetBroker()
+        currentStrategy = StrategyController.sharedInstance.resetStrategy()
+        trade = Trade()
+        resetTrade()
         
         tradeFormController = TradeFormController(form: form, controller: self)
         tradeFormController?.formSetup()
+        resetForm()
         animateScroll = true
         rowKeyboardSpacing = 20
-
-        addHelpView()
-        currentBroker = BrokerController.sharedInstance.resetBroker()
-        currentStrategy = StrategyController.sharedInstance.resetStrategy()
-        resetTrade()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,11 +91,12 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     func resetForm() {
         TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts, days: trade.daysToExpiration)
-        TradeFormFieldController.sharedInstance.resetOutputFields(form: form, trade: trade)
+        TradeFormFieldController.sharedInstance.resetOutputFields(form: form, trade: trade, commission: currentBroker!.commission, legs: currentStrategy!.legs)
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetTrade()
+        resetForm()
     }
     
     @IBAction func helpButtonPressed(_ sender: Any) {
