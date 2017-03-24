@@ -29,8 +29,9 @@ import UIKit
  contracts
  daysToExpiration
  -----
- - totalCommissions(commissionPerContract: Double, legs: Int) -> Double
- - calculate(maxProfitPercentage: Double, winningProbability: Double, contracts: Int, commissions: Double) -> Double
+ - maxProfit() -> Double
+ - totalCommissions(legs: Int) -> Double
+ - calculate(maxProfitPercentage: Double, winningProbability: Double) -> Double
  - returnOnCapital(profit: Double, maxLoss: Double) -> Double
  - returnPerDay(totalReturn: Double, days: Int) -> Double
  =======
@@ -74,9 +75,10 @@ import UIKit
  
  TODO
  ====
- Add Live tableview for trades with code to update with data base notifications
- Add section for live to display live activity with button to share
  Add code for Realm to use remote data store
+ Change winning probability to pop
+ Add pop field to the trade input fields
+  Add live trade view
  ====
  
 */
