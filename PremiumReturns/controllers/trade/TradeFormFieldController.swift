@@ -83,7 +83,6 @@ final class TradeFormFieldController {
         strategyRow?.value = strategy.name
         strategyRow?.updateCell()
         
-        
         let broker = BrokerController.sharedInstance.resetBroker()
         let brokerRow: ActionSheetRow<String>? = form.rowBy(tag: FormFieldNames.Broker.rawValue)
         brokerRow?.value = broker.name
