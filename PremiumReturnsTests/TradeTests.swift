@@ -15,7 +15,7 @@ class TradeTests: XCTestCase {
     static var maxLoss: Double = 100
     static var contracts: Int = 1
     static var legs: Int = 4
-    static var commission: Double = 1.0
+    static var commission: Double = 2.0
     static var totalReturns = 90.0
     static var days = 45
     static var pop = 100
@@ -36,16 +36,16 @@ class TradeTests: XCTestCase {
     }
     
     func testTotalCommissions() {
-        XCTAssertEqual(commissions!, 4.0)
+        XCTAssertEqual(commissions!, 8.0)
     }
     
     func testCalculate() {
-        XCTAssertEqual(roundValue(calculatedReturn!,toDecimalPlaces: 2), 99.0)
+        XCTAssertEqual(roundValue(calculatedReturn!,toDecimalPlaces: 2), 98.0)
     }
     
     func testReturnOnCapital() {
         let roc = trade!.returnOnCapital(profit: calculatedReturn!, maxLoss: TradeTests.maxLoss)
-        XCTAssertEqual(roundValue(roc,toDecimalPlaces: 2), 99.0)
+        XCTAssertEqual(roundValue(roc,toDecimalPlaces: 2), 98.0)
     }
     
     func testReturnPerDay() {

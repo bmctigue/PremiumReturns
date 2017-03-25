@@ -96,7 +96,7 @@ final class TradeFormController: NSObject {
                     }
             }
             <<< IntRow(FormFieldNames.POP.rawValue) { row in
-                row.title = FormFieldNames.POP.rawValue
+                row.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
                 row.value = self.controller?.trade.pop
                 }.onChange { row in
                     if let rowValue = row.value {
@@ -191,6 +191,8 @@ final class TradeFormController: NSObject {
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
                         self.controller?.currentStrategy = strategy
                         self.controller?.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
+                        let popRow: IntRow? = self.form!.rowBy(tag: FormFieldNames.POP.rawValue)
+                        popRow!.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
                         self.updateOutputFields()
                         Defaults[.strategy] = strategy.strategyId
                     }
