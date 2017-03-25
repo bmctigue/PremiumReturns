@@ -64,18 +64,6 @@ final class BrokerController {
         }
     }
     
-    func brokerTypeFor(broker: Broker) -> BrokerType {
-        var brokerType: BrokerType = .Custom
-        let brokerTypeString = broker.self.brokerType
-        switch brokerTypeString {
-        case BrokerType.TastyWorks.rawValue:
-            brokerType = .TastyWorks
-        default:
-            brokerType = .Custom
-        }
-        return brokerType
-    }
-    
     func resetBroker() -> Broker {
         let allBrokers = all()
         if allBrokers.count > 0 {

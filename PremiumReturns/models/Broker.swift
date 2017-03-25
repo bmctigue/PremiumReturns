@@ -43,9 +43,20 @@ final class Broker: Object, BrokerProtocol {
         return Broker(value: attributesHash)
     }
     
+    func brokerTypeFor() -> BrokerType {
+        var brokerType: BrokerType = .Custom
+        let brokerTypeString = self.brokerType
+        switch brokerTypeString {
+        case BrokerType.TastyWorks.rawValue:
+            brokerType = .TastyWorks
+        default:
+            brokerType = .Custom
+        }
+        return brokerType
+    }
+    
     func copyWithID() -> Broker {
-        let brokerType = BrokerController.sharedInstance.brokerTypeFor(broker: self)
-        let newBroker = Broker.forType(type: brokerType, name: self.name, commission: self.commission)
+        let newBroker = Broker.forType(type: self.brokerTypeFor(), name: self.name, commission: self.commission)
         newBroker.brokerId = self.brokerId
         return newBroker
     }

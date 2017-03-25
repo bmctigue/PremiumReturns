@@ -52,9 +52,32 @@ final class Strategy: Object, StrategyProtocol {
         return Strategy(value: attributesHash)
     }
     
+    func strategyTypeForStrategy() -> StrategyType {
+        var strategyType: StrategyType = .Custom
+        let strategyTypeString = self.strategyType
+        switch strategyTypeString {
+        case StrategyType.IronCondor.rawValue:
+            strategyType = .IronCondor
+        case StrategyType.IronFly.rawValue:
+            strategyType = .IronFly
+        case StrategyType.VerticalSpread.rawValue:
+            strategyType = .VerticalSpread
+        case StrategyType.Straddle.rawValue:
+            strategyType = .Straddle
+        case StrategyType.Strangle.rawValue:
+            strategyType = .Strangle
+        case StrategyType.RatioSpread.rawValue:
+            strategyType = .RatioSpread
+        case StrategyType.JadeLizard.rawValue:
+            strategyType = .JadeLizard
+        default:
+            strategyType = .Custom
+        }
+        return strategyType
+    }
+    
     func copyWithID() -> Strategy {
-        let strategyType = StrategyController.sharedInstance.strategyTypeFor(strategy: self)
-        let newStrategy = Strategy.forType(type: strategyType, name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, pop: self.pop)
+        let newStrategy = Strategy.forType(type: self.strategyTypeForStrategy(), name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, pop: self.pop)
         newStrategy.strategyId = self.strategyId
         return newStrategy
     }

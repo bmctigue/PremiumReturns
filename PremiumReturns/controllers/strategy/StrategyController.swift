@@ -60,30 +60,6 @@ final class StrategyController {
         }
     }
     
-    func strategyTypeFor(strategy: Strategy) -> StrategyType {
-        var strategyType: StrategyType = .Custom
-        let strategyTypeString = strategy.self.strategyType
-        switch strategyTypeString {
-        case StrategyType.IronCondor.rawValue:
-            strategyType = .IronCondor
-        case StrategyType.IronFly.rawValue:
-            strategyType = .IronFly
-        case StrategyType.VerticalSpread.rawValue:
-            strategyType = .VerticalSpread
-        case StrategyType.Straddle.rawValue:
-            strategyType = .Straddle
-        case StrategyType.Strangle.rawValue:
-            strategyType = .Strangle
-        case StrategyType.RatioSpread.rawValue:
-            strategyType = .RatioSpread
-        case StrategyType.JadeLizard.rawValue:
-            strategyType = .JadeLizard
-        default:
-            strategyType = .Custom
-        }
-        return strategyType
-    }
-    
     func resetStrategy() -> Strategy {
         let allStrategies = all()
         if allStrategies.count > 0 {

@@ -63,12 +63,6 @@ class BrokerControllerTests: XCTestCase {
         XCTAssertFalse(isUniqueBroker)
     }
     
-    func testBrokerTypeFor() {
-        let testBroker = Broker.forType(type: .TastyWorks, name: BrokerType.TastyWorks.rawValue, commission: 1.0)
-        let testBrokerType = BrokerController.sharedInstance.brokerTypeFor(broker: testBroker)
-        XCTAssertEqual(testBroker.brokerType,testBrokerType.rawValue)
-    }
-    
     func testResetBroker() {
         ModelControllerUtilities.sharedInstance.refreshAppData()
         var firstBroker = BrokerController.sharedInstance.resetBroker()
