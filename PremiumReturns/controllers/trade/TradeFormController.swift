@@ -66,15 +66,15 @@ final class TradeFormController: NSObject {
     }
     
     func formSetup() {
-        formInputSetup(form: form!)
-        formReturnsSetup(form: form!)
-        formLiveTradeSetup(form: form!)
-        formSettingsSetup(form: form!)
-        formCostsSetup(form: form!)
+        formInputSetup()
+        formReturnsSetup()
+        formLiveTradeSetup()
+        formSettingsSetup()
+        formCostsSetup()
     }
     
-    func formInputSetup(form: Form) {
-        form
+    func formInputSetup() {
+        form!
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Input.rawValue)
@@ -131,8 +131,8 @@ final class TradeFormController: NSObject {
             }
     }
     
-    func formReturnsSetup(form: Form) {
-        form
+    func formReturnsSetup() {
+        form!
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Returns.rawValue)
@@ -156,8 +156,8 @@ final class TradeFormController: NSObject {
         }
     }
     
-    func formLiveTradeSetup(form: Form) {
-        form
+    func formLiveTradeSetup() {
+        form!
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.LiveTrade.rawValue)
@@ -191,8 +191,8 @@ final class TradeFormController: NSObject {
         }
     }
     
-    func formSettingsSetup(form: Form) {
-        form
+    func formSettingsSetup() {
+        form!
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Settings.rawValue)
@@ -228,8 +228,8 @@ final class TradeFormController: NSObject {
         }
     }
     
-    func formCostsSetup(form: Form) {
-        form
+    func formCostsSetup() {
+        form!
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Costs.rawValue)
