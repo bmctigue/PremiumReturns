@@ -66,85 +66,98 @@ final class TradeFormController: NSObject {
     }
     
     func formSetup() {
-        
-        form!
+        formInputSetup(form: form!)
+        formReturnsSetup(form: form!)
+        formLiveTradeSetup(form: form!)
+        formSettingsSetup(form: form!)
+        formCostsSetup(form: form!)
+    }
+    
+    func formInputSetup(form: Form) {
+        form
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Input.rawValue)
                 }()
+                }
+                <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
+                    row.useFormatterDuringInput = true
+                    row.title = FormFieldNames.Premium.rawValue
+                    row.value = 0
+                    row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                    }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.premium = Double(rowValue)
+                            self.updateOutputFields()
+                        }
+                }
+                <<< DecimalRow(FormFieldNames.MaxLoss.rawValue){ row in
+                    row.useFormatterDuringInput = true
+                    row.title = FormFieldNames.MaxLoss.rawValue
+                    row.value = 0
+                    row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                    }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.maxLoss = Double(rowValue)
+                            self.updateOutputFields()
+                        }
+                }
+                <<< IntRow(FormFieldNames.POP.rawValue) { row in
+                    row.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
+                    row.value = self.controller?.trade.pop
+                    }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.pop = rowValue
+                            self.updateOutputFields()
+                        }
+                }
+                <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
+                    row.title = FormFieldNames.Contracts.rawValue
+                    row.value = self.controller?.trade.contracts
+                    }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.contracts = rowValue
+                            self.updateOutputFields()
+                        }
+                }
+                <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
+                    row.title = FormFieldNames.DaysToExpiration.rawValue
+                    row.value = self.controller?.trade.daysToExpiration
+                    }.onChange { row in
+                        if let rowValue = row.value {
+                            self.controller?.trade.daysToExpiration = rowValue
+                            self.updateOutputFields()
+                        }
             }
-            <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
-                row.useFormatterDuringInput = true
-                row.title = FormFieldNames.Premium.rawValue
-                row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.premium = Double(rowValue)
-                        self.updateOutputFields()
-                    }
-            }
-            <<< DecimalRow(FormFieldNames.MaxLoss.rawValue){ row in
-                row.useFormatterDuringInput = true
-                row.title = FormFieldNames.MaxLoss.rawValue
-                row.value = 0
-                row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.maxLoss = Double(rowValue)
-                        self.updateOutputFields()
-                    }
-            }
-            <<< IntRow(FormFieldNames.POP.rawValue) { row in
-                row.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
-                row.value = self.controller?.trade.pop
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.pop = rowValue
-                        self.updateOutputFields()
-                    }
-            }
-            <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
-                row.title = FormFieldNames.Contracts.rawValue
-                row.value = self.controller?.trade.contracts
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.contracts = rowValue
-                        self.updateOutputFields()
-                    }
-            }
-            <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
-                row.title = FormFieldNames.DaysToExpiration.rawValue
-                row.value = self.controller?.trade.daysToExpiration
-                }.onChange { row in
-                    if let rowValue = row.value {
-                        self.controller?.trade.daysToExpiration = rowValue
-                        self.updateOutputFields()
-                    }
-            }
-            
+    }
+    
+    func formReturnsSetup(form: Form) {
+        form
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Returns.rawValue)
                 }()
-            }
-            <<< LabelRow(FormFieldNames.MaxProfit.rawValue){ row in
-                row.title = FormFieldNames.MaxProfit.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-            }
-            <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue){ row in
-                row.title = FormFieldNames.ExpectedReturn.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-            }
-            <<< LabelRow(FormFieldNames.ROC.rawValue){ row in
-                row.title = FormFieldNames.ROC.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
-            }
-            <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue){ row in
-                row.title = FormFieldNames.ReturnPerDay.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-            }
-            
+                }
+                <<< LabelRow(FormFieldNames.MaxProfit.rawValue){ row in
+                    row.title = FormFieldNames.MaxProfit.rawValue
+                    row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+                }
+                <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue){ row in
+                    row.title = FormFieldNames.ExpectedReturn.rawValue
+                    row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+                }
+                <<< LabelRow(FormFieldNames.ROC.rawValue){ row in
+                    row.title = FormFieldNames.ROC.rawValue
+                    row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
+                }
+                <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue){ row in
+                    row.title = FormFieldNames.ReturnPerDay.rawValue
+                    row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+        }
+    }
+    
+    func formLiveTradeSetup(form: Form) {
+        form
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.LiveTrade.rawValue)
@@ -154,11 +167,11 @@ final class TradeFormController: NSObject {
                 row.title = FormFieldNames.Ticker.rawValue
                 row.value = self.controller?.trade.ticker
                 }.onChange { row in
-                        if let rowValue = row.value {
-                            self.controller?.trade.ticker = rowValue
-                            self.updateOutputFields()
-                            Defaults[.ticker] = rowValue
-                        }
+                    if let rowValue = row.value {
+                        self.controller?.trade.ticker = rowValue
+                        self.updateOutputFields()
+                        Defaults[.ticker] = rowValue
+                    }
             }
             <<< LabelRow(FormFieldNames.Share.rawValue){ row in
                 row.title = FormFieldNames.Share.rawValue
@@ -175,8 +188,11 @@ final class TradeFormController: NSObject {
                             }
                         }
                     }
-            }
-            
+        }
+    }
+    
+    func formSettingsSetup(form: Form) {
+        form
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Settings.rawValue)
@@ -209,8 +225,11 @@ final class TradeFormController: NSObject {
                         self.updateOutputFields()
                         Defaults[.broker] = broker.brokerId
                     }
-            }
-            
+        }
+    }
+    
+    func formCostsSetup(form: Form) {
+        form
             +++ Section(){ section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Costs.rawValue)
