@@ -63,10 +63,9 @@ final class Trade: Object, TradeProtocol {
     }
     
     func calculate(maxProfitPercentage: Double) -> Double {
-        let maxProfit = self.maxProfit()
         let adjustedPercentage = maxProfitPercentage/100.0
         let adjustedProbability = Double(pop)/100.0
-        return ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commissions
+        return ((adjustedPercentage * self.maxProfit()) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commissions
     }
     
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double {
