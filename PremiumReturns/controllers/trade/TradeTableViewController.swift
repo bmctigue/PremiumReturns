@@ -8,7 +8,6 @@
 
 import UIKit
 import Eureka
-import ChameleonFramework
 import SwiftyUserDefaults
 
 class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
@@ -86,7 +85,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetTrade() {
-        trade.reset(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs)
+        trade.reset(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
     }
     
     func resetForm() {

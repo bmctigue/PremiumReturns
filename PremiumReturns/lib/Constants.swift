@@ -21,7 +21,7 @@ import SwiftyUserDefaults
 
 struct Constants {
     static let headerHeight: Float = 30.0
-    static let dateFormatString:String = "MMM yyyy HH:mm"
+    static let dateFormatString:String = "MMM dd, yyyy HH:mm"
     
     static let localIPAddress = "192.168.1.66"
     static let syncHost = localIPAddress

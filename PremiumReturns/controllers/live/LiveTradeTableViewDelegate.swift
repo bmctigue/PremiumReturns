@@ -30,7 +30,7 @@ class LiveTradeTableViewDelegate: NSObject {
 extension LiveTradeTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = items[indexPath.row]
-//        RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: newItem)
+        let item = items[indexPath.row]
+        RoutingController.sharedInstance.openLiveTrade(controller: controller as! LiveTradeTableViewController, trade: item)
     }
 }

@@ -28,6 +28,10 @@ class LiveTradeTableViewController: UITableViewController {
         self.tableViewDelegate = LiveTradeTableViewDelegate(tableView: tableView, controller: self)
         self.tableView.delegate = tableViewDelegate
         
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        
         notificationToken = realm.objects(Trade.self).addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             self?.refreshData()
         }

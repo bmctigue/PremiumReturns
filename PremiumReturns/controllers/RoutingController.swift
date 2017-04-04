@@ -35,4 +35,11 @@ final class RoutingController: NSObject {
         let presentingController = controller as! UIViewController
         presentingController.present(navigationController, animated: true, completion: nil)
     }
+    
+    func openLiveTrade(controller: LiveTradeTableViewController, trade: Trade) {
+        let storyboard = StoryboardFactory().create(name: "Trade")
+        let liveTradeController: LiveTradeViewController = storyboard.instantiateViewController(withIdentifier: "LiveTradeViewController") as! LiveTradeViewController
+        liveTradeController.trade = trade
+        controller.show(liveTradeController, sender: nil)
+    }
 }
