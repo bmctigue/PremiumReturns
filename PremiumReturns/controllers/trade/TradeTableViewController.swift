@@ -15,7 +15,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     @IBOutlet weak var resetBarButton: UIBarButtonItem!
     @IBOutlet weak var helpBarButton: UIBarButtonItem!
     
-    static let controllerTitle: String = "Returns"
+    static let controllerTitle: String = "Premium Returns"
     static let helpTitle: String = "Help"
     static let headerHeight: Float = 30.0
     static let fontName = FontType.Primary.fontName
