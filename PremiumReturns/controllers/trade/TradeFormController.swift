@@ -43,7 +43,7 @@ class TradeFormController: NSObject {
     static let shareText = "Tap to Share"
     
     var form: Form?
-    var controller: TradeTableViewController?
+    var controller: TradeTableViewController!
     var strategies = StrategyController.sharedInstance.all()
     var firstStrategy: Strategy?
     var brokers = BrokerController.sharedInstance.all()
@@ -90,7 +90,7 @@ class TradeFormController: NSObject {
                     row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                     }.onChange { row in
                         if let rowValue = row.value {
-                            self.controller?.trade.premium = Double(rowValue)
+                            self.controller.trade.premium = Double(rowValue)
                             self.updateOutputFields()
                         }
                 }
@@ -101,34 +101,34 @@ class TradeFormController: NSObject {
                     row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
                     }.onChange { row in
                         if let rowValue = row.value {
-                            self.controller?.trade.maxLoss = Double(rowValue)
+                            self.controller.trade.maxLoss = Double(rowValue)
                             self.updateOutputFields()
                         }
                 }
                 <<< IntRow(FormFieldNames.POP.rawValue) { row in
                     row.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
-                    row.value = self.controller?.trade.pop
+                    row.value = self.controller.trade.pop
                     }.onChange { row in
                         if let rowValue = row.value {
-                            self.controller?.trade.pop = rowValue
+                            self.controller.trade.pop = rowValue
                             self.updateOutputFields()
                         }
                 }
                 <<< IntRow(FormFieldNames.Contracts.rawValue) { row in
                     row.title = FormFieldNames.Contracts.rawValue
-                    row.value = self.controller?.trade.contracts
+                    row.value = self.controller.trade.contracts
                     }.onChange { row in
                         if let rowValue = row.value {
-                            self.controller?.trade.contracts = rowValue
+                            self.controller.trade.contracts = rowValue
                             self.updateOutputFields()
                         }
                 }
                 <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
                     row.title = FormFieldNames.DaysToExpiration.rawValue
-                    row.value = self.controller?.trade.daysToExpiration
+                    row.value = self.controller.trade.daysToExpiration
                     }.onChange { row in
                         if let rowValue = row.value {
-                            self.controller?.trade.daysToExpiration = rowValue
+                            self.controller.trade.daysToExpiration = rowValue
                             self.updateOutputFields()
                         }
             }
@@ -168,10 +168,10 @@ class TradeFormController: NSObject {
             }
             <<< TextRow(FormFieldNames.Ticker.rawValue){ row in
                 row.title = FormFieldNames.Ticker.rawValue
-                row.value = self.controller?.trade.ticker
+                row.value = self.controller.trade.ticker
                 }.onChange { row in
                     if let rowValue = row.value {
-                        self.controller?.trade.ticker = rowValue
+                        self.controller.trade.ticker = rowValue
                         self.updateOutputFields()
                         Defaults[.ticker] = rowValue
                     }
@@ -208,11 +208,13 @@ class TradeFormController: NSObject {
                 row.value = firstStrategy?.name
                 }.onChange { row in
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
-                        self.controller?.currentStrategy = strategy
-                        self.controller?.trade.strategy = strategy.name
-                        self.controller?.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
+                        self.controller.currentStrategy = strategy
+                        self.controller.trade.strategy = strategy.name
+                        self.controller.trade.pop = strategy.pop
+                        self.controller.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
                         let popRow: IntRow? = self.form!.rowBy(tag: FormFieldNames.POP.rawValue)
                         popRow!.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
+                        self.updateInputFields()
                         self.updateOutputFields()
                         Defaults[.strategy] = strategy.strategyId
                     }
@@ -224,8 +226,8 @@ class TradeFormController: NSObject {
                 row.value = firstBroker?.name
                 }.onChange { row in
                     if let rowValue = row.value, let broker = BrokerController.sharedInstance.find(name: rowValue).first {
-                        self.controller?.currentBroker = broker
-                        self.controller?.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
+                        self.controller.currentBroker = broker
+                        self.controller.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
                         self.updateOutputFields()
                         Defaults[.broker] = broker.brokerId
                     }
@@ -243,6 +245,10 @@ class TradeFormController: NSObject {
                 row.title = FormFieldNames.Commissions.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         }
+    }
+    
+    func updateInputFields() {
+        TradeFormFieldController.sharedInstance.updateInputFields(form: self.form!, premium: self.controller.trade.premium, maxLoss: self.controller.trade.maxLoss, pop: self.controller.trade.pop, contracts: self.controller.trade.contracts, days: self.controller.trade.daysToExpiration)
     }
     
     func updateOutputFields() {
