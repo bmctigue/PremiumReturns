@@ -28,18 +28,22 @@ final class FormController {
     }
     
     func rowIsEmpty(row: TextRow) -> Bool {
-        if row.value == nil || row.value == "" {
+        if row.title == nil || row.title == "" {
             return true
         }
         return false
     }
     
-    func alertTextRowIsEmpty(name: String, controller: UIViewController?) {
-        if let controller = controller {
-            let title = "The \(name) field is empty"
-            let message = "Please fill in the \(name) field"
-            Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
-        }
+    func alertTextRowIsEmpty(name: String, controller: UIViewController) {
+        let title = "The \(name) field is empty"
+        let message = "Please fill in the \(name) field"
+        Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
+    }
+    
+    func alertInputRowIsZero(controller: UIViewController) {
+        let title = "Trade data is missing"
+        let message = "Please make sure the input fields have values greater than 0"
+        Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
     }
     
     func share(trade: Trade, controller: UIViewController) {
@@ -47,5 +51,17 @@ final class FormController {
         let title = "Share your Trade"
         let message = "Your \(trade.ticker) trade was shared!"
         Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
+    }
+    
+    func numericRowsAreNonZero(rows: [BaseRow]) -> Bool {
+        var valid = true
+        for row in rows {
+            let decimalRow = row as? DecimalRow
+            let intRow = row as? IntRow
+            if (decimalRow != nil && decimalRow!.value == 0) || (intRow != nil && intRow!.value == 0) {
+                valid = false
+            }
+        }
+        return valid
     }
 }

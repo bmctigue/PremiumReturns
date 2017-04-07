@@ -48,6 +48,7 @@ class TradeFormController: NSObject {
     var firstStrategy: Strategy?
     var brokers = BrokerController.sharedInstance.all()
     var firstBroker: Broker?
+    var inputRows: [BaseRow] = []
     
     init(form: Form, controller: TradeTableViewController) {
         self.form = form
@@ -74,6 +75,7 @@ class TradeFormController: NSObject {
         formLiveTradeSetup()
         formSettingsSetup()
         formCostsSetup()
+        setupInputFieldsForValidation()
     }
     
     func formInputSetup() {
@@ -186,8 +188,10 @@ class TradeFormController: NSObject {
                         if rowIsEmpty {
                             FormController.sharedInstance.alertTextRowIsEmpty(name: FormFieldNames.Ticker.rawValue, controller: self.controller)
                         } else {
-                            if let controller = self.controller {
-                                FormController.sharedInstance.share(trade: controller.trade, controller: controller)
+                            if FormController.sharedInstance.numericRowsAreNonZero(rows: self.inputRows) {
+                                FormController.sharedInstance.share(trade: self.controller.trade, controller: self.controller)
+                            } else {
+                                FormController.sharedInstance.alertInputRowIsZero(controller: self.controller)
                             }
                         }
                     }
@@ -244,6 +248,18 @@ class TradeFormController: NSObject {
             <<< LabelRow(FormFieldNames.Commissions.rawValue){ row in
                 row.title = FormFieldNames.Commissions.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
+        }
+    }
+    
+    func setupInputFieldsForValidation() {
+        let premiumRow: DecimalRow? = self.form?.rowBy(tag: FormFieldNames.Premium.rawValue)
+        let lossRow: DecimalRow? = self.form?.rowBy(tag: FormFieldNames.MaxLoss.rawValue)
+        let popRow: IntRow? = self.form?.rowBy(tag: FormFieldNames.POP.rawValue)
+        let contractsRow: IntRow? = self.form?.rowBy(tag: FormFieldNames.Contracts.rawValue)
+        let dteRow: IntRow? = self.form?.rowBy(tag: FormFieldNames.DaysToExpiration.rawValue)
+        
+        if let premium = premiumRow, let loss = lossRow, let pop = popRow, let contracts = contractsRow, let dte = dteRow {
+            inputRows = [premium,loss,pop,contracts,dte]
         }
     }
     
