@@ -2,10 +2,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'PremiumReturns' do
-    pod 'Spots'
-    pod 'Cache', :tag => '2.3.0', :git => 'https://github.com/hyperoslo/Cache.git'
-    pod 'Sugar', '~> 3.0'
-    pod 'Imaginary', '~> 1.0'
+
+    pod 'Eureka', :tag => '2.0.1', :git => 'https://github.com/xmartlabs/Eureka.git'
+    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwiftyUserDefaults', :tag => '3.0.1', :git => 'https://github.com/radex/SwiftyUserDefaults.git'
 
     target 'PremiumReturnsTests' do
