@@ -14,7 +14,7 @@ final class BrokerTableViewDataSource: ItemTableViewDataSource {
         items = BrokerController.sharedInstance.all()
     }
     
-    override func handleDeleteItem(alertAction: UIAlertAction!) -> Void {
+    override func handleDeleteItem(alertAction: UIAlertAction!) {
         if let indexPath = deleteItemIndexPath {
             let broker = items[indexPath.row] as! Broker
             BrokerController.sharedInstance.remove(broker: broker)

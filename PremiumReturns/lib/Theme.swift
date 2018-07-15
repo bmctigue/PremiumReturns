@@ -11,7 +11,7 @@ import ChameleonFramework
 
 typealias Style = StyleManager
 
-//MARK: - StyleManager
+// MARK: - StyleManager
 final class StyleManager {
     
     // MARK: - StyleManager
@@ -46,7 +46,7 @@ final class StyleManager {
     }
 }
 
-//MARK: - FontType
+// MARK: - FontType
 enum FontType {
     case Primary
 }

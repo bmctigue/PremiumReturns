@@ -12,7 +12,7 @@ import SwiftyUserDefaults
 
 final class BrokerController {
     
-    static let sharedInstance = BrokerController.init()
+    static let sharedInstance = BrokerController()
     
     let realm: Realm
     

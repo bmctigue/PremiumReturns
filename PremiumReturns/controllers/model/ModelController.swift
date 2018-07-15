@@ -11,7 +11,7 @@ import RealmSwift
 
 final class ModelController {
     
-    static let sharedInstance = ModelController.init()
+    static let sharedInstance = ModelController()
     
     let realm: Realm
     

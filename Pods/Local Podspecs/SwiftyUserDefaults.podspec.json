@@ -1,15 +1,16 @@
 {
   "name": "SwiftyUserDefaults",
-  "version": "3.0.1",
+  "version": "4.0.0-alpha.1",
   "license": "MIT",
   "summary": "Swifty API for NSUserDefaults",
   "homepage": "https://github.com/radex/SwiftyUserDefaults",
   "authors": {
-    "Radek Pietruszewski": "this.is@radex.io"
+    "Radek Pietruszewski": "this.is@radex.io",
+    "Łukasz Mróz": "thesunshinejr@gmail.com"
   },
   "source": {
     "git": "https://github.com/radex/SwiftyUserDefaults.git",
-    "tag": "3.0.1"
+    "tag": "4.0.0-alpha.1"
   },
   "requires_arc": true,
   "platforms": {
@@ -18,5 +19,7 @@
     "tvos": "9.0",
     "watchos": "2.0"
   },
+  "swift_version": "4.0",
+  "cocoapods_version": ">= 1.4.0",
   "source_files": "Sources/*.swift"
 }

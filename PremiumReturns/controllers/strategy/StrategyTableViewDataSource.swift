@@ -14,7 +14,7 @@ class StrategyTableViewDataSource: ItemTableViewDataSource {
         items = StrategyController.sharedInstance.all()
     }
     
-    override func handleDeleteItem(alertAction: UIAlertAction!) -> Void {
+    override func handleDeleteItem(alertAction: UIAlertAction!) {
         if let indexPath = deleteItemIndexPath {
             let strategy = items[indexPath.row]  as! Strategy
             StrategyController.sharedInstance.remove(strategy: strategy)

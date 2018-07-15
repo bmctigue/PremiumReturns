@@ -62,11 +62,11 @@ class EditBrokerTableViewController: FormViewController {
         commissionRow?.updateCell()
     }
 
-    func cancelButtonPressed() {
+    @objc func cancelButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func doneButtonPressed() {
+    @objc func doneButtonPressed() {
         let missingNameTitle = EditBrokerTableViewController.missingTitle
         let missingNameMessage = EditBrokerTableViewController.missingMessage
         let validationErrors = form.validate()

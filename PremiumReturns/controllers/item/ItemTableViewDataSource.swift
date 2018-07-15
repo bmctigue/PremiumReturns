@@ -48,7 +48,7 @@ class ItemTableViewDataSource: NSObject {
         }
     }
     
-    func handleDeleteItem(alertAction: UIAlertAction!) -> Void {
+    func handleDeleteItem(alertAction: UIAlertAction!) {
         // override me
     }
     

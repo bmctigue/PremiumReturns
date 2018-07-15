@@ -11,7 +11,7 @@ import Eureka
 
 final class FormController {
     
-    static let sharedInstance = FormController.init()
+    static let sharedInstance = FormController()
     
     func headerView(text: String) -> HeaderFooterView<UIView> {
         var header = HeaderFooterView<UIView>(.callback({
@@ -23,7 +23,7 @@ final class FormController {
             view.addSubview(label)
             return view
         }))
-        header.height = {CGFloat(Constants.headerHeight)}
+        header.height = { CGFloat(Constants.headerHeight) }
         return header
     }
     

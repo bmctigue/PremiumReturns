@@ -12,7 +12,7 @@ import SwiftyUserDefaults
 
 final class StrategyController {
     
-    static let sharedInstance = StrategyController.init()
+    static let sharedInstance = StrategyController()
     
     let realm: Realm
     

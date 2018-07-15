@@ -12,7 +12,7 @@ import XCTest
 class ModelControllerTests: XCTestCase {
     
     func testClear() {
-        let modelController = ModelController.init()
+        let modelController = ModelController()
         modelController.clear()
         XCTAssertTrue(true)
     }

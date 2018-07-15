@@ -29,7 +29,7 @@ final class BrokerFormController: NSObject {
     func formSetup() {
         
         form!
-            +++ TextRow(){ row in
+            +++ TextRow() { row in
                 row.title = "Broker Name"
                 row.placeholder = "Enter a unique name"
                 row.value = self.broker.name
@@ -40,7 +40,7 @@ final class BrokerFormController: NSObject {
                         self.broker.name = rowValue
                     }
             }
-            <<< DecimalRow(BrokerFormFieldNames.Commission.rawValue){ row in
+            <<< DecimalRow(BrokerFormFieldNames.Commission.rawValue) { row in
                 row.useFormatterDuringInput = true
                 row.title = BrokerFormFieldNames.Commission.rawValue
                 row.value = 0

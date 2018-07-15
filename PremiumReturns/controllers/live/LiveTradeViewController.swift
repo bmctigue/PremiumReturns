@@ -24,7 +24,7 @@ class LiveTradeViewController: FormViewController {
         
         self.title = trade.ticker
         self.tableView?.backgroundColor = UIColor.white
-        self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        self.tableView?.contentInset = UIEdgeInsets(top: 64.0, left: 0, bottom: 0, right: 0)
         
         tradeFormController = LiveTradeFormController(form: form, trade: self.trade)
         tradeFormController?.formSetup()

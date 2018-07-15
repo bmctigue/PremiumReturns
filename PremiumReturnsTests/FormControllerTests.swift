@@ -13,7 +13,7 @@ import Eureka
 class FormControllerTests: XCTestCase {
     
     func testRowIsEmpty() {
-        let testRow = TextRow(){ row in
+        let testRow = TextRow() { row in
         }
         XCTAssertTrue(FormController.sharedInstance.rowIsEmpty(row: testRow))
         testRow.title = ""
@@ -23,7 +23,7 @@ class FormControllerTests: XCTestCase {
     }
     
     func testNumericRowIsNonZero() {
-        let testRow = DecimalRow(){ row in
+        let testRow = DecimalRow() { row in
             row.value = 0
         }
         let baseRows: [BaseRow] = [testRow]

@@ -14,7 +14,7 @@ class LiveTradeTableViewController: UITableViewController {
     static let controllerTitle: String = "Live Trades"
     
     let realm: Realm = try! Realm()
-    var notificationToken: NotificationToken? = nil
+    var notificationToken: NotificationToken?
 
     private(set) var tableViewDataSource: LiveTradeTableViewDataSource?
     private(set) var tableViewDelegate: LiveTradeTableViewDelegate?
@@ -32,7 +32,7 @@ class LiveTradeTableViewController: UITableViewController {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-        notificationToken = realm.objects(Trade.self).addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+        notificationToken = realm.objects(Trade.self).observe { [weak self] (changes: RealmCollectionChange) in
             self?.refreshData()
         }
         
@@ -47,6 +47,6 @@ class LiveTradeTableViewController: UITableViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 }

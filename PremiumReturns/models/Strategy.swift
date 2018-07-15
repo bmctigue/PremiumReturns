@@ -18,7 +18,7 @@ enum StrategyType: String {
     case RatioSpread = "Ratio Spread"
     case JadeLizard = "Jade Lizard"
     case Custom = "Custom"
-    static let strategyTypes = [IronCondor,IronFly,VerticalSpread,Straddle,Strangle,RatioSpread,JadeLizard,Custom]
+    static let strategyTypes = [IronCondor, IronFly, VerticalSpread, Straddle, Strangle, RatioSpread, JadeLizard, Custom]
 }
 
 protocol StrategyProtocol {
@@ -32,22 +32,22 @@ protocol StrategyProtocol {
 }
 
 final class Strategy: Object, StrategyProtocol {
-    dynamic var strategyId: String = NSUUID().uuidString
-    dynamic var strategyType: String = ""
-    dynamic var name: String = ""
-    dynamic var legs: Int = 0
-    dynamic var maxProfitPercentage: Double = 0.0
-    dynamic var pop: Int = 0
+    @objc dynamic var strategyId: String = NSUUID().uuidString
+    @objc dynamic var strategyType: String = ""
+    @objc dynamic var name: String = ""
+    @objc dynamic var legs: Int = 0
+    @objc dynamic var maxProfitPercentage: Double = 0.0
+    @objc dynamic var pop: Int = 0
     
     override static func indexedProperties() -> [String] {
-        return ["strategyId","name"]
+        return ["strategyId", "name"]
     }
     
     override static func primaryKey() -> String? {
         return "strategyId"
     }
     
-    class func forType(type: StrategyType,name: String, legs: Int, maxProfitPercentage: Double, pop: Int) -> Strategy {
+    class func forType(type: StrategyType, name: String, legs: Int, maxProfitPercentage: Double, pop: Int) -> Strategy {
         let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "pop": pop] as [String : Any]
         return Strategy(value: attributesHash)
     }

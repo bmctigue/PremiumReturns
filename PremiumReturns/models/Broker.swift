@@ -25,13 +25,13 @@ protocol BrokerProtocol {
 }
 
 final class Broker: Object, BrokerProtocol {
-    dynamic var brokerId: String = NSUUID().uuidString
-    dynamic var name: String = ""
-    dynamic var brokerType: String = ""
-    dynamic var commission: Double = 0.0
+    @objc dynamic var brokerId: String = NSUUID().uuidString
+    @objc dynamic var name: String = ""
+    @objc dynamic var brokerType: String = ""
+    @objc dynamic var commission: Double = 0.0
     
     override static func indexedProperties() -> [String] {
-        return ["brokerId","name"]
+        return ["brokerId", "name"]
     }
     
     override static func primaryKey() -> String? {

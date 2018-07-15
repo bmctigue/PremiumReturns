@@ -35,7 +35,7 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         
         self.title = TradeTableViewController.controllerTitle
         self.tableView?.backgroundColor = UIColor.white
-        self.tableView?.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        self.tableView?.contentInset = UIEdgeInsets(top: 64.0, left: 0, bottom: 0, right: 0)
 
         addHelpView()
         
@@ -120,5 +120,4 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         })
     }
 }
-
 

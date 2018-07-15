@@ -10,7 +10,7 @@ import UIKit
 
 final class RoutingController: NSObject {
     
-    static let sharedInstance = RoutingController.init()
+    static let sharedInstance = RoutingController()
     
     func openEditStrategy(controller: EditItemTableViewControllerDelegate, strategy: Strategy) {
         let storyboard = StoryboardFactory().create(name: "Strategy")

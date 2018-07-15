@@ -59,13 +59,13 @@ class TradeFormController: NSObject {
         strategies = StrategyController.sharedInstance.all()
         firstStrategy = strategies.first
         let strategyRow: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Strategy.rawValue)
-        strategyRow?.options = strategies.map{$0.name}
+        strategyRow?.options = strategies.map { $0.name }
         strategyRow?.reload()
         
         brokers = BrokerController.sharedInstance.all()
         firstBroker = brokers.first
         let brokerRow: ActionSheetRow<String>?  = form?.rowBy(tag: FormFieldNames.Broker.rawValue)
-        brokerRow?.options = brokers.map{$0.name}
+        brokerRow?.options = brokers.map { $0.name }
         brokerRow?.reload()
     }
     
@@ -80,12 +80,12 @@ class TradeFormController: NSObject {
     
     func formInputSetup() {
         form!
-            +++ Section(){ section in
+            +++ Section() { section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Input.rawValue)
                 }()
                 }
-                <<< DecimalRow(FormFieldNames.Premium.rawValue){ row in
+                <<< DecimalRow(FormFieldNames.Premium.rawValue) { row in
                     row.useFormatterDuringInput = true
                     row.title = FormFieldNames.Premium.rawValue
                     row.value = 0
@@ -96,7 +96,7 @@ class TradeFormController: NSObject {
                             self.updateOutputFields()
                         }
                 }
-                <<< DecimalRow(FormFieldNames.MaxLoss.rawValue){ row in
+                <<< DecimalRow(FormFieldNames.MaxLoss.rawValue) { row in
                     row.useFormatterDuringInput = true
                     row.title = FormFieldNames.MaxLoss.rawValue
                     row.value = 0
@@ -138,24 +138,24 @@ class TradeFormController: NSObject {
     
     func formReturnsSetup() {
         form!
-            +++ Section(){ section in
+            +++ Section() { section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Returns.rawValue)
                 }()
                 }
-                <<< LabelRow(FormFieldNames.MaxProfit.rawValue){ row in
+                <<< LabelRow(FormFieldNames.MaxProfit.rawValue) { row in
                     row.title = FormFieldNames.MaxProfit.rawValue
                     row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
                 }
-                <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue){ row in
+                <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue) { row in
                     row.title = FormFieldNames.ExpectedReturn.rawValue
                     row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
                 }
-                <<< LabelRow(FormFieldNames.ROC.rawValue){ row in
+                <<< LabelRow(FormFieldNames.ROC.rawValue) { row in
                     row.title = FormFieldNames.ROC.rawValue
                     row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
                 }
-                <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue){ row in
+                <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue) { row in
                     row.title = FormFieldNames.ReturnPerDay.rawValue
                     row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         }
@@ -163,12 +163,12 @@ class TradeFormController: NSObject {
     
     func formLiveTradeSetup() {
         form!
-            +++ Section(){ section in
+            +++ Section() { section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.LiveTrade.rawValue)
                 }()
             }
-            <<< TextRow(FormFieldNames.Ticker.rawValue){ row in
+            <<< TextRow(FormFieldNames.Ticker.rawValue) { row in
                 row.title = FormFieldNames.Ticker.rawValue
                 row.value = self.controller.trade.ticker
                 }.onChange { row in
@@ -178,7 +178,7 @@ class TradeFormController: NSObject {
                         Defaults[.ticker] = rowValue
                     }
             }
-            <<< LabelRow(FormFieldNames.Share.rawValue){ row in
+            <<< LabelRow(FormFieldNames.Share.rawValue) { row in
                 row.title = FormFieldNames.Share.rawValue
                 row.value = TradeFormController.shareText
                 }.onCellSelection { cell, row in
@@ -200,7 +200,7 @@ class TradeFormController: NSObject {
     
     func formSettingsSetup() {
         form!
-            +++ Section(){ section in
+            +++ Section() { section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Settings.rawValue)
                 }()
@@ -208,7 +208,7 @@ class TradeFormController: NSObject {
             <<< ActionSheetRow<String>(FormFieldNames.Strategy.rawValue) { row in
                 row.title = FormFieldNames.Strategy.rawValue
                 row.selectorTitle = FormFieldNames.Strategy.rawValue
-                row.options = strategies.map{$0.name}
+                row.options = strategies.map { $0.name }
                 row.value = firstStrategy?.name
                 }.onChange { row in
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
@@ -226,7 +226,7 @@ class TradeFormController: NSObject {
             <<< ActionSheetRow<String>(FormFieldNames.Broker.rawValue) { row in
                 row.title = FormFieldNames.Broker.rawValue
                 row.selectorTitle = FormFieldNames.Broker.rawValue
-                row.options = brokers.map{$0.name}
+                row.options = brokers.map { $0.name }
                 row.value = firstBroker?.name
                 }.onChange { row in
                     if let rowValue = row.value, let broker = BrokerController.sharedInstance.find(name: rowValue).first {
@@ -240,12 +240,12 @@ class TradeFormController: NSObject {
     
     func formCostsSetup() {
         form!
-            +++ Section(){ section in
+            +++ Section() { section in
                 section.header = {
                     return FormController.sharedInstance.headerView(text: SectionNames.Costs.rawValue)
                 }()
             }
-            <<< LabelRow(FormFieldNames.Commissions.rawValue){ row in
+            <<< LabelRow(FormFieldNames.Commissions.rawValue) { row in
                 row.title = FormFieldNames.Commissions.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
         }
@@ -259,7 +259,7 @@ class TradeFormController: NSObject {
         let dteRow: IntRow? = self.form?.rowBy(tag: FormFieldNames.DaysToExpiration.rawValue)
         
         if let premium = premiumRow, let loss = lossRow, let pop = popRow, let contracts = contractsRow, let dte = dteRow {
-            inputRows = [premium,loss,pop,contracts,dte]
+            inputRows = [premium, loss, pop, contracts, dte]
         }
     }
     

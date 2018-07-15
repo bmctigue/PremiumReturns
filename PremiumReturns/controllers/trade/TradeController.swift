@@ -12,7 +12,7 @@ import RealmSwift
 
 final class TradeController {
     
-    static let sharedInstance = TradeController.init()
+    static let sharedInstance = TradeController()
     
     let realm: Realm
     
@@ -45,5 +45,4 @@ final class TradeController {
         }
     }
 }
-
 

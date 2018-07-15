@@ -13,16 +13,16 @@ import SwiftyUserDefaults
 
 protocol TradeProtocol {
     var tradeId: String { get }
-    var ticker: String { set get }
-    var strategy: String { set get }
-    var premium: Double { set get }
-    var maxLoss: Double { set get }
-    var contracts: Int { set get }
-    var daysToExpiration: Int { set get }
-    var commissions: Double { set get }
-    var maxProfitPercentage: Double { set get }
-    var pop: Int { set get }
-    var date: Date { set get }
+    var ticker: String { get set }
+    var strategy: String { get set }
+    var premium: Double { get set }
+    var maxLoss: Double { get set }
+    var contracts: Int { get set }
+    var daysToExpiration: Int { get set }
+    var commissions: Double { get set }
+    var maxProfitPercentage: Double { get set }
+    var pop: Int { get set }
+    var date: Date { get set }
     func maxProfit() -> Double
     func totalCommissions(commission: Double, legs: Int) -> Double
     func calculate(maxProfitPercentage: Double) -> Double
@@ -33,17 +33,17 @@ protocol TradeProtocol {
 }
 
 final class Trade: Object, TradeProtocol {
-    dynamic var tradeId: String = NSUUID().uuidString
-    dynamic var ticker: String = ""
-    dynamic var strategy: String = ""
-    dynamic var premium: Double = 0.0
-    dynamic var maxLoss: Double = 0.0
-    dynamic var contracts: Int = 1
-    dynamic var daysToExpiration: Int = 45
-    dynamic var commissions: Double = 0
-    dynamic var maxProfitPercentage: Double = 0
-    dynamic var pop: Int = 0
-    dynamic var date: Date = Date()
+    @objc dynamic var tradeId: String = NSUUID().uuidString
+    @objc dynamic var ticker: String = ""
+    @objc dynamic var strategy: String = ""
+    @objc dynamic var premium: Double = 0.0
+    @objc dynamic var maxLoss: Double = 0.0
+    @objc dynamic var contracts: Int = 1
+    @objc dynamic var daysToExpiration: Int = 45
+    @objc dynamic var commissions: Double = 0
+    @objc dynamic var maxProfitPercentage: Double = 0
+    @objc dynamic var pop: Int = 0
+    @objc dynamic var date: Date = Date()
     
     override static func indexedProperties() -> [String] {
         return ["tradeId"]

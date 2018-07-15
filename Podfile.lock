@@ -2,40 +2,51 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Eureka (2.0.1)
-  - SwiftyUserDefaults (3.0.1)
+  - Eureka (4.2.0)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
+  - SwiftyUserDefaults (4.0.0-alpha.1)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, tag `2.0.1`)
-  - SwiftyUserDefaults (from `https://github.com/radex/SwiftyUserDefaults.git`, tag `3.0.1`)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`)
+  - RealmSwift
+  - SwiftyUserDefaults (from `https://github.com/radex/SwiftyUserDefaults.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
   Eureka:
     :git: https://github.com/xmartlabs/Eureka.git
-    :tag: 2.0.1
   SwiftyUserDefaults:
     :git: https://github.com/radex/SwiftyUserDefaults.git
-    :tag: 3.0.1
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
     :git: https://github.com/ViccAlexander/Chameleon.git
   Eureka:
+    :commit: c0f7bd38245746d75b304d2fe5fba762558ef4ec
     :git: https://github.com/xmartlabs/Eureka.git
-    :tag: 2.0.1
   SwiftyUserDefaults:
+    :commit: 4318092d12439887cd9b9b30d4d0e06b7867146b
     :git: https://github.com/radex/SwiftyUserDefaults.git
-    :tag: 3.0.1
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Eureka: b40fbccd381b2b5d6a1c138d23806993a950d7d7
-  SwiftyUserDefaults: 38267a30d58b7c8570995cd5defd354e43f056c6
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  SwiftyUserDefaults: cebe0ff9472f52699772a514b6f7155861d8069b
 
-PODFILE CHECKSUM: f0ef622d1d262acdff751bfad90f7659078b0cb5
+PODFILE CHECKSUM: 08d5c4a74350d67a6d1c66bc46c33ffe04918519
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.2

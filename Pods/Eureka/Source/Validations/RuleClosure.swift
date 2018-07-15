@@ -24,20 +24,20 @@
 
 import Foundation
 
-
 public struct RuleClosure<T: Equatable>: RuleType {
-    
+
     public var id: String?
     public var validationError: ValidationError
-    
+
     public var closure: (T?) -> ValidationError?
 
     public func isValid(value: T?) -> ValidationError? {
         return closure(value)
     }
-    
-    public init(validationError: ValidationError = ValidationError(msg: "Field validation fails.."), closure: @escaping ((T?) -> ValidationError?)) {
+
+    public init(validationError: ValidationError = ValidationError(msg: "Field validation fails.."), id: String? = nil, closure: @escaping ((T?) -> ValidationError?)) {
         self.validationError = validationError
         self.closure = closure
+        self.id = id
     }
 }

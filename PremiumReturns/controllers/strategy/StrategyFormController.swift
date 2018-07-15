@@ -31,7 +31,7 @@ final class StrategyFormController: NSObject {
     func formSetup() {
         
         form!
-            +++ TextRow(){ row in
+            +++ TextRow() { row in
                 row.title = "Strategy Name"
                 row.placeholder = "Enter a unique name"
                 row.value = self.strategy.name
@@ -51,7 +51,7 @@ final class StrategyFormController: NSObject {
                         self.strategy.legs = rowValue
                     }
             }
-            <<< DecimalRow(StrategyFormFieldNames.ProfitPercentage.rawValue){ row in
+            <<< DecimalRow(StrategyFormFieldNames.ProfitPercentage.rawValue) { row in
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.ProfitPercentage.rawValue
                 row.value = 0
@@ -62,7 +62,7 @@ final class StrategyFormController: NSObject {
                         self.strategy.maxProfitPercentage = Double(rowValue)
                     }
             }
-            <<< IntRow(StrategyFormFieldNames.POP.rawValue){ row in
+            <<< IntRow(StrategyFormFieldNames.POP.rawValue) { row in
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.POP.rawValue
                 row.value = 0

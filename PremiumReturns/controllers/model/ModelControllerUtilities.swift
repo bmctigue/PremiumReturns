@@ -16,7 +16,7 @@ protocol ModelControllerUtilitiesProtocol {
 
 final class ModelControllerUtilities {
     
-    static let sharedInstance = ModelControllerUtilities.init()
+    static let sharedInstance = ModelControllerUtilities()
     
     func refreshAppData() {
         clearAllModelControllers()

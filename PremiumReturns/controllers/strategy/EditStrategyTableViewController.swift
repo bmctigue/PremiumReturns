@@ -70,11 +70,11 @@ class EditStrategyTableViewController: FormViewController {
         popRow?.updateCell()
     }
 
-    func cancelButtonPressed() {
+    @objc func cancelButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func doneButtonPressed() {
+    @objc func doneButtonPressed() {
         let missingNameTitle = EditStrategyTableViewController.missingTitle
         let missingNameMessage = EditStrategyTableViewController.missingMessage
         let validationErrors = form.validate()

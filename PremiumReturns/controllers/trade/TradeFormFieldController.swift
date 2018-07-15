@@ -20,7 +20,7 @@ enum CalculationKey: String {
 
 final class TradeFormFieldController {
     
-    static let sharedInstance = TradeFormFieldController.init()
+    static let sharedInstance = TradeFormFieldController()
     
     func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int, days: Int) {
         let premiumRow: DecimalRow? = form.rowBy(tag: FormFieldNames.Premium.rawValue)
@@ -44,7 +44,7 @@ final class TradeFormFieldController {
         dteRow?.updateCell()
     }
     
-    func updateOutputFields(form: Form, trade: Trade,calculatedFieldValueHash: [CalculationKey:Double]) {
+    func updateOutputFields(form: Form, trade: Trade, calculatedFieldValueHash: [CalculationKey:Double]) {
         let maxProfitRow: LabelRow? = form.rowBy(tag: FormFieldNames.MaxProfit.rawValue)
         maxProfitRow?.value = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.MaxProfit]!, showType: true)
         maxProfitRow?.updateCell()
