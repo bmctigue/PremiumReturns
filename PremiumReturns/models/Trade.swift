@@ -81,7 +81,7 @@ final class Trade: Object, TradeProtocol {
     }
     
     func copyWithPremium() -> Trade {
-        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions":self.commissions, "strategy":self.strategy, "maxProfitPercentage":self.maxProfitPercentage] as [String : Any]
+        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions": self.commissions, "strategy": self.strategy, "maxProfitPercentage": self.maxProfitPercentage, "daysToExpiration": self.daysToExpiration] as [String : Any]
         return Trade(value: attributesHash)
     }
     

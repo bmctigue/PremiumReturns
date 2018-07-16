@@ -57,7 +57,6 @@ class ItemTableViewDataSource: NSObject {
     }
     
     func textForCell(cell: ItemCell, item: AnyObject) -> ItemCell {
-        // override me
         return ItemCell()
     }
 }
