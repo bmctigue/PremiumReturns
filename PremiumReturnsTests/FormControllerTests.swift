@@ -16,9 +16,9 @@ class FormControllerTests: XCTestCase {
         let testRow = TextRow() { row in
         }
         XCTAssertTrue(FormController.sharedInstance.rowIsEmpty(row: testRow))
-        testRow.title = ""
+        testRow.value = ""
         XCTAssertTrue(FormController.sharedInstance.rowIsEmpty(row: testRow))
-        testRow.title = "Test"
+        testRow.value = "Test"
         XCTAssertFalse(FormController.sharedInstance.rowIsEmpty(row: testRow))
     }
     
