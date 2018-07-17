@@ -59,7 +59,6 @@
 		A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAC1E7353CF00591493 /* Assets.xcassets */; };
 		A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C8CEAE1E7353CF00591493 /* LaunchScreen.storyboard */; };
 		A8C8CEC61E7353CF00591493 /* PremiumReturnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */; };
-		A8DAB5821E79FC7E0044D76C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A8DAB5811E79FC7E0044D76C /* Podfile */; };
 		A8F0D6021E7F6D3200EA54BE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0D6011E7F6D3200EA54BE /* Theme.swift */; };
 		A8F0D6041E7F850B00EA54BE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8F0D6031E7F850B00EA54BE /* Default-568h@2x.png */; };
 		A8F184B31E76DB5D0019F04E /* BrokerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F184AC1E76DB5D0019F04E /* BrokerControllerTests.swift */; };
@@ -128,7 +127,7 @@
 		A84E1D171E73561D007FE0E9 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		A84E1D181E73561D007FE0E9 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		A84E1D191E73561D007FE0E9 /* Strategy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Strategy.storyboard; sourceTree = "<group>"; };
-		A84E1D231E735628007FE0E9 /* TastyReturns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TastyReturns.playground; sourceTree = "<group>"; };
+		A84E1D231E735628007FE0E9 /* TastyReturns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TastyReturns.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A85152A61E82DA9A00627DA8 /* BrokerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTests.swift; sourceTree = "<group>"; };
 		A874CD581E97E0C3007520F4 /* FormControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormControllerTests.swift; sourceTree = "<group>"; };
 		A8788B0B1E93EF9C00A3E32B /* Trade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trade.storyboard; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 		A8C8CEC11E7353CF00591493 /* PremiumReturnsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PremiumReturnsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C8CEC51E7353CF00591493 /* PremiumReturnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumReturnsUITests.swift; sourceTree = "<group>"; };
 		A8C8CEC71E7353CF00591493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8DAB5811E79FC7E0044D76C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A8F0D6011E7F6D3200EA54BE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A8F0D6031E7F850B00EA54BE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A8F184AC1E76DB5D0019F04E /* BrokerControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerControllerTests.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				A8C8CEA51E7353CF00591493 /* AppDelegate.swift */,
-				A8DAB5811E79FC7E0044D76C /* Podfile */,
 				A84E1D231E735628007FE0E9 /* TastyReturns.playground */,
 				A8C8CEAC1E7353CF00591493 /* Assets.xcassets */,
 				A8C8CEB11E7353CF00591493 /* Info.plist */,
@@ -562,7 +559,6 @@
 				A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */,
 				A8F0D6041E7F850B00EA54BE /* Default-568h@2x.png in Resources */,
 				A8788B0C1E93EF9C00A3E32B /* Trade.storyboard in Resources */,
-				A8DAB5821E79FC7E0044D76C /* Podfile in Resources */,
 				A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */,
 				A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */,
 				A84E1D211E73561D007FE0E9 /* Splash.storyboard in Resources */,
