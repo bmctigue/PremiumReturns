@@ -30,7 +30,6 @@
 		A84E1D221E73561D007FE0E9 /* Strategy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84E1D191E73561D007FE0E9 /* Strategy.storyboard */; };
 		A85152A71E82DA9A00627DA8 /* BrokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85152A61E82DA9A00627DA8 /* BrokerTests.swift */; };
 		A874CD591E97E0C3007520F4 /* FormControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A874CD581E97E0C3007520F4 /* FormControllerTests.swift */; };
-		A8788B0C1E93EF9C00A3E32B /* Trade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8788B0B1E93EF9C00A3E32B /* Trade.storyboard */; };
 		A889C36E1E79A43A004F3AD7 /* BrokerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */; };
 		A889C36F1E79A43A004F3AD7 /* EditBrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */; };
 		A889C3711E79C0B8004F3AD7 /* Broker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A889C3701E79C0B8004F3AD7 /* Broker.storyboard */; };
@@ -131,7 +130,6 @@
 		A84E1D231E735628007FE0E9 /* TastyReturns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TastyReturns.playground; sourceTree = "<group>"; };
 		A85152A61E82DA9A00627DA8 /* BrokerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTests.swift; sourceTree = "<group>"; };
 		A874CD581E97E0C3007520F4 /* FormControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormControllerTests.swift; sourceTree = "<group>"; };
-		A8788B0B1E93EF9C00A3E32B /* Trade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trade.storyboard; sourceTree = "<group>"; };
 		A889C36C1E79A43A004F3AD7 /* BrokerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerFormController.swift; sourceTree = "<group>"; };
 		A889C36D1E79A43A004F3AD7 /* EditBrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBrokerTableViewController.swift; sourceTree = "<group>"; };
 		A889C3701E79C0B8004F3AD7 /* Broker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Broker.storyboard; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 				A8C8CEA91E7353CF00591493 /* Main.storyboard */,
 				A84E1D181E73561D007FE0E9 /* Splash.storyboard */,
 				A84E1D191E73561D007FE0E9 /* Strategy.storyboard */,
-				A8788B0B1E93EF9C00A3E32B /* Trade.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -561,7 +558,6 @@
 				A889C3711E79C0B8004F3AD7 /* Broker.storyboard in Resources */,
 				A8C8CEB01E7353CF00591493 /* LaunchScreen.storyboard in Resources */,
 				A8F0D6041E7F850B00EA54BE /* Default-568h@2x.png in Resources */,
-				A8788B0C1E93EF9C00A3E32B /* Trade.storyboard in Resources */,
 				A8DAB5821E79FC7E0044D76C /* Podfile in Resources */,
 				A8C8CEAD1E7353CF00591493 /* Assets.xcassets in Resources */,
 				A8C8CEAB1E7353CF00591493 /* Main.storyboard in Resources */,
