@@ -22,7 +22,7 @@ final class TradeFormFieldController {
     
     static let sharedInstance = TradeFormFieldController()
     
-    func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int, days: Int) {
+    func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int) {
         let premiumRow: DecimalRow? = form.rowBy(tag: FormFieldNames.Premium.rawValue)
         premiumRow?.value = premium
         premiumRow?.updateCell()
@@ -38,10 +38,6 @@ final class TradeFormFieldController {
         let contractsRow: IntRow? = form.rowBy(tag: FormFieldNames.Contracts.rawValue)
         contractsRow?.value = contracts
         contractsRow?.updateCell()
-        
-        let dteRow: IntRow? = form.rowBy(tag: FormFieldNames.DaysToExpiration.rawValue)
-        dteRow?.value = days
-        dteRow?.updateCell()
     }
     
     func updateOutputFields(form: Form, trade: Trade, calculatedFieldValueHash: [CalculationKey:Double]) {
@@ -58,11 +54,6 @@ final class TradeFormFieldController {
         let rocValue = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.ReturnOnCapital]!, showType: false)
         rocRow?.value = "\(rocValue)"
         rocRow?.updateCell()
-        
-        let returnPerDayRow: LabelRow? = form.rowBy(tag: FormFieldNames.ReturnPerDay.rawValue)
-        let returnPerDayRowValue = Utilities.sharedInstance.formatOutput(value: calculatedFieldValueHash[CalculationKey.ReturnPerDay]!, showType: true)
-        returnPerDayRow?.value = "\(returnPerDayRowValue)"
-        returnPerDayRow?.updateCell()
         
         let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
         tickerRow?.value = trade.ticker.uppercased()
@@ -105,8 +96,7 @@ final class TradeFormFieldController {
         let maxProfit = trade.maxProfit()
         let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage)
         let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
-        let returnPerDay = trade.returnPerDay(totalReturn: calculatedReturn, days: trade.daysToExpiration)
-        return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital, CalculationKey.ReturnPerDay:returnPerDay]
+        return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital]
     }
 
 }

@@ -18,7 +18,6 @@ protocol TradeProtocol {
     var premium: Double { get set }
     var maxLoss: Double { get set }
     var contracts: Int { get set }
-    var daysToExpiration: Int { get set }
     var commissions: Double { get set }
     var maxProfitPercentage: Double { get set }
     var pop: Int { get set }
@@ -27,7 +26,6 @@ protocol TradeProtocol {
     func totalCommissions(commission: Double, legs: Int) -> Double
     func calculate(maxProfitPercentage: Double) -> Double
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double
-    func returnPerDay(totalReturn: Double, days: Int) -> Double
     func copyWithPremium() -> Trade
     func reset(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Double)
 }
@@ -39,7 +37,6 @@ final class Trade: Object, TradeProtocol {
     @objc dynamic var premium: Double = 0.0
     @objc dynamic var maxLoss: Double = 0.0
     @objc dynamic var contracts: Int = 1
-    @objc dynamic var daysToExpiration: Int = 45
     @objc dynamic var commissions: Double = 0
     @objc dynamic var maxProfitPercentage: Double = 0
     @objc dynamic var pop: Int = 0
@@ -81,7 +78,7 @@ final class Trade: Object, TradeProtocol {
     }
     
     func copyWithPremium() -> Trade {
-        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions": self.commissions, "strategy": self.strategy, "maxProfitPercentage": self.maxProfitPercentage, "daysToExpiration": self.daysToExpiration] as [String : Any]
+        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions": self.commissions, "strategy": self.strategy, "maxProfitPercentage": self.maxProfitPercentage] as [String : Any]
         return Trade(value: attributesHash)
     }
     
@@ -91,7 +88,6 @@ final class Trade: Object, TradeProtocol {
         self.pop = pop
         self.contracts = 1
         self.commissions = totalCommissions(commission: commission, legs: legs)
-        self.daysToExpiration = TradeTableViewController.daysToExpiration
         self.ticker = Defaults[.ticker]
         self.strategy = strategy
         self.maxProfitPercentage = maxProfitPercentage

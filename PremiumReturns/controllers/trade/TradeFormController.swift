@@ -124,15 +124,6 @@ class TradeFormController: NSObject {
                             self.updateOutputFields()
                         }
                 }
-                <<< IntRow(FormFieldNames.DaysToExpiration.rawValue) { row in
-                    row.title = FormFieldNames.DaysToExpiration.rawValue
-                    row.value = self.controller.trade.daysToExpiration
-                    }.onChange { row in
-                        if let rowValue = row.value {
-                            self.controller.trade.daysToExpiration = rowValue
-                            self.updateOutputFields()
-                        }
-            }
     }
     
     func formReturnsSetup() {
@@ -263,7 +254,7 @@ class TradeFormController: NSObject {
     }
     
     func updateInputFields() {
-        TradeFormFieldController.sharedInstance.updateInputFields(form: self.form!, premium: self.controller.trade.premium, maxLoss: self.controller.trade.maxLoss, pop: self.controller.trade.pop, contracts: self.controller.trade.contracts, days: self.controller.trade.daysToExpiration)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: self.form!, premium: self.controller.trade.premium, maxLoss: self.controller.trade.maxLoss, pop: self.controller.trade.pop, contracts: self.controller.trade.contracts)
     }
     
     func updateOutputFields() {

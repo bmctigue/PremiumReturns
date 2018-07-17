@@ -63,10 +63,6 @@ final class LiveTradeFormController: NSObject {
                 row.title = FormFieldNames.ROC.rawValue
                 row.value = Utilities.sharedInstance.formatOutput(value: trade.returnOnCapital(profit: profit, maxLoss: trade.maxLoss), showType: false)
             }
-            <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue) { row in
-                row.title = FormFieldNames.ReturnPerDay.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: trade.returnPerDay(totalReturn: profit, days: trade.daysToExpiration), showType: true)
-        }
     }
     
     func formInputSetup() {
@@ -93,9 +89,5 @@ final class LiveTradeFormController: NSObject {
                 row.value = "\(self.trade.contracts)"
                 
             }
-            <<< LabelRow(FormFieldNames.DaysToExpiration.rawValue) { row in
-                row.title = FormFieldNames.DaysToExpiration.rawValue
-                row.value = "\(self.trade.daysToExpiration)"
-        }
     }
 }
