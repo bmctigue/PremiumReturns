@@ -39,6 +39,12 @@ final class TradeController {
         }
     }
     
+    func remove(trade: Trade) {
+        try! realm.write {
+            realm.delete(trade)
+        }
+    }
+    
     func removeAll() {
         try! realm.write {
             realm.delete(realm.objects(Trade.self))
