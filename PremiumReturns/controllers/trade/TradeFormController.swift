@@ -30,7 +30,6 @@ enum FormFieldNames: String {
     case Contracts = "Contracts"
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
-    case ReturnPerDay = "Return Per Day"
     case Save = "Save"
     case Ticker = "Ticker"
     case MaxProfit = "Max Profit"
@@ -145,10 +144,6 @@ class TradeFormController: NSObject {
                     row.title = FormFieldNames.ROC.rawValue
                     row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: false)
                 }
-                <<< LabelRow(FormFieldNames.ReturnPerDay.rawValue) { row in
-                    row.title = FormFieldNames.ReturnPerDay.rawValue
-                    row.value = Utilities.sharedInstance.formatOutput(value: 0, showType: true)
-        }
     }
     
     func formTradesSetup() {
