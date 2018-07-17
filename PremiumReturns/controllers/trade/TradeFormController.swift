@@ -11,17 +11,17 @@ import Eureka
 import SwiftyUserDefaults
 
 enum SectionNames: String {
-    case Input = "INPUT"
+    case Input = "TRADE DATA"
     case Settings = "SETTINGS"
     case Returns = "RETURNS"
     case Costs = "COSTS"
-    case LiveTrade = "LIVE TRADE"
+    case Trades = "TRADES"
     case Trade = "TRADE"
 }
 
 enum FormFieldNames: String {
-    case Strategy = "Select a Strategy"
-    case Broker = "Select a Broker"
+    case Strategy = "Strategy"
+    case Broker = "Broker"
     case ExpectedReturn = "Expected Return"
     case ROC = "Return on Capital (%)"
     case Premium = "Premium"
@@ -31,16 +31,15 @@ enum FormFieldNames: String {
     case Commissions = "Commissions"
     case DaysToExpiration = "Days To Expiration"
     case ReturnPerDay = "Return Per Day"
-    case Share = "Share"
+    case Save = "Save"
     case Ticker = "Ticker"
     case MaxProfit = "Max Profit"
     case TradeDate = "Trade Date"
-    case LiveStrategy = "Strategy"
 }
 
 class TradeFormController: NSObject {
     
-    static let shareText = "Tap to Share"
+    static let shareText = "Tap to Save"
     
     var form: Form?
     var controller: TradeTableViewController!
@@ -72,7 +71,7 @@ class TradeFormController: NSObject {
     func formSetup() {
         formInputSetup()
         formReturnsSetup()
-        formLiveTradeSetup()
+        formTradesSetup()
         formSettingsSetup()
         formCostsSetup()
         setupInputFieldsForValidation()
@@ -161,11 +160,11 @@ class TradeFormController: NSObject {
         }
     }
     
-    func formLiveTradeSetup() {
+    func formTradesSetup() {
         form!
             +++ Section() { section in
                 section.header = {
-                    return FormController.sharedInstance.headerView(text: SectionNames.LiveTrade.rawValue)
+                    return FormController.sharedInstance.headerView(text: SectionNames.Trades.rawValue)
                 }()
             }
             <<< TextRow(FormFieldNames.Ticker.rawValue) { row in
@@ -178,8 +177,8 @@ class TradeFormController: NSObject {
                         Defaults[.ticker] = rowValue
                     }
             }
-            <<< LabelRow(FormFieldNames.Share.rawValue) { row in
-                row.title = FormFieldNames.Share.rawValue
+            <<< LabelRow(FormFieldNames.Save.rawValue) { row in
+                row.title = FormFieldNames.Save.rawValue
                 row.value = TradeFormController.shareText
                 }.onCellSelection { cell, row in
                     let tickerRow: TextRow? = self.form?.rowBy(tag: FormFieldNames.Ticker.rawValue)

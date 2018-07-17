@@ -28,10 +28,12 @@ final class FormController {
     }
     
     func rowIsEmpty(row: TextRow) -> Bool {
-        if row.title == nil || row.title == "" {
-            return true
+        if let value = row.value {
+            if !value.isEmpty {
+                return false
+            }
         }
-        return false
+        return true
     }
     
     func alertTextRowIsEmpty(name: String, controller: UIViewController) {
@@ -42,14 +44,14 @@ final class FormController {
     
     func alertInputRowIsZero(controller: UIViewController) {
         let title = "Trade data is missing"
-        let message = "Please make sure the input fields have values greater than 0"
+        let message = "Please make sure the data fields have values greater than 0"
         Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
     }
     
     func share(trade: Trade, controller: UIViewController) {
         TradeController.sharedInstance.save(trade: trade)
-        let title = "Share your Trade"
-        let message = "Your \(trade.ticker) trade was shared!"
+        let title = "Save your Trade"
+        let message = "Your \(trade.ticker) trade was saved!"
         Utilities.sharedInstance.displayAlert(controller: controller, title: title, message: message)
     }
     

@@ -11,7 +11,7 @@ import RealmSwift
 
 class LiveTradeTableViewController: UITableViewController {
     
-    static let controllerTitle: String = "Live Trades"
+    static let controllerTitle: String = "Trades"
     
     let realm: Realm = try! Realm()
     var notificationToken: NotificationToken?

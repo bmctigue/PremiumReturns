@@ -38,8 +38,8 @@ final class LiveTradeFormController: NSObject {
                 row.title = FormFieldNames.TradeDate.rawValue
                 row.value = self.trade.date
             }
-            <<< LabelRow(FormFieldNames.LiveStrategy.rawValue) { row in
-                row.title = FormFieldNames.LiveStrategy.rawValue
+            <<< LabelRow(FormFieldNames.Strategy.rawValue) { row in
+                row.title = FormFieldNames.Strategy.rawValue
                 row.value = self.trade.strategy
         }
     }
