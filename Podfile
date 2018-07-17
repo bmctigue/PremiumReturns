@@ -7,6 +7,7 @@ target 'PremiumReturns' do
     pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwiftyUserDefaults', :git => 'https://github.com/radex/SwiftyUserDefaults.git'
+    pod 'Dwifft'
 
     target 'PremiumReturnsTests' do
         inherit! :search_paths

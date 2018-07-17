@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Dwifft (0.8)
   - Eureka (4.2.0)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
@@ -12,12 +13,14 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Dwifft
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`)
   - RealmSwift
   - SwiftyUserDefaults (from `https://github.com/radex/SwiftyUserDefaults.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Dwifft
     - Realm
     - RealmSwift
 
@@ -42,11 +45,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Dwifft: 463e61d07322fdf83b32ee6975ca1b20708db746
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SwiftyUserDefaults: cebe0ff9472f52699772a514b6f7155861d8069b
 
-PODFILE CHECKSUM: 08d5c4a74350d67a6d1c66bc46c33ffe04918519
+PODFILE CHECKSUM: 2e5ffe00ab9287306fcea48d5671c03ce198ff39
 
 COCOAPODS: 1.5.2
