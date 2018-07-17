@@ -15,7 +15,6 @@ enum CalculationKey: String {
     case MaxProfit = "MaxProfit"
     case CalculatedReturn = "CalculatedReturn"
     case ReturnOnCapital = "ReturnOnCapital"
-    case ReturnPerDay = "ReturnPerDay"
 }
 
 final class TradeFormFieldController {
@@ -79,7 +78,7 @@ final class TradeFormFieldController {
         brokerRow?.value = broker.name
         brokerRow?.updateCell()
         
-        let calculatedFieldValueHash: [CalculationKey:Double] = [CalculationKey.Commissions:trade.commissions, CalculationKey.MaxProfit:0, CalculationKey.CalculatedReturn:0, CalculationKey.ReturnOnCapital: 0, CalculationKey.ReturnPerDay:0]
+        let calculatedFieldValueHash: [CalculationKey:Double] = [CalculationKey.Commissions:trade.commissions, CalculationKey.MaxProfit:0, CalculationKey.CalculatedReturn:0, CalculationKey.ReturnOnCapital: 0]
         updateOutputFields(form: form, trade: trade, calculatedFieldValueHash: calculatedFieldValueHash)
         
         let tickerRow: TextRow? = form.rowBy(tag: FormFieldNames.Ticker.rawValue)
