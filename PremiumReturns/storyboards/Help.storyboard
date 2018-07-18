@@ -38,7 +38,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settingsSection" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-TP-mSQ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-TP-mSQ">
                                                 <rect key="frame" x="0.0" y="29" width="300" height="77"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -49,7 +49,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tradeDataSection" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-cS-JvF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tradeData" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-cS-JvF">
                                                 <rect key="frame" x="0.0" y="153" width="300" height="127"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -60,7 +60,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="returnsSection" translatesAutoresizingMaskIntoConstraints="NO" id="1hW-CT-9hK">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="returns" translatesAutoresizingMaskIntoConstraints="NO" id="1hW-CT-9hK">
                                                 <rect key="frame" x="0.0" y="325" width="300" height="102"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -126,8 +126,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="returnsSection" width="339" height="143"/>
-        <image name="settingsSection" width="340" height="107"/>
-        <image name="tradeDataSection" width="339" height="178"/>
+        <image name="returns" width="339" height="143"/>
+        <image name="settings" width="340" height="107"/>
+        <image name="tradeData" width="339" height="178"/>
     </resources>
 </document>
