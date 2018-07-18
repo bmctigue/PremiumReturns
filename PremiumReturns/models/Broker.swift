@@ -11,9 +11,8 @@ import RealmSwift
 
 enum BrokerType: String {
     case TastyWorks = "TastyWorks"
-    case TDAmeritrade = "TD Ameritrade"
     case Custom = "Custom"
-    static let brokerTypes = [TastyWorks, TDAmeritrade, Custom]
+    static let brokerTypes = [TastyWorks, Custom]
 }
 
 protocol BrokerProtocol {

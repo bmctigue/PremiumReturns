@@ -88,7 +88,5 @@ final class BrokerController {
     func loadDefault() {
         removeAll()
         _ = loadDefaultBroker()
-        let tdAmeritradeBroker = Broker.forType(type: .TDAmeritrade, name: BrokerType.TDAmeritrade.rawValue, commission: 6.95)
-        save(broker: tdAmeritradeBroker)
     }
 }
