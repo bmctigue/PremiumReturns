@@ -511,20 +511,20 @@
 					A8C8CEA11E7353CF00591493 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 462PHCYTGY;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					A8C8CEB51E7353CF00591493 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 462PHCYTGY;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A8C8CEA11E7353CF00591493;
 					};
 					A8C8CEC01E7353CF00591493 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 462PHCYTGY;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A8C8CEA11E7353CF00591493;
 					};
@@ -882,8 +882,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -901,8 +900,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -923,8 +921,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PremiumReturns.app/PremiumReturns";
 			};
 			name = Debug;
@@ -945,8 +942,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PremiumReturns.app/PremiumReturns";
 			};
 			name = Release;
@@ -964,8 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = PremiumReturns;
 			};
 			name = Debug;
@@ -983,8 +978,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiguer.PremiumReturnsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = PremiumReturns;
 			};
 			name = Release;

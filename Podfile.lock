@@ -4,11 +4,11 @@ PODS:
     - ChameleonFramework/Default
   - Dwifft (0.8)
   - Eureka (4.2.0)
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
+  - Realm (3.13.0):
+    - Realm/Headers (= 3.13.0)
+  - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
   - SwiftyUserDefaults (4.0.0-alpha.1)
 
 DEPENDENCIES:
@@ -47,8 +47,8 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Dwifft: 463e61d07322fdf83b32ee6975ca1b20708db746
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   SwiftyUserDefaults: cebe0ff9472f52699772a514b6f7155861d8069b
 
 PODFILE CHECKSUM: 2e5ffe00ab9287306fcea48d5671c03ce198ff39
