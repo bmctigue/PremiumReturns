@@ -47,7 +47,7 @@ final class Strategy: Object, StrategyProtocol {
         return "strategyId"
     }
     
-    class func forType(type: StrategyType, name: String, legs: Int, maxProfitPercentage: Int, pop: Int) -> Strategy {
+    class func forType(_ type: StrategyType, name: String, legs: Int, maxProfitPercentage: Int, pop: Int) -> Strategy {
         let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "pop": pop] as [String : Any]
         return Strategy(value: attributesHash)
     }
@@ -77,7 +77,7 @@ final class Strategy: Object, StrategyProtocol {
     }
     
     func copyWithID() -> Strategy {
-        let newStrategy = Strategy.forType(type: self.strategyTypeForStrategy(), name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, pop: self.pop)
+        let newStrategy = Strategy.forType(self.strategyTypeForStrategy(), name: self.name, legs: self.legs, maxProfitPercentage: self.maxProfitPercentage, pop: self.pop)
         newStrategy.strategyId = self.strategyId
         return newStrategy
     }

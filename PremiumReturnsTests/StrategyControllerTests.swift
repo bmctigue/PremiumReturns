@@ -55,10 +55,10 @@ class StrategyControllerTests: XCTestCase {
         let firstStrategy = StrategyController.sharedInstance.all().first!
         var isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: firstStrategy.strategyId, name: firstStrategy.name)
         XCTAssertTrue(isUniqueStrategy)
-        let testStrategy = Strategy.forType(type: .IronCondor, name: "Test", legs: 4, maxProfitPercentage: 0, pop: 0)
+        let testStrategy = Strategy.forType(.IronCondor, name: "Test", legs: 4, maxProfitPercentage: 0, pop: 0)
         isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: firstStrategy.strategyId, name: testStrategy.name)
         XCTAssertTrue(isUniqueStrategy)
-        let sameNameStrategy = Strategy.forType(type: .IronCondor, name: firstStrategy.name, legs: 4, maxProfitPercentage: 0, pop: 0)
+        let sameNameStrategy = Strategy.forType(.IronCondor, name: firstStrategy.name, legs: 4, maxProfitPercentage: 0, pop: 0)
         isUniqueStrategy = StrategyController.sharedInstance.isUnique(strategyId: testStrategy.strategyId, name: sameNameStrategy.name)
         XCTAssertFalse(isUniqueStrategy)
     }
