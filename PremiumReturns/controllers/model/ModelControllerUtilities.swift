@@ -16,6 +16,8 @@ protocol ModelControllerUtilitiesProtocol {
 
 final class ModelControllerUtilities: NSObject {
     
+    lazy var modelController = ModelController()
+    
     static let sharedInstance = ModelControllerUtilities()
     private override init() {}
     
@@ -25,7 +27,7 @@ final class ModelControllerUtilities: NSObject {
     }
     
     func clearAllModelControllers() {
-        ModelController.sharedInstance.clear()
+        modelController.clear()
     }
     
     func loadAllModelControllers() {
