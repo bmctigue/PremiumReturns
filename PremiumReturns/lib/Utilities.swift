@@ -20,7 +20,7 @@ final class Utilities: NSObject {
     
     func formatOutput(value: Double, showType: Bool) -> String {
         var result = ""
-        let formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+        let formatter = CurrencyController.sharedInstance.currencyFormatter
         if value.isFinite {
             result = formatter.string(for: value)!
             if !showType {

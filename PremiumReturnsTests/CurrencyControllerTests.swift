@@ -7,13 +7,12 @@
 //
 
 import XCTest
-import Eureka
 @testable import PremiumReturns
 
 class CurrencyControllerTests: XCTestCase {
     
     func testDefaultCurrencyFormatter() {
-        let formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+        let formatter = CurrencyController.sharedInstance.currencyFormatter
         XCTAssertEqual(formatter.locale, .current)
         XCTAssertEqual(formatter.numberStyle, .currency)
     }

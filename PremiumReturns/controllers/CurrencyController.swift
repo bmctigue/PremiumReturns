@@ -11,25 +11,20 @@ import Eureka
 
 final class CurrencyController: NSObject {
     
+    lazy var currencyFormatter = defaultCurrencyFormatter()
+    
     static let sharedInstance = CurrencyController()
     private override init() {}
     
-    func defaultCurrencyFormatter() -> CurrencyFormatter {
+    private func defaultCurrencyFormatter() -> CurrencyFormatter {
         let formatter = CurrencyFormatter()
         formatter.locale = .current
         formatter.numberStyle = .currency
         return formatter
     }
-    
-    func defaultDecimalFormatter() -> CurrencyFormatter {
-        let formatter = CurrencyFormatter()
-        formatter.locale = .current
-        formatter.numberStyle = .decimal
-        return formatter
-    }
 }
 
-class CurrencyFormatter : NumberFormatter, FormatterProtocol {
+final class CurrencyFormatter : NumberFormatter, FormatterProtocol {
     override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, range rangep: UnsafeMutablePointer<NSRange>?) throws {
         guard obj != nil else { return }
         let str = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")

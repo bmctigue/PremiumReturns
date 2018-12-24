@@ -87,7 +87,7 @@ class TradeFormController: NSObject {
                     row.useFormatterDuringInput = true
                     row.title = FormFieldNames.Premium.rawValue
                     row.value = 0
-                    row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                    row.formatter = CurrencyController.sharedInstance.currencyFormatter
                     }.onChange { row in
                         if let rowValue = row.value {
                             self.controller.trade.premium = Double(rowValue)
@@ -98,7 +98,7 @@ class TradeFormController: NSObject {
                     row.useFormatterDuringInput = true
                     row.title = FormFieldNames.MaxLoss.rawValue
                     row.value = 0
-                    row.formatter = CurrencyController.sharedInstance.defaultCurrencyFormatter()
+                    row.formatter = CurrencyController.sharedInstance.currencyFormatter
                     }.onChange { row in
                         if let rowValue = row.value {
                             self.controller.trade.maxLoss = Double(rowValue)
