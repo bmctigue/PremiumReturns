@@ -12,7 +12,6 @@ import Eureka
 final class CurrencyController: NSObject {
     
     lazy var currencyFormatter = defaultCurrencyFormatter()
-    lazy var decimalFormatter = defaultCurrencyFormatter()
     
     static let sharedInstance = CurrencyController()
     private override init() {}
@@ -21,13 +20,6 @@ final class CurrencyController: NSObject {
         let formatter = CurrencyFormatter()
         formatter.locale = .current
         formatter.numberStyle = .currency
-        return formatter
-    }
-    
-    private func defaultDecimalFormatter() -> CurrencyFormatter {
-        let formatter = CurrencyFormatter()
-        formatter.locale = .current
-        formatter.numberStyle = .decimal
         return formatter
     }
 }

@@ -21,13 +21,11 @@ final class StrategyFormController: NSObject {
     var form: Form
     var controller: EditStrategyTableViewController
     var strategy: Strategy
-    var decimalFormatter: CurrencyFormatter
     
-    init(form: Form, controller: EditStrategyTableViewController, strategy: Strategy, decimalFormatter: CurrencyFormatter = CurrencyController.sharedInstance.decimalFormatter) {
+    init(form: Form, controller: EditStrategyTableViewController, strategy: Strategy) {
         self.form = form
         self.controller = controller
         self.strategy = strategy
-        self.decimalFormatter = decimalFormatter
     }
     
     func formSetup() {
