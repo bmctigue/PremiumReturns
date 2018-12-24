@@ -14,9 +14,10 @@ protocol ModelControllerUtilitiesProtocol {
     func saveAllModelControllers()
 }
 
-final class ModelControllerUtilities {
+final class ModelControllerUtilities: NSObject {
     
     static let sharedInstance = ModelControllerUtilities()
+    private override init() {}
     
     func refreshAppData() {
         clearAllModelControllers()

@@ -52,7 +52,7 @@ class EditStrategyTableViewController: FormViewController {
         topViewController!.navigationItem.rightBarButtonItem = doneBarButton
     }
     
-    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Double, pop: Int) {
+    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Int, pop: Int) {
         let nameRow: TextRow? = form.rowBy(tag: StrategyFormFieldNames.Name.rawValue)
         nameRow?.value = name
         nameRow?.updateCell()
@@ -61,7 +61,7 @@ class EditStrategyTableViewController: FormViewController {
         legsRow?.value = legs
         legsRow?.updateCell()
         
-        let profitPercentageRow: DecimalRow? = form.rowBy(tag: StrategyFormFieldNames.ProfitPercentage.rawValue)
+        let profitPercentageRow: IntRow? = form.rowBy(tag: StrategyFormFieldNames.ProfitPercentage.rawValue)
         profitPercentageRow?.value = maxProfitPercentage
         profitPercentageRow?.updateCell()
         

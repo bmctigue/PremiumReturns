@@ -16,19 +16,21 @@ enum BrokerFormFieldNames: String {
 
 final class BrokerFormController: NSObject {
     
-    var form: Form?
+    var form: Form
     var controller: EditBrokerTableViewController
     var broker: Broker
+    var currencyFormatter: CurrencyFormatter
     
-    init(form: Form, controller: EditBrokerTableViewController, broker: Broker) {
+    init(form: Form, controller: EditBrokerTableViewController, broker: Broker, currencyFormatter: CurrencyFormatter = CurrencyController.sharedInstance.currencyFormatter) {
         self.form = form
         self.controller = controller
         self.broker = broker
+        self.currencyFormatter = currencyFormatter
     }
     
     func formSetup() {
         
-        form!
+        form
             +++ TextRow() { row in
                 row.title = "Broker Name"
                 row.placeholder = "Enter a unique name"
@@ -44,7 +46,7 @@ final class BrokerFormController: NSObject {
                 row.useFormatterDuringInput = true
                 row.title = BrokerFormFieldNames.Commission.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.currencyFormatter
+                row.formatter = currencyFormatter
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {

@@ -18,19 +18,21 @@ enum StrategyFormFieldNames: String {
 
 final class StrategyFormController: NSObject {
     
-    var form: Form?
+    var form: Form
     var controller: EditStrategyTableViewController
     var strategy: Strategy
+    var decimalFormatter: CurrencyFormatter
     
-    init(form: Form, controller: EditStrategyTableViewController, strategy: Strategy) {
+    init(form: Form, controller: EditStrategyTableViewController, strategy: Strategy, decimalFormatter: CurrencyFormatter = CurrencyController.sharedInstance.decimalFormatter) {
         self.form = form
         self.controller = controller
         self.strategy = strategy
+        self.decimalFormatter = decimalFormatter
     }
     
     func formSetup() {
         
-        form!
+        form
             +++ TextRow() { row in
                 row.title = "Strategy Name"
                 row.placeholder = "Enter a unique name"
@@ -51,15 +53,14 @@ final class StrategyFormController: NSObject {
                         self.strategy.legs = rowValue
                     }
             }
-            <<< DecimalRow(StrategyFormFieldNames.ProfitPercentage.rawValue) { row in
+            <<< IntRow(StrategyFormFieldNames.ProfitPercentage.rawValue) { row in
                 row.useFormatterDuringInput = true
                 row.title = StrategyFormFieldNames.ProfitPercentage.rawValue
                 row.value = 0
-                row.formatter = CurrencyController.sharedInstance.currencyFormatter
                 row.add(rule: RuleRequired())
                 }.onChange { row in
                     if let rowValue = row.value {
-                        self.strategy.maxProfitPercentage = Double(rowValue)
+                        self.strategy.maxProfitPercentage = rowValue
                     }
             }
             <<< IntRow(StrategyFormFieldNames.POP.rawValue) { row in

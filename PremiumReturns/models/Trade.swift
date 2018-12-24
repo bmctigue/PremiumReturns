@@ -19,15 +19,15 @@ protocol TradeProtocol {
     var maxLoss: Double { get set }
     var contracts: Int { get set }
     var commissions: Double { get set }
-    var maxProfitPercentage: Double { get set }
+    var maxProfitPercentage: Int { get set }
     var pop: Int { get set }
     var date: Date { get set }
     func maxProfit() -> Double
     func totalCommissions(commission: Double, legs: Int) -> Double
-    func calculate(maxProfitPercentage: Double) -> Double
+    func calculate(maxProfitPercentage: Int) -> Double
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double
     func copyWithPremium() -> Trade
-    func reset(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Double)
+    func reset(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Int)
 }
 
 final class Trade: Object, TradeProtocol {
@@ -38,7 +38,7 @@ final class Trade: Object, TradeProtocol {
     @objc dynamic var maxLoss: Double = 0.0
     @objc dynamic var contracts: Int = 1
     @objc dynamic var commissions: Double = 0
-    @objc dynamic var maxProfitPercentage: Double = 0
+    @objc dynamic var maxProfitPercentage: Int = 0
     @objc dynamic var pop: Int = 0
     @objc dynamic var date: Date = Date()
     
@@ -58,8 +58,8 @@ final class Trade: Object, TradeProtocol {
         return commission * Double(contracts) * Double(legs)
     }
     
-    func calculate(maxProfitPercentage: Double) -> Double {
-        let adjustedPercentage = maxProfitPercentage/100.0
+    func calculate(maxProfitPercentage: Int) -> Double {
+        let adjustedPercentage = Double(maxProfitPercentage)/100.0
         let adjustedProbability = Double(pop)/100.0
         return ((adjustedPercentage * self.maxProfit()) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commissions
     }
@@ -82,7 +82,7 @@ final class Trade: Object, TradeProtocol {
         return Trade(value: attributesHash)
     }
     
-    func reset(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Double) {
+    func reset(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Int) {
         self.premium = 0
         self.maxLoss = 0
         self.pop = pop

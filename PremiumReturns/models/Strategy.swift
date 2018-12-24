@@ -26,7 +26,7 @@ protocol StrategyProtocol {
     var strategyType: String { get }
     var name: String { get }
     var legs: Int { get }
-    var maxProfitPercentage: Double { get }
+    var maxProfitPercentage: Int { get }
     var pop: Int { get }
     func copyWithID() -> Strategy
 }
@@ -36,7 +36,7 @@ final class Strategy: Object, StrategyProtocol {
     @objc dynamic var strategyType: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var legs: Int = 0
-    @objc dynamic var maxProfitPercentage: Double = 0.0
+    @objc dynamic var maxProfitPercentage: Int = 0
     @objc dynamic var pop: Int = 0
     
     override static func indexedProperties() -> [String] {
@@ -47,7 +47,7 @@ final class Strategy: Object, StrategyProtocol {
         return "strategyId"
     }
     
-    class func forType(type: StrategyType, name: String, legs: Int, maxProfitPercentage: Double, pop: Int) -> Strategy {
+    class func forType(type: StrategyType, name: String, legs: Int, maxProfitPercentage: Int, pop: Int) -> Strategy {
         let attributesHash = ["strategyType": type.rawValue, "name": name, "legs": legs, "maxProfitPercentage": maxProfitPercentage, "pop": pop] as [String : Any]
         return Strategy(value: attributesHash)
     }
