@@ -74,8 +74,9 @@ class EditBrokerTableViewController: FormViewController {
             BrokerController.sharedInstance.save(broker: broker!)
             self.delegate?.doneButtonPressed()
             self.dismiss(animated: true, completion: nil)
+        } else {
+            print("\(validationErrors)")
+            Utilities.sharedInstance.displayAlert(controller: self, title: missingNameTitle, message: missingNameMessage)
         }
-        print("\(validationErrors)")
-        Utilities.sharedInstance.displayAlert(controller: self, title: missingNameTitle, message: missingNameMessage)
     }
 }

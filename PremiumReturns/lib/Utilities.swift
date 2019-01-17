@@ -39,14 +39,15 @@ final class Utilities: NSObject {
     }
     
     func displayAlert(controller: UIViewController, title: String, message: String) {
+        weak var weakController = controller
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let CancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alert.addAction(CancelAction)
             // Support display in iPad
             alert.popoverPresentationController?.sourceView = controller.view
-            alert.popoverPresentationController?.sourceRect = CGRect(x: controller.view.bounds.size.width / 2.0, y: controller.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
-            controller.present(alert, animated: true, completion: nil)
+            alert.popoverPresentationController?.sourceRect = CGRect(x: weakController?.view.bounds.size.width ?? 0 / 2.0, y: weakController?.view.bounds.size.height ?? 0 / 2.0, width: 1.0, height: 1.0)
+            weakController?.present(alert, animated: true, completion: nil)
         }
     }
     

@@ -18,8 +18,8 @@ class EditStrategyTableViewController: FormViewController {
     static let missingTitle = "Strategy Name"
     static let missingMessage = "Your stategy needs a unique name."
     
-    var strategyFormController: StrategyFormController?
-    var strategy: Strategy?
+    lazy var strategyFormController = StrategyFormController(form: form, strategy: strategy)
+    var strategy: Strategy!
     var delegate: EditItemTableViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -27,13 +27,10 @@ class EditStrategyTableViewController: FormViewController {
 
         self.tableView?.backgroundColor = UIColor.white
         setUpNavigationButtons()
-
-        if strategy == nil {
-            self.strategy = Strategy()
-        }
         
-        strategyFormController = StrategyFormController(form: form, controller: self, strategy: strategy!)
-        strategyFormController?.formSetup()
+        self.strategy = strategy == nil ? Strategy() : strategy
+        
+        strategyFormController.formSetup()
         animateScroll = true
         rowKeyboardSpacing = 20
         
@@ -82,8 +79,9 @@ class EditStrategyTableViewController: FormViewController {
             StrategyController.sharedInstance.save(strategy: strategy!)
             self.delegate?.doneButtonPressed()
             self.dismiss(animated: true, completion: nil)
+        } else {
+            print("\(validationErrors)")
+            Utilities.sharedInstance.displayAlert(controller: self, title: missingNameTitle, message: missingNameMessage)
         }
-        print("\(validationErrors)")
-        Utilities.sharedInstance.displayAlert(controller: self, title: missingNameTitle, message: missingNameMessage)
     }
 }
