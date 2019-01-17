@@ -2,13 +2,13 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Dwifft (0.8)
-  - Eureka (4.2.0)
-  - Realm (3.13.0):
-    - Realm/Headers (= 3.13.0)
-  - Realm/Headers (3.13.0)
-  - RealmSwift (3.13.0):
-    - Realm (= 3.13.0)
+  - Dwifft (0.9)
+  - Eureka (4.3.1)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - SwiftyUserDefaults (4.0.0-alpha.1)
 
 DEPENDENCIES:
@@ -34,10 +34,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
-    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
     :git: https://github.com/ViccAlexander/Chameleon.git
   Eureka:
-    :commit: c0f7bd38245746d75b304d2fe5fba762558ef4ec
+    :commit: 95f6f1e1dc23fb9321d740e38003984c967b2541
     :git: https://github.com/xmartlabs/Eureka.git
   SwiftyUserDefaults:
     :commit: 4318092d12439887cd9b9b30d4d0e06b7867146b
@@ -45,12 +45,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Dwifft: 463e61d07322fdf83b32ee6975ca1b20708db746
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
-  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
-  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
+  Dwifft: 42912068ed2a8146077d1a1404df18625bd086e1
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SwiftyUserDefaults: cebe0ff9472f52699772a514b6f7155861d8069b
 
-PODFILE CHECKSUM: 2e5ffe00ab9287306fcea48d5671c03ce198ff39
+PODFILE CHECKSUM: fcabc45f3b63c129bbcd562354a7f6dcfad3367f
 
 COCOAPODS: 1.5.2

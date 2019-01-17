@@ -23,6 +23,15 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
+
+// TODO: Temporary workaround for Xcode 10 beta
+#if swift(>=4.2)
+import UIKit.UIGeometry
+extension UIEdgeInsets {
+    static let zero = UIEdgeInsets()
+}
+#endif
 
 public enum TextAreaHeight {
     case fixed(cellHeight: CGFloat)
@@ -37,6 +46,7 @@ public enum TextAreaMode {
 protocol TextAreaConformance: FormatterConformance {
     var placeholder: String? { get set }
     var textAreaHeight: TextAreaHeight { get set }
+    var titlePercentage: CGFloat? { get set}
 }
 
 /**
@@ -59,7 +69,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
 
     private var awakeFromNibCalled = false
 
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -97,7 +107,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         let textAreaRow = row as! TextAreaConformance
         switch textAreaRow.textAreaHeight {
         case .dynamic(_):
-            height = { UITableViewAutomaticDimension }
+            height = { UITableView.automaticDimension }
             textView.isScrollEnabled = false
         case .fixed(let cellHeight):
             height = { cellHeight }
@@ -106,7 +116,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textView.delegate = self
         selectionStyle = .none
         if !awakeFromNibCalled {
-            imageView?.addObserver(self, forKeyPath: "image", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+            imageView?.addObserver(self, forKeyPath: "image", options: [.new, .old], context: nil)
         }
         setNeedsUpdateConstraints()
     }
@@ -187,10 +197,10 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
 
         if let textAreaConformance = row as? TextAreaConformance, case .dynamic = textAreaConformance.textAreaHeight, let tableView = formViewController()?.tableView {
             let currentOffset = tableView.contentOffset
-            UIView.setAnimationsEnabled(false)
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
+            UIView.performWithoutAnimation {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
             tableView.setContentOffset(currentOffset, animated: false)
         }
         placeholderLabel?.isHidden = textView.text.count != 0
@@ -259,6 +269,17 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
             views["imageView"] = imageView
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView]-(15)-[textView]-|", options: [], metrics: nil, views: views))
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView]-(15)-[label]-|", options: [], metrics: nil, views: views))
+        } else if let titlePercentage = (row as? TextAreaConformance)?.titlePercentage, titlePercentage > 0.0 {
+            textView.textAlignment = .right
+            dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[textView]-|", options: [], metrics: nil, views: views)
+            let sideSpaces = (layoutMargins.right + layoutMargins.left)
+            dynamicConstraints.append(NSLayoutConstraint(item: textView,
+                                                         attribute: .width,
+                                                         relatedBy: .equal,
+                                                         toItem: contentView,
+                                                         attribute: .width,
+                                                         multiplier: 1 - titlePercentage,
+                                                         constant: -sideSpaces))
         } else {
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|-[textView]-|", options: [], metrics: nil, views: views))
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-|", options: [], metrics: nil, views: views))
@@ -270,7 +291,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
 
 open class TextAreaCell: _TextAreaCell<String>, CellType {
 
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
@@ -284,7 +305,9 @@ open class AreaRow<Cell: CellType>: FormatteableRow<Cell>, TextAreaConformance w
     open var placeholder: String?
     open var textAreaHeight = TextAreaHeight.fixed(cellHeight: 110)
     open var textAreaMode = TextAreaMode.normal
-    
+    /// The percentage of the cell that should be occupied by the remaining space to the left of the textArea. This is equivalent to the space occupied by a title in FieldRow, making the textArea aligned to fieldRows using the same titlePercentage. This behavior works only if the cell does not contain an image, due to its automatically set constraints in the cell.
+    open var titlePercentage: CGFloat?
+
     public required init(tag: String?) {
         super.init(tag: tag)
     }

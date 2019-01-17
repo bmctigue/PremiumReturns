@@ -1,6 +1,6 @@
 {
   "name": "Eureka",
-  "version": "4.2.0",
+  "version": "4.3.1",
   "license": "MIT",
   "summary": "Elegant iOS Forms in pure Swift",
   "homepage": "https://github.com/xmartlabs/Eureka",
@@ -11,7 +11,7 @@
   },
   "source": {
     "git": "https://github.com/xmartlabs/Eureka.git",
-    "tag": "4.2.0"
+    "tag": "4.3.1"
   },
   "platforms": {
     "ios": "8.0"
@@ -24,5 +24,6 @@
   },
   "source_files": "Source/**/*.swift",
   "resources": "Source/Resources/Eureka.bundle",
-  "requires_arc": true
+  "requires_arc": true,
+  "swift_version": "4.2"
 }

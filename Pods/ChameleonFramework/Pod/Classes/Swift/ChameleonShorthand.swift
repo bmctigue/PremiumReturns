@@ -1,3 +1,4 @@
+
 //  ChameleonShorthand.swift
 
 /*
@@ -122,6 +123,7 @@ public func ColorsFromImage(_ image: UIImage, withFlatScheme: Bool) -> [UIColor]
     return NSArray(ofColorsFrom: image, withFlatScheme: withFlatScheme) as! [UIColor]
 }
 
+
 // MARK: - Special Colors Shorthand
 
 /**
@@ -136,6 +138,7 @@ public func RandomFlatColor() -> UIColor {
 public func ClearColor() -> UIColor {
     return UIColor.clear
 }
+
 
 // MARK: - Light Shades Shorthand
 

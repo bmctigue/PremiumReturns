@@ -56,8 +56,8 @@ Made with ❤️ by [XMARTLABS](http://xmartlabs.com). This is the re-creation o
 
 ## Requirements
 
-* Xcode 9.2+
-* Swift 4+
+* Xcode 10.1+
+* Swift 4.2+
 
 ### Example project
 
@@ -591,9 +591,7 @@ As expected, the Rules must use the same types as the Row object. Be extra caref
 
 ### Swipe Actions
 
-Eureka 4.1.0 introduces the swipe feature.
-
-You are now able to define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
+By using swipe actions we can define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
 
 Let's see how to define swipe actions.
 
@@ -1061,7 +1059,7 @@ $ pod install
 Specify Eureka into your project's `Cartfile`:
 
 ```ogdl
-github "xmartlabs/Eureka" ~> 4.0
+github "xmartlabs/Eureka" ~> 4.3
 ```
 
 #### Manually as Embedded Framework
