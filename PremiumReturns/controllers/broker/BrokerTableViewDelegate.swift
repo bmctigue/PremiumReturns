@@ -35,6 +35,7 @@ class BrokerTableViewDelegate: NSObject {
 extension BrokerTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         let item = items[indexPath.row]
         let newItem = item.copyWithID()
         RoutingController.sharedInstance.openEditBroker(controller: controller as! EditItemTableViewControllerDelegate, broker: newItem)
