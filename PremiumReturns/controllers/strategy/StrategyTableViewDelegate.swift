@@ -11,8 +11,8 @@ import UIKit
 class StrategyTableViewDelegate: NSObject {
     
     private(set) var items:[Strategy] = []
-    var tableView: UITableView?
-    var controller: UITableViewController?
+    weak var tableView: UITableView?
+    weak var controller: UITableViewController?
     
     init(tableView: UITableView, controller: UITableViewController) {
         self.tableView = tableView

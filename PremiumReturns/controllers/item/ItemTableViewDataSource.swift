@@ -12,8 +12,8 @@ class ItemTableViewDataSource: NSObject {
     
     var items:[AnyObject] = []
     var deleteItemIndexPath: NSIndexPath?
-    var tableView: UITableView?
-    var controller: UITableViewController?
+    weak var tableView: UITableView?
+    weak var controller: UITableViewController?
     
     init(tableView: UITableView, controller: UITableViewController) {
         self.tableView = tableView
