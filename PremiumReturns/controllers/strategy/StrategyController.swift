@@ -18,7 +18,6 @@ final class StrategyController {
     
     init() {
         self.realm = try! Realm()
-        removeAll()
     }
     
     func all() -> [Strategy] {
@@ -64,10 +63,8 @@ final class StrategyController {
     func resetStrategy() -> Strategy {
         let allStrategies = all()
         if allStrategies.count > 0 {
-            if Defaults.hasKey(.strategy) {
-                if let strategy = StrategyController.sharedInstance.find(key: Defaults[.strategy]) {
-                    return strategy
-                }
+            if let strategy = StrategyController.sharedInstance.find(key: Defaults[.strategy]) {
+                return strategy
             }
             Defaults[.strategy] = allStrategies.first!.strategyId
             return allStrategies.first!

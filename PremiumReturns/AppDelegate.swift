@@ -17,14 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         configureDefaultRealm()
+        StyleManager.setUpTheme()
         
         Utilities.sharedInstance.loadDataIfEmpty()
         
         let storyboard = StoryboardFactory().create(name: "Splash")
         let controller: SplashViewController = storyboard.instantiateInitialViewController() as! SplashViewController
         self.window?.rootViewController = controller
-        
-        StyleManager.setUpTheme()
         
         return true
     }

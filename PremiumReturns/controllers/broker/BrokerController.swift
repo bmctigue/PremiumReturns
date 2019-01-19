@@ -67,10 +67,8 @@ final class BrokerController {
     func resetBroker() -> Broker {
         let allBrokers = all()
         if allBrokers.count > 0 {
-            if Defaults.hasKey(.broker) {
-                if let broker = BrokerController.sharedInstance.find(key: Defaults[.broker]) {
-                    return broker
-                }
+            if let broker = BrokerController.sharedInstance.find(key: Defaults[.broker]) {
+                return broker
             }
             Defaults[.broker] = allBrokers.first!.brokerId
             return allBrokers.first!
