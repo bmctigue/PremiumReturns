@@ -33,6 +33,8 @@ class BrokerTableViewController: ItemTableViewController, EditItemTableViewContr
     }
     
     func doneButtonPressed() {
+        let notificationName = Notification.Name(rawValue: Constants.tradeUpdateNotification)
+        NotificationCenter.default.post(name: notificationName, object: nil)
         refreshData()
     }
 }

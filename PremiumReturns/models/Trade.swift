@@ -92,4 +92,12 @@ final class Trade: Object, TradeProtocol {
         self.strategy = strategy
         self.maxProfitPercentage = maxProfitPercentage
     }
+    
+    func resetStrategyBroker(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Int) {
+        self.pop = pop
+        self.commissions = totalCommissions(commission: commission, legs: legs)
+        self.ticker = Defaults[.ticker]
+        self.strategy = strategy
+        self.maxProfitPercentage = maxProfitPercentage
+    }
 }

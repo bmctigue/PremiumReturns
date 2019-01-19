@@ -18,6 +18,7 @@ final class StrategyController {
     
     init() {
         self.realm = try! Realm()
+        removeAll()
     }
     
     func all() -> [Strategy] {

@@ -49,12 +49,15 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         resetForm()
         animateScroll = true
         rowKeyboardSpacing = 20
+        
+        let notificationName = Notification.Name(rawValue: Constants.tradeUpdateNotification)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshTrade(_:)), name: notificationName, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tradeFormController?.refreshForm()
-        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts, maxProfitPercentage: currentStrategy?.maxProfitPercentage ?? 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +73,11 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
+    }
+    
+    @objc func refreshTrade(_ notification: Notification) {
+        resetTradeStrategyBroker()
+        resetForm()
     }
     
     func addHelpView() {
@@ -88,8 +96,12 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
         trade.reset(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
     }
     
+    func resetTradeStrategyBroker() {
+        trade.resetStrategyBroker(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
+    }
+    
     func resetForm() {
-        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: form, premium: trade.premium, maxLoss: trade.maxLoss, pop: trade.pop, contracts: trade.contracts, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
         TradeFormFieldController.sharedInstance.resetOutputFields(form: form, trade: trade, commission: currentBroker!.commission, legs: currentStrategy!.legs)
     }
     

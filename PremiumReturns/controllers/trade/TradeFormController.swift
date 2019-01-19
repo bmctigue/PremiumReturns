@@ -204,7 +204,7 @@ class TradeFormController: NSObject {
                         self.controller.trade.pop = strategy.pop
                         self.controller.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission, legs: self.controller!.currentStrategy!.legs)
                         let popRow: IntRow? = self.form.rowBy(tag: FormFieldNames.POP.rawValue)
-                        popRow!.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
+                        popRow!.title = FormFieldNames.POP.rawValue + "(\(strategy.maxProfitPercentage))"
                         self.updateInputFields()
                         self.updateOutputFields()
                         Defaults[.strategy] = strategy.strategyId
@@ -251,7 +251,7 @@ class TradeFormController: NSObject {
     }
     
     func updateInputFields() {
-        TradeFormFieldController.sharedInstance.updateInputFields(form: self.form, premium: self.controller.trade.premium, maxLoss: self.controller.trade.maxLoss, pop: self.controller.trade.pop, contracts: self.controller.trade.contracts)
+        TradeFormFieldController.sharedInstance.updateInputFields(form: self.form, premium: self.controller.trade.premium, maxLoss: self.controller.trade.maxLoss, pop: self.controller.trade.pop, contracts: self.controller.trade.contracts, maxProfitPercentage: self.controller.currentStrategy?.maxProfitPercentage ?? 0)
     }
     
     func updateOutputFields() {

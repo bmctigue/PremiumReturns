@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EditItemTableViewControllerDelegate {
+protocol EditItemTableViewControllerDelegate: class {
     func doneButtonPressed()
 }
 

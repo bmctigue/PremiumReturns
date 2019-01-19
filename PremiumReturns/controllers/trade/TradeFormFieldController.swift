@@ -21,7 +21,7 @@ final class TradeFormFieldController {
     
     static let sharedInstance = TradeFormFieldController()
     
-    func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int) {
+    func updateInputFields(form: Form, premium: Double, maxLoss: Double, pop: Int, contracts: Int, maxProfitPercentage: Int) {
         let premiumRow: DecimalRow? = form.rowBy(tag: FormFieldNames.Premium.rawValue)
         premiumRow?.value = premium
         premiumRow?.updateCell()
@@ -31,6 +31,7 @@ final class TradeFormFieldController {
         maxLossRow?.updateCell()
         
         let popRow: IntRow? = form.rowBy(tag: FormFieldNames.POP.rawValue)
+        popRow?.title = FormFieldNames.POP.rawValue + "(\(maxProfitPercentage))"
         popRow?.value = pop
         popRow?.updateCell()
         
