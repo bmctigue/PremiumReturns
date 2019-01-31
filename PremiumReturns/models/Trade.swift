@@ -56,7 +56,8 @@ final class Trade: Object, TradeProtocol {
         return Double(premium * 100 * Double(contracts))
     }
     
-    func totalCommissions(commission: Double) -> Double {        return commission * Double(contracts) * Double(legs)
+    func totalCommissions(commission: Double) -> Double {
+        return commission * Double(contracts) * Double(legs)
     }
     
     func calculate(maxProfitPercentage: Int) -> Double {
