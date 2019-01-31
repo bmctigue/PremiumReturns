@@ -18,12 +18,13 @@ protocol TradeProtocol {
     var premium: Double { get set }
     var maxLoss: Double { get set }
     var contracts: Int { get set }
+    var legs: Int { get set }
     var commissions: Double { get set }
     var maxProfitPercentage: Int { get set }
     var pop: Int { get set }
     var date: Date { get set }
     func maxProfit() -> Double
-    func totalCommissions(commission: Double, legs: Int) -> Double
+    func totalCommissions(commission: Double) -> Double
     func calculate(maxProfitPercentage: Int) -> Double
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double
     func copyWithPremium() -> Trade
@@ -37,6 +38,7 @@ final class Trade: Object, TradeProtocol {
     @objc dynamic var premium: Double = 0.0
     @objc dynamic var maxLoss: Double = 0.0
     @objc dynamic var contracts: Int = 1
+    @objc dynamic var legs: Int = 2
     @objc dynamic var commissions: Double = 0
     @objc dynamic var maxProfitPercentage: Int = 0
     @objc dynamic var pop: Int = 0
@@ -54,14 +56,15 @@ final class Trade: Object, TradeProtocol {
         return Double(premium * 100 * Double(contracts))
     }
     
-    func totalCommissions(commission: Double, legs: Int) -> Double {
-        return commission * Double(contracts) * Double(legs)
+    func totalCommissions(commission: Double) -> Double {        return commission * Double(contracts) * Double(legs)
     }
     
     func calculate(maxProfitPercentage: Int) -> Double {
         let adjustedPercentage = Double(maxProfitPercentage)/100.0
         let adjustedProbability = Double(pop)/100.0
-        return ((adjustedPercentage * self.maxProfit()) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss) - commissions
+        let maxProfit = self.maxProfit()
+        let result = ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss * Double(contracts))
+        return result - commissions
     }
     
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double {
@@ -72,13 +75,13 @@ final class Trade: Object, TradeProtocol {
         return totalReturn/Double(days)
     }
     
-    class func withPremium(premium: Double, maxLoss: Double, pop: Int, contracts: Int, commissions: Double) -> Trade {
-        let attributesHash = ["premium": premium, "maxLoss": maxLoss, "pop": pop, "contracts": contracts, "commissions":commissions] as [String : Any]
+    class func withPremium(premium: Double, maxLoss: Double, pop: Int, contracts: Int, commissions: Double, legs: Int) -> Trade {
+        let attributesHash = ["premium": premium, "maxLoss": maxLoss, "pop": pop, "contracts": contracts, "commissions":commissions, "legs":legs] as [String : Any]
         return Trade(value: attributesHash)
     }
     
     func copyWithPremium() -> Trade {
-        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions": self.commissions, "strategy": self.strategy, "maxProfitPercentage": self.maxProfitPercentage] as [String : Any]
+        let attributesHash = ["ticker": self.ticker, "premium": self.premium, "maxLoss": self.maxLoss, "pop": self.pop, "contracts": self.contracts, "commissions": self.commissions, "strategy": self.strategy, "maxProfitPercentage": self.maxProfitPercentage, "legs":legs] as [String : Any]
         return Trade(value: attributesHash)
     }
     
@@ -87,7 +90,8 @@ final class Trade: Object, TradeProtocol {
         self.maxLoss = 0
         self.pop = pop
         self.contracts = 1
-        self.commissions = totalCommissions(commission: commission, legs: legs)
+        self.legs = legs
+        self.commissions = totalCommissions(commission: commission)
         self.ticker = Defaults[.ticker]
         self.strategy = strategy
         self.maxProfitPercentage = maxProfitPercentage
@@ -95,7 +99,8 @@ final class Trade: Object, TradeProtocol {
     
     func resetStrategyBroker(pop: Int, commission: Double, legs: Int, strategy: String, maxProfitPercentage: Int) {
         self.pop = pop
-        self.commissions = totalCommissions(commission: commission, legs: legs)
+        self.legs = legs
+        self.commissions = totalCommissions(commission: commission)
         self.ticker = Defaults[.ticker]
         self.strategy = strategy
         self.maxProfitPercentage = maxProfitPercentage

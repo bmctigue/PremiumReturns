@@ -15,46 +15,58 @@ class TradeTests: XCTestCase {
     static var maxLoss: Double = 100
     static var contracts: Int = 1
     static var legs: Int = 4
-    static var commission: Double = 2.0
+    static var commission: Double = 1.0
     static var totalReturns = 90.0
     static var days = 45
     static var pop = 100
     
-    var trade: Trade?
-    var commissions: Double?
-    var calculatedReturn: Double?
+    var trade: Trade!
+    var commissions: Double!
+    var calculatedReturn: Double!
     
     override func setUp() {
-        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commissions: TradeTests.commission)
-        commissions = trade!.totalCommissions(commission: TradeTests.commission, legs: TradeTests.legs)
-        calculatedReturn = trade!.calculate(maxProfitPercentage: 100)
+        trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commissions: TradeTests.commission, legs: TradeTests.legs)
+        updateCalculated(trade)
     }
     
     func testMaxProfit() {
-        let maxProfit = trade?.maxProfit()
-        XCTAssertEqual(roundValue(maxProfit!, toDecimalPlaces: 2), 100.0)
+        var maxProfit = trade.maxProfit()
+        XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 100.0)
+        trade.contracts = 2
+        maxProfit = trade.maxProfit()
+        XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 200.0)
     }
     
     func testTotalCommissions() {
-        XCTAssertEqual(commissions!, 8.0)
+        XCTAssertEqual(commissions, 4.0)
+        trade.contracts = 2
+        updateCalculated(trade)
+        XCTAssertEqual(commissions, 8.0)
     }
     
     func testCalculate() {
-        XCTAssertEqual(roundValue(calculatedReturn!, toDecimalPlaces: 2), 98.0)
+        XCTAssertEqual(roundValue(calculatedReturn, toDecimalPlaces: 2), 96.0)
+        trade.contracts = 2
+        updateCalculated(trade)
+        XCTAssertEqual(roundValue(calculatedReturn, toDecimalPlaces: 2), 192.0)
     }
     
     func testReturnOnCapital() {
-        let roc = trade!.returnOnCapital(profit: calculatedReturn!, maxLoss: TradeTests.maxLoss)
-        XCTAssertEqual(roundValue(roc, toDecimalPlaces: 2), 98.0)
+        var roc = trade.returnOnCapital(profit: calculatedReturn, maxLoss: TradeTests.maxLoss)
+        XCTAssertEqual(roundValue(roc, toDecimalPlaces: 2), 96.0)
+        trade.contracts = 2
+        updateCalculated(trade)
+        roc = trade.returnOnCapital(profit: calculatedReturn, maxLoss: TradeTests.maxLoss)
+        XCTAssertEqual(roundValue(roc, toDecimalPlaces: 2), 192.0)
     }
     
     func testReturnPerDay() {
-        let returnPerDay = trade!.returnPerDay(totalReturn: TradeTests.totalReturns, days: TradeTests.days)
+        let returnPerDay = trade.returnPerDay(totalReturn: TradeTests.totalReturns, days: TradeTests.days)
         XCTAssertEqual(returnPerDay, 2.0)
     }
     
     func testCopyWithPremium() {
-        let copiedTrade = trade!.copyWithPremium()
+        let copiedTrade = trade.copyWithPremium()
         XCTAssertEqual(copiedTrade.premium, trade!.premium)
     }
     
@@ -63,4 +75,10 @@ class TradeTests: XCTestCase {
         return (value * divisor).rounded() / divisor
     }
     
+    func updateCalculated(_ trade: Trade) {
+        commissions = trade.totalCommissions(commission: TradeTests.commission)
+        trade.commissions = commissions
+        calculatedReturn = trade.calculate(maxProfitPercentage: 100)
+    }
 }
+
