@@ -34,7 +34,7 @@ class EditStrategyTableViewController: FormViewController {
         animateScroll = true
         rowKeyboardSpacing = 20
         
-        updateInputFields(name: strategy!.name, legs: strategy!.legs, maxProfitPercentage: strategy!.maxProfitPercentage, pop: strategy!.pop)
+        updateInputFields(name: strategy!.name, legs: strategy!.legs, maxProfitPercentage: strategy!.maxProfitPercentage)
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -49,7 +49,7 @@ class EditStrategyTableViewController: FormViewController {
         topViewController!.navigationItem.rightBarButtonItem = doneBarButton
     }
     
-    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Int, pop: Int) {
+    func updateInputFields(name: String, legs: Int, maxProfitPercentage: Int) {
         let nameRow: TextRow? = form.rowBy(tag: StrategyFormFieldNames.Name.rawValue)
         nameRow?.value = name
         nameRow?.updateCell()
@@ -61,10 +61,6 @@ class EditStrategyTableViewController: FormViewController {
         let profitPercentageRow: IntRow? = form.rowBy(tag: StrategyFormFieldNames.ProfitPercentage.rawValue)
         profitPercentageRow?.value = maxProfitPercentage
         profitPercentageRow?.updateCell()
-        
-        let popRow: IntRow? = form.rowBy(tag: StrategyFormFieldNames.POP.rawValue)
-        popRow?.value = pop
-        popRow?.updateCell()
     }
 
     @objc func cancelButtonPressed() {

@@ -73,7 +73,7 @@ final class StrategyController {
     }
     
     func loadDefaultStrategy() -> Strategy {
-        let strategy = Strategy.forType(.IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 50, pop: 90)
+        let strategy = Strategy.forType(.IronCondor, name: StrategyType.IronCondor.rawValue, legs: 4, maxProfitPercentage: 50, pop: 0)
         Defaults[.strategy] = strategy.strategyId
         save(strategy: strategy)
         return strategy
@@ -82,12 +82,12 @@ final class StrategyController {
     func loadDefault() {
         removeAll()
         _ = loadDefaultStrategy()
-        let ironFly = Strategy.forType(.IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 25, pop: 65)
-        let verticalSpread = Strategy.forType(.VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 50, pop: 90)
-        let straddle = Strategy.forType(.Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 25, pop: 75)
-        let strangle = Strategy.forType(.Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 50, pop: 90)
-        let ratioSpread = Strategy.forType(.RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 25, pop: 75)
-        let jadeLizard = Strategy.forType(.JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 50, pop: 90)
+        let ironFly = Strategy.forType(.IronFly, name: StrategyType.IronFly.rawValue, legs: 4, maxProfitPercentage: 25, pop: 0)
+        let verticalSpread = Strategy.forType(.VerticalSpread, name: StrategyType.VerticalSpread.rawValue, legs: 2, maxProfitPercentage: 50, pop: 0)
+        let straddle = Strategy.forType(.Straddle, name: StrategyType.Straddle.rawValue, legs: 2, maxProfitPercentage: 25, pop: 0)
+        let strangle = Strategy.forType(.Strangle, name: StrategyType.Strangle.rawValue, legs: 2, maxProfitPercentage: 50, pop: 0)
+        let ratioSpread = Strategy.forType(.RatioSpread, name: StrategyType.RatioSpread.rawValue, legs: 3, maxProfitPercentage: 25, pop: 0)
+        let jadeLizard = Strategy.forType(.JadeLizard, name: StrategyType.JadeLizard.rawValue, legs: 3, maxProfitPercentage: 50, pop: 0)
         
         save(strategy: ironFly)
         save(strategy: verticalSpread)

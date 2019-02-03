@@ -93,11 +93,11 @@ class TradeTableViewController: FormViewController, HelpViewControllerProtocol {
     }
     
     func resetTrade() {
-        trade.reset(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
+        trade.reset(pop: 0, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
     }
     
     func resetTradeStrategyBroker() {
-        trade.resetStrategyBroker(pop: currentStrategy!.pop, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
+        trade.resetStrategyBroker(pop: 0, commission: currentBroker!.commission, legs: currentStrategy!.legs, strategy: currentStrategy!.name, maxProfitPercentage: currentStrategy!.maxProfitPercentage)
     }
     
     func resetForm() {

@@ -13,7 +13,6 @@ enum StrategyFormFieldNames: String {
     case Name = "Strategy Name"
     case Legs = "Legs"
     case ProfitPercentage = "Profit Percentage"
-    case POP = "POP"
 }
 
 final class StrategyFormController: NSObject {
@@ -59,16 +58,6 @@ final class StrategyFormController: NSObject {
                             self.strategy?.maxProfitPercentage = rowValue
                         }
                 }
-                <<< IntRow(StrategyFormFieldNames.POP.rawValue) { row in
-                    row.useFormatterDuringInput = true
-                    row.title = StrategyFormFieldNames.POP.rawValue
-                    row.value = 0
-                    row.add(rule: RuleRequired())
-                    }.onChange { row in
-                        if let rowValue = row.value {
-                            self.strategy?.pop = rowValue
-                        }
-                    }
         }
     }
 }

@@ -100,7 +100,7 @@ class TradeFormController: NSObject {
                     row.useFormatterDuringInput = true
                     row.title = FormFieldNames.MaxLoss.rawValue
                     row.value = 0
-                    row.formatter = CurrencyController.sharedInstance.trucatedCurrencyFormatter
+                    row.formatter = CurrencyController.sharedInstance.truncatedCurrFormatter
                     }.onChange { row in
                         if let rowValue = row.value {
                             self.controller.trade.maxLoss = Double(rowValue)
@@ -108,8 +108,10 @@ class TradeFormController: NSObject {
                         }
                 }
                 <<< IntRow(FormFieldNames.POP.rawValue) { row in
+                    row.useFormatterDuringInput = true
                     row.title = FormFieldNames.POP.rawValue + "(\(Int(self.controller!.currentStrategy!.maxProfitPercentage)))"
-                    row.value = self.controller.trade.pop
+                    row.value = 0
+                    row.formatter = CurrencyController.sharedInstance.popFormatter
                     }.onChange { row in
                         if let rowValue = row.value {
                             self.controller.trade.pop = rowValue
