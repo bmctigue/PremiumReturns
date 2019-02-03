@@ -98,10 +98,9 @@ final class TradeFormFieldController {
     func calculatedHash(trade: Trade, strategy: Strategy, broker: Broker) -> [CalculationKey:Double] {
         let commissions = trade.totalCommissions(commission: broker.commission)
         trade.commissions = commissions
-        let maxProfit = trade.maxProfit()
         let calculatedReturn = trade.calculate(maxProfitPercentage: strategy.maxProfitPercentage)
         let returnOnCapital = trade.returnOnCapital(profit: calculatedReturn, maxLoss: trade.maxLoss)
-        return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital]
+        return [CalculationKey.Commissions:commissions, CalculationKey.MaxProfit:trade.maxProfit, CalculationKey.CalculatedReturn:calculatedReturn, CalculationKey.ReturnOnCapital: returnOnCapital]
     }
 
 }

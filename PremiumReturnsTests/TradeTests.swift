@@ -30,10 +30,10 @@ class TradeTests: XCTestCase {
     }
     
     func testMaxProfit() {
-        var maxProfit = trade.maxProfit()
+        var maxProfit = trade.maxProfit
         XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 100.0)
         trade.contracts = 2
-        maxProfit = trade.maxProfit()
+        maxProfit = trade.maxProfit
         XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 200.0)
     }
     

@@ -23,7 +23,7 @@ protocol TradeProtocol {
     var maxProfitPercentage: Int { get set }
     var pop: Int { get set }
     var date: Date { get set }
-    func maxProfit() -> Double
+    var maxProfit: Double { get }
     func totalCommissions(commission: Double) -> Double
     func calculate(maxProfitPercentage: Int) -> Double
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double
@@ -44,16 +44,16 @@ final class Trade: Object, TradeProtocol {
     @objc dynamic var pop: Int = 0
     @objc dynamic var date: Date = Date()
     
+    var maxProfit: Double {
+        return Double(premium * 100 * Double(contracts))
+    }
+    
     override static func indexedProperties() -> [String] {
         return ["tradeId"]
     }
     
     override static func primaryKey() -> String? {
         return "tradeId"
-    }
-    
-    func maxProfit() -> Double {
-        return Double(premium * 100 * Double(contracts))
     }
     
     func totalCommissions(commission: Double) -> Double {
@@ -63,8 +63,10 @@ final class Trade: Object, TradeProtocol {
     func calculate(maxProfitPercentage: Int) -> Double {
         let adjustedPercentage = Double(maxProfitPercentage)/100.0
         let adjustedProbability = Double(pop)/100.0
-        let maxProfit = self.maxProfit()
-        let result = ((adjustedPercentage * maxProfit) * adjustedProbability) - (Double(1.0 - adjustedProbability) * maxLoss * Double(contracts))
+        let adjustedProfit = ((adjustedPercentage * self.maxProfit) * adjustedProbability)
+        let lossProbability = 1.0 - adjustedProbability
+        let adjustedLoss = lossProbability * maxLoss * Double(contracts)
+        let result = adjustedProfit - adjustedLoss
         return result - commissions
     }
     

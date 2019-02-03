@@ -53,7 +53,7 @@ final class LiveTradeFormController: NSObject {
             }
             <<< LabelRow(FormFieldNames.MaxProfit.rawValue) { row in
                 row.title = FormFieldNames.MaxProfit.rawValue
-                row.value = Utilities.sharedInstance.formatOutput(value: trade.maxProfit(), showType: true)
+                row.value = Utilities.sharedInstance.formatOutput(value: trade.maxProfit, showType: true)
             }
             <<< LabelRow(FormFieldNames.ExpectedReturn.rawValue) { row in
                 row.title = FormFieldNames.ExpectedReturn.rawValue
