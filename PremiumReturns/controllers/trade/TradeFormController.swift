@@ -47,9 +47,9 @@ class TradeFormController: NSObject {
     var brokers = BrokerController.sharedInstance.all()
     var firstBroker: Broker?
     var inputRows: [BaseRow] = []
-    var currencyFormatter: CurrencyFormatter
+    var currencyFormatter: InputFormatter
     
-    init(form: Form, controller: TradeTableViewController, currencyFormatter: CurrencyFormatter = CurrencyController.sharedInstance.currencyFormatter) {
+    init(form: Form, controller: TradeTableViewController, currencyFormatter: InputFormatter = CurrencyController.sharedInstance.currencyFormatter) {
         self.form = form
         self.controller = controller
         self.currencyFormatter = currencyFormatter

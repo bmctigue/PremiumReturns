@@ -13,28 +13,28 @@ final class CurrencyController: NSObject {
     
     lazy var currencyFormatter = defaultCurrencyFormatter()
     lazy var truncatedCurrFormatter = truncatedCurrencyFormatter()
-    lazy var popFormatter = popCurrencyFormatter()
+    lazy var popFormatter = popInputFormatter()
     
     static let sharedInstance = CurrencyController()
     private override init() {}
     
-    private func defaultCurrencyFormatter() -> CurrencyFormatter {
-        let formatter = CurrencyFormatter()
+    private func defaultCurrencyFormatter() -> InputFormatter {
+        let formatter = InputFormatter()
         formatter.locale = .current
         formatter.numberStyle = .currency
         return formatter
     }
     
-    private func truncatedCurrencyFormatter() -> CurrencyFormatter {
-        let formatter = CurrencyFormatter()
+    private func truncatedCurrencyFormatter() -> InputFormatter {
+        let formatter = InputFormatter()
         formatter.locale = .current
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 0
         return formatter
     }
     
-    private func popCurrencyFormatter() -> CurrencyFormatter {
-        let formatter = CurrencyFormatter()
+    private func popInputFormatter() -> InputFormatter {
+        let formatter = InputFormatter()
         formatter.locale = .current
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0
@@ -42,7 +42,7 @@ final class CurrencyController: NSObject {
     }
 }
 
-class CurrencyFormatter : NumberFormatter, FormatterProtocol {
+class InputFormatter : NumberFormatter, FormatterProtocol {
     override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, range rangep: UnsafeMutablePointer<NSRange>?) throws {
         guard obj != nil else { return }
         let str = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")

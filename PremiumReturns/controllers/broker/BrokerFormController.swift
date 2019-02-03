@@ -19,9 +19,9 @@ final class BrokerFormController: NSObject {
     var form: Form
     var controller: EditBrokerTableViewController
     var broker: Broker
-    var currencyFormatter: CurrencyFormatter
+    var currencyFormatter: InputFormatter
     
-    init(form: Form, controller: EditBrokerTableViewController, broker: Broker, currencyFormatter: CurrencyFormatter = CurrencyController.sharedInstance.currencyFormatter) {
+    init(form: Form, controller: EditBrokerTableViewController, broker: Broker, currencyFormatter: InputFormatter = CurrencyController.sharedInstance.currencyFormatter) {
         self.form = form
         self.controller = controller
         self.broker = broker
