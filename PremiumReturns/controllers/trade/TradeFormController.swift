@@ -203,7 +203,6 @@ class TradeFormController: NSObject {
                     if let rowValue = row.value, let strategy = StrategyController.sharedInstance.find(name: rowValue).first {
                         self.controller.currentStrategy = strategy
                         self.controller.trade.strategy = strategy.name
-                        self.controller.trade.pop = strategy.pop
                         self.controller.trade.legs = self.controller!.currentStrategy!.legs
                         self.controller.trade.commissions = self.controller!.trade.totalCommissions(commission: self.controller!.currentBroker!.commission)
                         let popRow: IntRow? = self.form.rowBy(tag: FormFieldNames.POP.rawValue)

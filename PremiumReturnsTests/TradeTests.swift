@@ -57,7 +57,7 @@ class TradeTests: XCTestCase {
         trade.contracts = 2
         updateCalculated(trade)
         roc = trade.returnOnCapital(profit: calculatedReturn, maxLoss: TradeTests.maxLoss)
-        XCTAssertEqual(roundValue(roc, toDecimalPlaces: 2), 192.0)
+        XCTAssertEqual(roundValue(roc, toDecimalPlaces: 2), 96.0)
     }
     
     func testReturnPerDay() {

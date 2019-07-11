@@ -48,6 +48,10 @@ final class Trade: Object, TradeProtocol {
         return Double(premium * 100 * Double(contracts))
     }
     
+    var adjustedMaxLoss: Double {
+        return Double (maxLoss * Double(contracts))
+    }
+    
     override static func indexedProperties() -> [String] {
         return ["tradeId"]
     }
@@ -65,13 +69,13 @@ final class Trade: Object, TradeProtocol {
         let adjustedProbability = Double(pop)/100.0
         let adjustedProfit = ((adjustedPercentage * self.maxProfit) * adjustedProbability)
         let lossProbability = 1.0 - adjustedProbability
-        let adjustedLoss = lossProbability * maxLoss * Double(contracts)
+        let adjustedLoss = lossProbability * adjustedMaxLoss
         let result = adjustedProfit - adjustedLoss
         return result - commissions
     }
     
     func returnOnCapital(profit: Double, maxLoss: Double) -> Double {
-        return Double((profit/maxLoss) * 100)
+        return Double((profit/adjustedMaxLoss) * 100)
     }
     
     func returnPerDay(totalReturn: Double, days: Int) -> Double {
