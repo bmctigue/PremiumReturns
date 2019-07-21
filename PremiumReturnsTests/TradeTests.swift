@@ -19,6 +19,7 @@ class TradeTests: XCTestCase {
     static var totalReturns = 90.0
     static var days = 45
     static var pop = 100
+    static var maxProfitPercentage = 100
     
     var trade: Trade!
     var commissions: Double!
@@ -26,15 +27,21 @@ class TradeTests: XCTestCase {
     
     override func setUp() {
         trade = Trade.withPremium(premium: TradeTests.premium, maxLoss: TradeTests.maxLoss, pop: TradeTests.pop, contracts: TradeTests.contracts, commissions: TradeTests.commission, legs: TradeTests.legs)
+        trade.maxProfitPercentage = TradeTests.maxProfitPercentage
         updateCalculated(trade)
     }
     
     func testMaxProfit() {
-        var maxProfit = trade.maxProfit
-        XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 100.0)
+        XCTAssertEqual(roundValue(trade.maxProfit, toDecimalPlaces: 2), 100.0)
         trade.contracts = 2
-        maxProfit = trade.maxProfit
-        XCTAssertEqual(roundValue(maxProfit, toDecimalPlaces: 2), 200.0)
+        XCTAssertEqual(roundValue(trade.maxProfit, toDecimalPlaces: 2), 200.0)
+    }
+    
+    func testMaxProfit50() {
+        trade.maxProfitPercentage = 50
+        XCTAssertEqual(roundValue(trade.maxProfit, toDecimalPlaces: 2), 50.0)
+        trade.contracts = 2
+        XCTAssertEqual(roundValue(trade.maxProfit, toDecimalPlaces: 2), 100.0)
     }
     
     func testTotalCommissions() {

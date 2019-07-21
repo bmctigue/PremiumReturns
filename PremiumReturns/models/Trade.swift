@@ -45,7 +45,7 @@ final class Trade: Object, TradeProtocol {
     @objc dynamic var date: Date = Date()
     
     var maxProfit: Double {
-        return Double(premium * 100 * Double(contracts))
+        return Double(premium * 100 * Double(contracts) * Double(maxProfitPercentage)/100.0)
     }
     
     var adjustedMaxLoss: Double {
@@ -65,9 +65,8 @@ final class Trade: Object, TradeProtocol {
     }
     
     func calculate(maxProfitPercentage: Int) -> Double {
-        let adjustedPercentage = Double(maxProfitPercentage)/100.0
         let adjustedProbability = Double(pop)/100.0
-        let adjustedProfit = ((adjustedPercentage * self.maxProfit) * adjustedProbability)
+        let adjustedProfit = (self.maxProfit * adjustedProbability)
         let lossProbability = 1.0 - adjustedProbability
         let adjustedLoss = lossProbability * adjustedMaxLoss
         let result = adjustedProfit - adjustedLoss
